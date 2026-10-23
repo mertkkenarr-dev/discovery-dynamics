@@ -1,0 +1,214 @@
+{
+ "siniflar": {
+  "sinif_yuzde": {
+   "sevilen_hit": 3.56,
+   "hit": 0.74,
+   "tartismali_hit": 0.51,
+   "sessiz_basari": 4.68,
+   "orta": 36.17,
+   "gorunmez": 54.34
+  },
+  "hit_icinde_sevilen": 74.0
+ },
+ "gorunurluk_para": {
+  "hit_ve_para": 2144,
+  "hit_para_yok": 194,
+  "para_hit_yok": 1166,
+  "ikisi_yok": 44408,
+  "para_icinde_hit_olmayan_yuzde": 35.2
+ },
+ "saglamlik": {
+  "ayni_yon": "8/9",
+  "OR": [
+   {
+    "sonuc": "Hit (500+ inceleme)",
+    "terim": "Dil sayısı (log)",
+    "OR": 2.565,
+    "alt": 2.437,
+    "ust": 2.7
+   },
+   {
+    "sonuc": "Hit (500+ inceleme)",
+    "terim": "Önceki oyunu var",
+    "OR": 1.617,
+    "alt": 1.473,
+    "ust": 1.774
+   },
+   {
+    "sonuc": "Hit (500+ inceleme)",
+    "terim": "Kendi yayını",
+    "OR": 0.629,
+    "alt": 0.562,
+    "ust": 0.703
+   },
+   {
+    "sonuc": "Hit (500+ inceleme)",
+    "terim": "Early Access ile çıkış",
+    "OR": 1.223,
+    "alt": 1.1,
+    "ust": 1.36
+   },
+   {
+    "sonuc": "Hit (500+ inceleme)",
+    "terim": "Tür: Simulation",
+    "OR": 1.793,
+    "alt": 1.618,
+    "ust": 1.986
+   },
+   {
+    "sonuc": "Hit (500+ inceleme)",
+    "terim": "Tür: RPG",
+    "OR": 1.691,
+    "alt": 1.521,
+    "ust": 1.88
+   },
+   {
+    "sonuc": "Hit (500+ inceleme)",
+    "terim": "Tür: Casual",
+    "OR": 0.834,
+    "alt": 0.755,
+    "ust": 0.921
+   },
+   {
+    "sonuc": "Hit (500+ inceleme)",
+    "terim": "Tür: Sports",
+    "OR": 0.47,
+    "alt": 0.357,
+    "ust": 0.618
+   },
+   {
+    "sonuc": "Hit (500+ inceleme)",
+    "terim": "Tür: Racing",
+    "OR": 0.578,
+    "alt": 0.429,
+    "ust": 0.78
+   },
+   {
+    "sonuc": "Sevilen hit (+%80 olumlu)",
+    "terim": "Dil sayısı (log)",
+    "OR": 2.392,
+    "alt": 2.261,
+    "ust": 2.53
+   },
+   {
+    "sonuc": "Sevilen hit (+%80 olumlu)",
+    "terim": "Önceki oyunu var",
+    "OR": 1.504,
+    "alt": 1.357,
+    "ust": 1.667
+   },
+   {
+    "sonuc": "Sevilen hit (+%80 olumlu)",
+    "terim": "Kendi yayını",
+    "OR": 0.625,
+    "alt": 0.553,
+    "ust": 0.706
+   },
+   {
+    "sonuc": "Sevilen hit (+%80 olumlu)",
+    "terim": "Early Access ile çıkış",
+    "OR": 1.116,
+    "alt": 0.991,
+    "ust": 1.256
+   },
+   {
+    "sonuc": "Sevilen hit (+%80 olumlu)",
+    "terim": "Tür: Simulation",
+    "OR": 1.603,
+    "alt": 1.43,
+    "ust": 1.796
+   },
+   {
+    "sonuc": "Sevilen hit (+%80 olumlu)",
+    "terim": "Tür: RPG",
+    "OR": 1.481,
+    "alt": 1.315,
+    "ust": 1.668
+   },
+   {
+    "sonuc": "Sevilen hit (+%80 olumlu)",
+    "terim": "Tür: Casual",
+    "OR": 0.904,
+    "alt": 0.812,
+    "ust": 1.007
+   },
+   {
+    "sonuc": "Sevilen hit (+%80 olumlu)",
+    "terim": "Tür: Sports",
+    "OR": 0.521,
+    "alt": 0.387,
+    "ust": 0.702
+   },
+   {
+    "sonuc": "Sevilen hit (+%80 olumlu)",
+    "terim": "Tür: Racing",
+    "OR": 0.603,
+    "alt": 0.436,
+    "ust": 0.835
+   },
+   {
+    "sonuc": "Yılı ve türünde ilk %10",
+    "terim": "Dil sayısı (log)",
+    "OR": 2.282,
+    "alt": 2.194,
+    "ust": 2.374
+   },
+   {
+    "sonuc": "Yılı ve türünde ilk %10",
+    "terim": "Önceki oyunu var",
+    "OR": 1.731,
+    "alt": 1.608,
+    "ust": 1.863
+   },
+   {
+    "sonuc": "Yılı ve türünde ilk %10",
+    "terim": "Kendi yayını",
+    "OR": 0.635,
+    "alt": 0.58,
+    "ust": 0.696
+   },
+   {
+    "sonuc": "Yılı ve türünde ilk %10",
+    "terim": "Early Access ile çıkış",
+    "OR": 1.193,
+    "alt": 1.095,
+    "ust": 1.301
+   },
+   {
+    "sonuc": "Yılı ve türünde ilk %10",
+    "terim": "Tür: Simulation",
+    "OR": 1.372,
+    "alt": 1.26,
+    "ust": 1.493
+   },
+   {
+    "sonuc": "Yılı ve türünde ilk %10",
+    "terim": "Tür: RPG",
+    "OR": 1.287,
+    "alt": 1.177,
+    "ust": 1.406
+   },
+   {
+    "sonuc": "Yılı ve türünde ilk %10",
+    "terim": "Tür: Casual",
+    "OR": 1.073,
+    "alt": 0.994,
+    "ust": 1.157
+   },
+   {
+    "sonuc": "Yılı ve türünde ilk %10",
+    "terim": "Tür: Sports",
+    "OR": 0.577,
+    "alt": 0.469,
+    "ust": 0.708
+   },
+   {
+    "sonuc": "Yılı ve türünde ilk %10",
+    "terim": "Tür: Racing",
+    "OR": 0.588,
+    "alt": 0.469,
+    "ust": 0.738
+   }
+  ]
+ }
+}

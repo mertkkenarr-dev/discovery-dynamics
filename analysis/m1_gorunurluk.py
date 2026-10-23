@@ -16,6 +16,7 @@ import numpy as np
 import pandas as pd
 import statsmodels.formula.api as smf
 from grafik import IKINCIL, KADEME_AD, KADEME_RAMPA, KATEGORIK, KOK, MUREKKEP, SOLUK, YUZEY, baslik, kaydet, orneklem, stil, wilson, yukle
+from matplotlib.ticker import NullFormatter
 
 KAYNAK = "Kaynak: Steam (GetItems, inceleme grafiği), Discovery Dynamics analizi. Başarı = ilk 365 günde alınan inceleme."
 TURLER = ["Action", "Adventure", "Casual", "RPG", "Simulation", "Strategy", "Sports", "Racing"]
@@ -156,6 +157,7 @@ def f4_model(a: pd.DataFrame) -> dict:
     ax.axvline(1, color=SOLUK, linewidth=1)
     ax.set_xscale("log")
     ax.set_xticks([0.25, 0.5, 1, 2, 4, 8], ["×0,25", "×0,5", "×1", "×2", "×4", "×8"])
+    ax.xaxis.set_minor_formatter(NullFormatter())
     ax.set_yticks(y, tablo.index)
     ax.grid(axis="y", visible=False)
     ax.set_xlabel("Hit olma ihtimali (diğer her şey sabitken, kaç kat?)")
