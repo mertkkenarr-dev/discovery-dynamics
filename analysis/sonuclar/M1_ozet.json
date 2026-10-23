@@ -1,0 +1,97 @@
+{
+ "orneklem": {
+  "T0_yuzde": 54.3,
+  "hit_yuzde": 4.81,
+  "n": 66999
+ },
+ "arz_hit": {
+  "arz": {
+   "2018": 7398,
+   "2019": 7141,
+   "2020": 8757,
+   "2021": 10249,
+   "2022": 11294,
+   "2023": 12977,
+   "2024": 17468,
+   "2025": 20363
+  },
+  "hit_yil": {
+   "2018": 3.97,
+   "2019": 5.36,
+   "2020": 5.42,
+   "2021": 5.23,
+   "2022": 4.89,
+   "2023": 4.24,
+   "2024": 4.47,
+   "2025": 5.17
+  }
+ },
+ "tur_fiyat": {
+  "hucre": [
+   {
+    "tur": "Action",
+    "fiyat": ">=30",
+    "n": 245,
+    "hit": 41.63
+   },
+   {
+    "tur": "Simulation",
+    "fiyat": "20-30",
+    "n": 494,
+    "hit": 34.21
+   },
+   {
+    "tur": "Strategy",
+    "fiyat": ">=30",
+    "n": 171,
+    "hit": 33.33
+   },
+   {
+    "tur": "Action",
+    "fiyat": "20-30",
+    "n": 668,
+    "hit": 31.59
+   },
+   {
+    "tur": "RPG",
+    "fiyat": ">=30",
+    "n": 175,
+    "hit": 30.86
+   }
+  ]
+ },
+ "model": {
+  "n": 54371,
+  "pseudo_r2": 0.2433,
+  "OR": {
+   "Fiyat: <5 $ (5–10 $ yerine)": 0.399,
+   "Tür: Sports": 0.47,
+   "Tür: Racing": 0.578,
+   "Kendi yayını": 0.629,
+   "Tür: Casual": 0.834,
+   "Tür: Strategy": 0.9,
+   "Tür: Action": 0.993,
+   "Tür: Adventure": 1.073,
+   "Early Access ile çıkış": 1.223,
+   "Geliştiricinin önceki oyunu var": 1.617,
+   "Tür: RPG": 1.691,
+   "Tür: Simulation": 1.793,
+   "Fiyat: 10–20 $ (5–10 $ yerine)": 2.494,
+   "Dil sayısı (log, +1 birim)": 2.565,
+   "Fiyat: 20–30 $ (5–10 $ yerine)": 6.926,
+   "Fiyat: 30 $+ (5–10 $ yerine)": 7.394
+  }
+ },
+ "gurultu": {
+  "pay_son_yil": {
+   "seri_uretici": 6.4,
+   "yetiskin": 8.27,
+   "dil_spam": 2.35
+  },
+  "pay_ilk_yil": {
+   "seri_uretici": 7.16,
+   "yetiskin": 2.16,
+   "dil_spam": 0.78
+  }
+ }
+}
