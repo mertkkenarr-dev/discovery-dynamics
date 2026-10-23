@@ -89,7 +89,7 @@ def main() -> None:
         satir = {r[0]: db.execute(f'SELECT COUNT(*) FROM "{r[0]}"').fetchone()[0] for r in db.execute("SHOW TABLES").fetchall()}
     print("DuckDB tabloları:", satir)
 
-    karar = pd.read_parquet(INTERIM / "meta_karar.parquet")
+    karar = pd.read_parquet(INTERIM / "meta_karar.parquet").sort_values("betik", kind="stable")  # çalışma sırasından bağımsız, deterministik
     with pd.ExcelWriter(PROCESSED / "discovery_veri.xlsx", engine="openpyxl") as x:
         excel_icin(t[t.kohort]).to_excel(x, sheet_name="oyun_tablosu_kohort", index=False)
         sozluk.to_excel(x, sheet_name="sozluk", index=False)

@@ -1,6 +1,6 @@
 # Discovery Dynamics: Veri Raporu
 
-*Otomatik üretildi: `13_yayinla.py` · 2026-10-23T22:13:43Z · Elle düzenlemeyin.*
+*Otomatik üretildi: `13_yayinla.py` · 2026-10-23T22:23:30Z · Elle düzenlemeyin.*
 
 ## Kontroller
 
@@ -48,11 +48,6 @@ Eksiklik kademeye göre değişiyorsa o alana dayanan bulgular yanlı olabilir; 
 
 | Kod | Betik | Sorun | Etkilenen | Karar |
 |---|---|---|---|---|
-| S01 | 11_sonuc | Ömür boyu < 10 inceleme: histogram çekilmedi | 40,852 / 97,436 | reviews_365 = ömür boyu sayı (üst sınır), sadece ≥ 396 gün gözlenenlerde |
-| S02 | 11_sonuc | ≥ 10 inceleme ama histogram yok (çekim eksik / boş cevap) | 0 / 97,436 | Sonuç NULL; tamamlanınca 03_histogram.py tekrar çalıştırılır |
-| S03 | 11_sonuc | 365 gün penceresi tam gözlenmemiş (sağdan sansür, R2) | 9,798 / 97,436 | reviews_365, kademe ve hit = NULL |
-| S04 | 11_sonuc | R12: histogram ömür toplamı ÷ GetItems özeti 0,95–1,30 dışında | 1,423 / 56,584 | r12_uyumsuz bayrağı; ana analizde tutulur, duyarlılıkta çıkarılır |
-| T14 | 11_sonuc | Steam çıkış ayından önce ≥ 10 inceleme (yeniden yayında sıfırlanan tarih / kayıtsız EA); 154 tanesi gerçekte 2018 öncesi | 962 / 56,584 | ilk_cikis = ilk inceleme günü (histogram start_date); pencereler ve kohort yeni tarihle hesaplanır; 2018 öncesine düşenler kohort=False |
 | T09 | 10_temizle_steam | GetItems'ta başarısız (kaldırılmış / erişilemiyor) evren kaydı | 300 / 124,146 | `kaldirilmis.parquet`'e ayrılır, analizden çıkar |
 | T01 | 10_temizle_steam | Evrende oyun dışı kayıtlar: {'playtest': 8262, 'yazılım': 1872, 'dlc/paket': 112, 'mod/genişleme': 1} | 10,247 / 124,146 | Sadece type=0 kalır; demo ve playtest'ler parent_appid ile ana oyuna nitelik olarak bağlanır |
 | T02 | 10_temizle_steam | Geçerli ilk Steam erişim tarihi yok (boş ya da 1990 öncesi yer tutucu) | 35 / 113,599 | ilk_cikis = NULL; kohort dışında kalır |
@@ -70,19 +65,24 @@ Eksiklik kademeye göre değişiyorsa o alana dayanan bulgular yanlı olabilir; 
 | T13 | 10_temizle_steam | Hiç etiketi olmayan oyun | 32 / 113,599 | n_etiket = 0 (veri var, etiket yok); etiket köprüsünde satırı olmaz |
 | T16 | 10_temizle_steam | Dil listesinde aynı dil birden fazla kez | 0 / 664,815 | İlk kayıt tutulur |
 | T17 | 10_temizle_steam | Dil spam'i: ≥ 40 ek dil iddiası (72 ek dilin tamamı: 1,978 oyun) | 1,918 / 95,706 | dil_spam bayrağı; n_dil yalnız Steam ana dillerini sayar, ek diller n_ek_dil'de |
+| T10 | 10b_temizle_igdb | Bir appID birden fazla IGDB oyununa bağlı | 0 / 104,647 | Eşleşme kullanılmaz (belirsiz) |
+| T10b | 10b_temizle_igdb | Steam bağlantısı var ama IGDB oyun kaydı dönmedi | 16 / 104,647 | Eşleşmesiz sayılır |
+| T10c | 10b_temizle_igdb | Aynı IGDB oyunu birden fazla appID'ye bağlı (aynı oyunun farklı Steam sürümleri) | 257 / 104,631 | Nitelikler her appID'ye kopyalanır; igdb_paylasimli bayrağı |
+| T10e | 10b_temizle_igdb | IGDB anahtar kelimesi çıkıştan sonra oluşan bilgi (ödül, Netflix/PS Plus/Game Pass, bedava dağıtım): 116 farklı kelime | 1,220 / 225,515 | sonradan_bilgi bayrağı; tahmin modeline hiçbir anahtar kelime girmez, betimsel analizde bunlar çıkarılır |
+| T10d | 10b_temizle_igdb | Sözlükte adı bulunmayan IGDB kimliği | 0 / 798,214 | Kimlik tutulur, ad NULL |
 | T18 | 10c_temizle_tur | Steam türü yok (FronkonGames'te boş ya da kayıt yok) | 83 / 95,647 | Tür köprüsünde satırı olmaz; analizde 'tür bilinmiyor' |
 | T01b | 10c_temizle_tur | type=0 ama oyun dışı yazılım işareti (yalnız yazılım türü, ya da yazılım türü + en güçlü etiket yazılım) | 12 / 95,647 | yazilim_suphe bayrağı; ana analizden çıkarılır, duyarlılıkta dahil |
+| S01 | 11_sonuc | Ömür boyu < 10 inceleme: histogram çekilmedi | 40,852 / 97,436 | reviews_365 = ömür boyu sayı (üst sınır), sadece ≥ 396 gün gözlenenlerde |
+| S02 | 11_sonuc | ≥ 10 inceleme ama histogram yok (çekim eksik / boş cevap) | 0 / 97,436 | Sonuç NULL; tamamlanınca 03_histogram.py tekrar çalıştırılır |
+| S03 | 11_sonuc | 365 gün penceresi tam gözlenmemiş (sağdan sansür, R2) | 9,798 / 97,436 | reviews_365, kademe ve hit = NULL |
+| S04 | 11_sonuc | R12: histogram ömür toplamı ÷ GetItems özeti 0,95–1,30 dışında | 1,423 / 56,584 | r12_uyumsuz bayrağı; ana analizde tutulur, duyarlılıkta çıkarılır |
+| T14 | 11_sonuc | Steam çıkış ayından önce ≥ 10 inceleme (yeniden yayında sıfırlanan tarih / kayıtsız EA); 154 tanesi gerçekte 2018 öncesi | 962 / 56,584 | ilk_cikis = ilk inceleme günü (histogram start_date); pencereler ve kohort yeni tarihle hesaplanır; 2018 öncesine düşenler kohort=False |
 | N01 | 11b_oznitelik | Yayıncı bilgisi yok (kendi_yayini ve yayinci_onceki_oyun NULL) | 313 / 95,647 | organik = False (koşul kanıtlanamıyor) |
 | N02 | 11b_oznitelik | Organik örneklem: (kendi yayını veya yayıncının önceki oyunu ≤ 5) ve büyük yayıncı değil | 84,131 / 95,647 | Duyarlılık: ≤3 → 83,006, ≤10 → 85,913 |
 | N03 | 11b_oznitelik | Kendi yayını ama büyük yayıncı (CD Projekt, Larian, Valve…) | 356 / 95,647 | Organik dışı |
 | N04 | 11b_oznitelik | Demo çıkıştan önce yayında (mağazada görünen demolar) | 10,267 / 95,647 | demo_cikis_oncesi; çıkıştan sonra eklenen demo sayılmaz |
 | N05 | 11b_oznitelik | Next Fest dolaylı göstergesi: çıkış öncesi demo bir festival penceresinde mevcut | 8,071 / 81,455 | nextfest_aday; Aralık 2019 öncesi çıkanlarda NULL |
 | N06 | 11b_oznitelik | IGDB ilk çıkışı Steam'den 1 yıldan fazla önce (başka platformda önceden çıkmış) | 3,357 / 95,647 | steam_oncesi_cikis; IGDB yoksa NULL |
-| T10 | 10b_temizle_igdb | Bir appID birden fazla IGDB oyununa bağlı | 0 / 104,647 | Eşleşme kullanılmaz (belirsiz) |
-| T10b | 10b_temizle_igdb | Steam bağlantısı var ama IGDB oyun kaydı dönmedi | 16 / 104,647 | Eşleşmesiz sayılır |
-| T10c | 10b_temizle_igdb | Aynı IGDB oyunu birden fazla appID'ye bağlı (aynı oyunun farklı Steam sürümleri) | 257 / 104,631 | Nitelikler her appID'ye kopyalanır; igdb_paylasimli bayrağı |
-| T10e | 10b_temizle_igdb | IGDB anahtar kelimesi çıkıştan sonra oluşan bilgi (ödül, Netflix/PS Plus/Game Pass, bedava dağıtım): 116 farklı kelime | 1,220 / 225,515 | sonradan_bilgi bayrağı; tahmin modeline hiçbir anahtar kelime girmez, betimsel analizde bunlar çıkarılır |
-| T10d | 10b_temizle_igdb | Sözlükte adı bulunmayan IGDB kimliği | 0 / 798,214 | Kimlik tutulur, ad NULL |
 | C01 | 11c_icerik | İçerik etiketi < 3 (vektör güvenilmez) | 3,155 / 95,647 | novelty ve benzer_12ay = NULL |
 | C02 | 11c_icerik | Alt tür etiketi yok (tür kombinasyonu tanımsız) | 10,624 / 95,647 | kombo_12ay = NULL |
 
