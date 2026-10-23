@@ -1,0 +1,430 @@
+tagid,ad,boyut,alt_grup,motivasyon,kohort_oyun,kodlayici
+597,Casual,A_tur,ana,,46406,claude_taslak
+21,Adventure,A_tur,ana,Discovery,39750,claude_taslak
+19,Action,A_tur,ana,Excitement,39471,claude_taslak
+599,Simulation,A_tur,ana,,21504,claude_taslak
+1664,Puzzle,A_tur,ana,Strategy,20226,claude_taslak
+9,Strategy,A_tur,ana,Strategy,19665,claude_taslak
+122,RPG,A_tur,ana,Power;Story,18651,claude_taslak
+1773,Arcade,A_tur,ana,Excitement,14499,claude_taslak
+4106,Action-Adventure,A_tur,ana,Excitement;Discovery,13107,claude_taslak
+701,Sports,A_tur,ana,Competition,4311,claude_taslak
+699,Racing,A_tur,ana,Excitement;Competition,3597,claude_taslak
+3799,Visual Novel,A_tur,anlati,Story,9892,claude_taslak
+1698,Point & Click,A_tur,anlati,Story;Discovery,6897,claude_taslak
+1738,Hidden Object,A_tur,anlati,Completion;Discovery,5618,claude_taslak
+4486,Choose Your Own Adventure,A_tur,anlati,Story,5200,claude_taslak
+11014,Interactive Fiction,A_tur,anlati,Story,5184,claude_taslak
+9551,Dating Sim,A_tur,anlati,Story;Fantasy,4438,claude_taslak
+5900,Walking Simulator,A_tur,anlati,Story;Discovery,4393,claude_taslak
+3978,Survival Horror,A_tur,anlati,Excitement;Challenge,4296,claude_taslak
+769306,Escape Room,A_tur,anlati,Strategy;Discovery,515,claude_taslak
+31579,Otome,A_tur,anlati,Story;Fantasy,477,claude_taslak
+1646,Hack and Slash,A_tur,dovus,Destruction;Excitement,3662,claude_taslak
+4158,Beat 'em up,A_tur,dovus,Destruction;Excitement,1766,claude_taslak
+4736,2D Fighter,A_tur,dovus,Competition;Challenge,1589,claude_taslak
+6506,3D Fighter,A_tur,dovus,Competition;Challenge,1330,claude_taslak
+1743,Fighting,A_tur,dovus,Competition;Challenge,1008,claude_taslak
+4777,Spectacle fighter,A_tur,dovus,Excitement;Challenge,850,claude_taslak
+3955,Character Action Game,A_tur,dovus,Excitement;Challenge,625,claude_taslak
+11095,Boss Rush,A_tur,dovus,Challenge,119,claude_taslak
+323922,Musou,A_tur,dovus,Power;Destruction,30,claude_taslak
+6129,Logic,A_tur,kart_masa,Strategy,5961,claude_taslak
+1666,Card Game,A_tur,kart_masa,Strategy,3110,claude_taslak
+17389,Tabletop,A_tur,kart_masa,Strategy;Community,2606,claude_taslak
+1770,Board Game,A_tur,kart_masa,Strategy;Community,2480,claude_taslak
+791774,Card Battler,A_tur,kart_masa,Strategy,1723,claude_taslak
+24003,Word Game,A_tur,kart_masa,Strategy,1282,claude_taslak
+1665,Match 3,A_tur,kart_masa,Completion,1276,claude_taslak
+13070,Solitaire,A_tur,kart_masa,Strategy,963,claude_taslak
+1730,Sokoban,A_tur,kart_masa,Strategy,821,claude_taslak
+9271,Trading Card Game,A_tur,kart_masa,Strategy;Completion,557,claude_taslak
+10437,Trivia,A_tur,kart_masa,Competition,442,claude_taslak
+71389,Spelling,A_tur,kart_masa,,325,claude_taslak
+4184,Chess,A_tur,kart_masa,Strategy;Competition,252,claude_taslak
+6621,Pinball,A_tur,kart_masa,Excitement,162,claude_taslak
+33572,Mahjong,A_tur,kart_masa,Strategy,96,claude_taslak
+7556,Dice,A_tur,kart_masa,Strategy,85,claude_taslak
+37376,Falling Blocks,A_tur,kart_masa,Challenge,44,claude_taslak
+6835,Poker,A_tur,kart_masa,Competition;Strategy,25,claude_taslak
+1774,Shooter,A_tur,nisanci,Destruction;Excitement,10622,claude_taslak
+1663,FPS,A_tur,nisanci,Destruction;Excitement,5998,claude_taslak
+4885,Bullet Hell,A_tur,nisanci,Challenge;Excitement,4437,claude_taslak
+4255,Shoot 'Em Up,A_tur,nisanci,Destruction;Challenge,3962,claude_taslak
+4637,Top-Down Shooter,A_tur,nisanci,Destruction;Excitement,3234,claude_taslak
+3814,Third-Person Shooter,A_tur,nisanci,Destruction;Excitement,2434,claude_taslak
+5547,Arena Shooter,A_tur,nisanci,Destruction;Competition,2336,claude_taslak
+4758,Twin Stick Shooter,A_tur,nisanci,Destruction;Excitement,1213,claude_taslak
+620519,Hero Shooter,A_tur,nisanci,Competition;Community,885,claude_taslak
+176981,Battle Royale,A_tur,nisanci,Competition;Excitement,855,claude_taslak
+353880,Looter Shooter,A_tur,nisanci,Power;Completion,764,claude_taslak
+1023537,Boomer Shooter,A_tur,nisanci,Destruction;Excitement,555,claude_taslak
+56690,On-Rails Shooter,A_tur,nisanci,Destruction;Excitement,382,claude_taslak
+723991,Bullet Heaven,A_tur,nisanci,Power;Destruction,309,claude_taslak
+1199779,Extraction Shooter,A_tur,nisanci,Competition;Challenge,77,claude_taslak
+1625,Platformer,A_tur,platform,Challenge,10017,claude_taslak
+5379,2D Platformer,A_tur,platform,Challenge,9351,claude_taslak
+5395,3D Platformer,A_tur,platform,Challenge;Discovery,5857,claude_taslak
+5537,Puzzle Platformer,A_tur,platform,Strategy;Challenge,4948,claude_taslak
+3877,Precision Platformer,A_tur,platform,Challenge,3090,claude_taslak
+8666,Runner,A_tur,platform,Excitement,2207,claude_taslak
+1628,Metroidvania,A_tur,platform,Discovery;Power,1445,claude_taslak
+17337,Lemmings,A_tur,platform,Strategy,68,claude_taslak
+1716,Roguelike,A_tur,roguelike,Challenge;Strategy,6407,claude_taslak
+3959,Roguelite,A_tur,roguelike,Challenge;Power,5955,claude_taslak
+42804,Action Roguelike,A_tur,roguelike,Challenge;Excitement,4820,claude_taslak
+1720,Dungeon Crawler,A_tur,roguelike,Discovery;Power,3447,claude_taslak
+198631,Mystery Dungeon,A_tur,roguelike,Challenge;Strategy,1093,claude_taslak
+1091588,Roguelike Deckbuilder,A_tur,roguelike,Strategy;Challenge,608,claude_taslak
+454187,Traditional Roguelike,A_tur,roguelike,Challenge;Strategy,295,claude_taslak
+4231,Action RPG,A_tur,rpg,Power;Excitement,5214,claude_taslak
+4434,JRPG,A_tur,rpg,Story;Power,3501,claude_taslak
+17305,Strategy RPG,A_tur,rpg,Strategy;Power,2402,claude_taslak
+21725,Tactical RPG,A_tur,rpg,Strategy,1872,claude_taslak
+29482,Souls-like,A_tur,rpg,Challenge,1691,claude_taslak
+10695,Party-Based RPG,A_tur,rpg,Strategy;Story,1679,claude_taslak
+916648,Creature Collector,A_tur,rpg,Completion;Power,1654,claude_taslak
+4474,CRPG,A_tur,rpg,Story;Strategy,1432,claude_taslak
+1754,MMORPG,A_tur,rpg,Community;Power,601,claude_taslak
+1662,Survival,A_tur,sim,Challenge,7292,claude_taslak
+3810,Sandbox,A_tur,sim,Design;Discovery,5196,claude_taslak
+12472,Management,A_tur,sim,Strategy,5181,claude_taslak
+9204,Immersive Sim,A_tur,sim,Discovery;Fantasy,5173,claude_taslak
+560542,Incremental,A_tur,sim,Completion;Power,4278,claude_taslak
+10235,Life Sim,A_tur,sim,Fantasy;Design,3268,claude_taslak
+1036,Education,A_tur,sim,,3111,claude_taslak
+615955,Idler,A_tur,sim,Completion;Power,2797,claude_taslak
+4328,City Builder,A_tur,sim,Design;Strategy,1809,claude_taslak
+15045,Flight,A_tur,sim,Fantasy,1736,claude_taslak
+1752,Rhythm,A_tur,sim,Challenge,1401,claude_taslak
+1100687,Automobile Sim,A_tur,sim,Fantasy,1212,claude_taslak
+87918,Farming Sim,A_tur,sim,Completion;Design,1156,claude_taslak
+16598,Space Sim,A_tur,sim,Discovery;Fantasy,1029,claude_taslak
+220585,Colony Sim,A_tur,sim,Strategy;Design,894,claude_taslak
+5300,God Game,A_tur,sim,Power;Design,706,claude_taslak
+7178,Party Game,A_tur,sim,Community,644,claude_taslak
+8093,Minigames,A_tur,sim,Excitement,530,claude_taslak
+1100689,Open World Survival Craft,A_tur,sim,Design;Discovery,518,claude_taslak
+26921,Political Sim,A_tur,sim,Strategy,511,claude_taslak
+35079,Job Simulator,A_tur,sim,Fantasy,299,claude_taslak
+1100686,Outbreak Sim,A_tur,sim,Strategy,246,claude_taslak
+91114,Shop Keeper,A_tur,sim,Strategy,218,claude_taslak
+1100688,Medical Sim,A_tur,sim,Fantasy,199,claude_taslak
+1320952,Desktop Companion,A_tur,sim,,89,claude_taslak
+1220528,Hobby Sim,A_tur,sim,Fantasy;Design,34,claude_taslak
+1644,Driving,A_tur,spor_yaris,Excitement,1950,claude_taslak
+4102,Combat Racing,A_tur,spor_yaris,Excitement;Destruction,811,claude_taslak
+15564,Fishing,A_tur,spor_yaris,Completion,621,claude_taslak
+9564,Hunting,A_tur,spor_yaris,Challenge,528,claude_taslak
+1254546,Football (Soccer),A_tur,spor_yaris,Competition,336,claude_taslak
+7622,Offroad,A_tur,spor_yaris,Excitement,280,claude_taslak
+12190,Boxing,A_tur,spor_yaris,Competition,272,claude_taslak
+7038,Golf,A_tur,spor_yaris,Challenge,218,claude_taslak
+1746,Basketball,A_tur,spor_yaris,Competition,185,claude_taslak
+22955,Mini Golf,A_tur,spor_yaris,Challenge,138,claude_taslak
+1254552,Football (American),A_tur,spor_yaris,Competition,131,claude_taslak
+4852,Billiards,A_tur,spor_yaris,Challenge,130,claude_taslak
+5914,Tennis,A_tur,spor_yaris,Competition,126,claude_taslak
+47827,Wrestling,A_tur,spor_yaris,Competition,121,claude_taslak
+96359,Skating,A_tur,spor_yaris,Challenge,119,claude_taslak
+1753,Skateboarding,A_tur,spor_yaris,Challenge,115,claude_taslak
+5727,Baseball,A_tur,spor_yaris,Competition,109,claude_taslak
+19568,Cycling,A_tur,spor_yaris,Challenge,108,claude_taslak
+15868,Motocross,A_tur,spor_yaris,Excitement,91,claude_taslak
+324176,Hockey,A_tur,spor_yaris,Competition,89,claude_taslak
+7328,Bowling,A_tur,spor_yaris,Challenge,75,claude_taslak
+7309,Skiing,A_tur,spor_yaris,Challenge,64,claude_taslak
+28444,Snowboarding,A_tur,spor_yaris,Challenge,60,claude_taslak
+252854,BMX,A_tur,spor_yaris,Challenge,58,claude_taslak
+847164,Volleyball,A_tur,spor_yaris,Competition,31,claude_taslak
+158638,Cricket,A_tur,spor_yaris,Competition,24,claude_taslak
+49213,Rugby,A_tur,spor_yaris,Competition,20,claude_taslak
+1708,Tactical,A_tur,strateji,Strategy,4845,claude_taslak
+14139,Turn-Based Tactics,A_tur,strateji,Strategy,4375,claude_taslak
+1741,Turn-Based Strategy,A_tur,strateji,Strategy,4348,claude_taslak
+1645,Tower Defense,A_tur,strateji,Strategy,2300,claude_taslak
+3813,Real Time Tactics,A_tur,strateji,Strategy,2281,claude_taslak
+1676,RTS,A_tur,strateji,Strategy;Competition,2023,claude_taslak
+4684,Wargame,A_tur,strateji,Strategy,1819,claude_taslak
+1084988,Auto Battler,A_tur,strateji,Strategy,1104,claude_taslak
+4364,Grand Strategy,A_tur,strateji,Strategy,914,claude_taslak
+1723,Action RTS,A_tur,strateji,Strategy;Excitement,692,claude_taslak
+1670,4X,A_tur,strateji,Strategy;Power,440,claude_taslak
+1718,MOBA,A_tur,strateji,Competition;Community,375,claude_taslak
+3834,Exploration,B_mekanik,anlati,Discovery,17574,claude_taslak
+6426,Choices Matter,B_mekanik,anlati,Story,8750,claude_taslak
+6971,Multiple Endings,B_mekanik,anlati,Story;Completion,8068,claude_taslak
+8369,Investigation,B_mekanik,anlati,Discovery,3056,claude_taslak
+42152,Dialogue Heavy,B_mekanik,anlati,Story,2826,claude_taslak
+4559,Quick-Time Events,B_mekanik,anlati,Excitement,861,claude_taslak
+7702,Narrative,B_mekanik,anlati,Story,681,claude_taslak
+9592,Dynamic Narration,B_mekanik,anlati,Story,653,claude_taslak
+3993,Combat,B_mekanik,dovus,Destruction,11554,claude_taslak
+4325,Turn-Based Combat,B_mekanik,dovus,Strategy,4364,claude_taslak
+1687,Stealth,B_mekanik,dovus,Strategy;Challenge,2748,claude_taslak
+4036,Parkour,B_mekanik,dovus,Challenge;Excitement,1699,claude_taslak
+4236,Loot,B_mekanik,dovus,Power;Completion,1696,claude_taslak
+1677,Turn-Based,B_mekanik,dovus,Strategy,1449,claude_taslak
+5363,Destruction,B_mekanik,dovus,Destruction,1310,claude_taslak
+4608,Swordplay,B_mekanik,dovus,Destruction,980,claude_taslak
+11104,Vehicular Combat,B_mekanik,dovus,Destruction,919,claude_taslak
+4155,Class-Based,B_mekanik,dovus,Strategy;Community,890,claude_taslak
+5796,Bullet Time,B_mekanik,dovus,Excitement,863,claude_taslak
+5765,Gun Customization,B_mekanik,dovus,Design;Power,821,claude_taslak
+13382,Archery,B_mekanik,dovus,Challenge,348,claude_taslak
+4161,Real-Time,B_mekanik,dovus,Excitement,300,claude_taslak
+4994,Naval Combat,B_mekanik,dovus,Strategy,289,claude_taslak
+7423,Sniper,B_mekanik,dovus,Challenge,263,claude_taslak
+7107,Real-Time with Pause,B_mekanik,dovus,Strategy,194,claude_taslak
+1643,Building,B_mekanik,uretim_yonetim,Design,4651,claude_taslak
+8945,Resource Management,B_mekanik,uretim_yonetim,Strategy,4156,claude_taslak
+1702,Crafting,B_mekanik,uretim_yonetim,Design;Completion,3990,claude_taslak
+7332,Base Building,B_mekanik,uretim_yonetim,Design;Strategy,2954,claude_taslak
+16689,Time Management,B_mekanik,uretim_yonetim,Strategy;Challenge,2692,claude_taslak
+4695,Economy,B_mekanik,uretim_yonetim,Strategy,2432,claude_taslak
+6276,Inventory Management,B_mekanik,uretim_yonetim,Strategy,1816,claude_taslak
+255534,Automation,B_mekanik,uretim_yonetim,Strategy;Design,1331,claude_taslak
+3920,Cooking,B_mekanik,uretim_yonetim,Design,1000,claude_taslak
+22602,Agriculture,B_mekanik,uretim_yonetim,Completion,813,claude_taslak
+4202,Trading,B_mekanik,uretim_yonetim,Strategy,807,claude_taslak
+5981,Mining,B_mekanik,uretim_yonetim,Completion,666,claude_taslak
+5432,Programming,B_mekanik,uretim_yonetim,Design;Strategy,474,claude_taslak
+5502,Hacking,B_mekanik,uretim_yonetim,Strategy,460,claude_taslak
+6310,Diplomacy,B_mekanik,uretim_yonetim,Strategy,311,claude_taslak
+4520,Farming,B_mekanik,uretim_yonetim,Completion,234,claude_taslak
+889937,Decorating,B_mekanik,uretim_yonetim,Design,48,claude_taslak
+1239876,Organizing,B_mekanik,uretim_yonetim,Completion,41,claude_taslak
+23491,Cleaning,B_mekanik,uretim_yonetim,Completion,34,claude_taslak
+3968,Physics,B_mekanik,yapi,Discovery,7370,claude_taslak
+4747,Character Customization,B_mekanik,yapi,Design,5894,claude_taslak
+5125,Procedural Generation,B_mekanik,yapi,Discovery,4414,claude_taslak
+5154,Score Attack,B_mekanik,yapi,Competition;Challenge,4172,claude_taslak
+5652,Collectathon,B_mekanik,yapi,Completion,2759,claude_taslak
+1759,Perma Death,B_mekanik,yapi,Challenge,2175,claude_taslak
+32322,Deckbuilding,B_mekanik,yapi,Strategy,1995,claude_taslak
+7569,Grid-Based Movement,B_mekanik,yapi,Strategy,1709,claude_taslak
+8122,Level Editor,B_mekanik,yapi,Design,1416,claude_taslak
+4835,6DOF,B_mekanik,yapi,Challenge,924,claude_taslak
+6625,Time Manipulation,B_mekanik,yapi,Discovery,777,claude_taslak
+1674,Typing,B_mekanik,yapi,Challenge,611,claude_taslak
+1717,Hex Grid,B_mekanik,yapi,Strategy,549,claude_taslak
+16250,Gambling,B_mekanik,yapi,Excitement,520,claude_taslak
+5390,Time Attack,B_mekanik,yapi,Challenge;Competition,402,claude_taslak
+8253,Music-Based Procedural Generation,B_mekanik,yapi,Discovery,271,claude_taslak
+42089,Jump Scare,B_mekanik,yapi,Excitement,148,claude_taslak
+14906,Intentionally Awkward Controls,B_mekanik,yapi,Challenge,116,claude_taslak
+4026,Difficult,B_mekanik,zorluk_tempo,Challenge,5727,claude_taslak
+1734,Fast-Paced,B_mekanik,zorluk_tempo,Excitement,1735,claude_taslak
+3839,First-Person,C_gorsel,bakis,,15632,claude_taslak
+4791,Top-Down,C_gorsel,bakis,,10009,claude_taslak
+1697,Third Person,C_gorsel,bakis,,9583,claude_taslak
+3798,Side Scroller,C_gorsel,bakis,,5285,claude_taslak
+5851,Isometric,C_gorsel,bakis,,2687,claude_taslak
+3871,2D,C_gorsel,boyut,,36871,claude_taslak
+4191,3D,C_gorsel,boyut,,27575,claude_taslak
+4975,2.5D,C_gorsel,boyut,,2940,claude_taslak
+1621,Music,C_gorsel,ses,,1233,claude_taslak
+61357,Electronic Music,C_gorsel,ses,,138,claude_taslak
+189941,Instrumental Music,C_gorsel,ses,,86,claude_taslak
+337964,Rock Music,C_gorsel,ses,,65,claude_taslak
+117648,8-bit Music,C_gorsel,ses,,63,claude_taslak
+4305,Colorful,C_gorsel,stil,,20650,claude_taslak
+4726,Cute,C_gorsel,stil,,18818,claude_taslak
+3964,Pixel Graphics,C_gorsel,stil,,17364,claude_taslak
+4085,Anime,C_gorsel,stil,,12473,claude_taslak
+4004,Retro,C_gorsel,stil,,10687,claude_taslak
+4252,Stylized,C_gorsel,stil,,10572,claude_taslak
+4195,Cartoony,C_gorsel,stil,,8859,claude_taslak
+4175,Realistic,C_gorsel,stil,,8835,claude_taslak
+4094,Minimalist,C_gorsel,stil,,7428,claude_taslak
+6815,Hand-drawn,C_gorsel,stil,,6579,claude_taslak
+3916,Old School,C_gorsel,stil,,5624,claude_taslak
+4562,Cartoon,C_gorsel,stil,,5340,claude_taslak
+31275,Text-Based,C_gorsel,stil,,3795,claude_taslak
+4145,Cinematic,C_gorsel,stil,,3199,claude_taslak
+4400,Abstract,C_gorsel,stil,,2911,claude_taslak
+1751,Comic Book,C_gorsel,stil,,2116,claude_taslak
+1714,Psychedelic,C_gorsel,stil,,2087,claude_taslak
+13782,Experimental,C_gorsel,stil,Discovery,1235,claude_taslak
+18594,FMV,C_gorsel,stil,,705,claude_taslak
+1732,Voxel,C_gorsel,stil,,702,claude_taslak
+4166,Atmospheric,D_tema,atmosfer,Fantasy,19862,claude_taslak
+1742,Story Rich,D_tema,atmosfer,Story,17480,claude_taslak
+1654,Relaxing,D_tema,atmosfer,,14073,claude_taslak
+4136,Funny,D_tema,atmosfer,,12370,claude_taslak
+5350,Family Friendly,D_tema,atmosfer,,10991,claude_taslak
+4342,Dark,D_tema,atmosfer,,8094,claude_taslak
+1719,Comedy,D_tema,atmosfer,,7756,claude_taslak
+4947,Romance,D_tema,atmosfer,Story,5554,claude_taslak
+5608,Emotional,D_tema,atmosfer,Story,4832,claude_taslak
+1710,Surreal,D_tema,atmosfer,Discovery,3881,claude_taslak
+5186,Psychological,D_tema,atmosfer,Story,2822,claude_taslak
+5923,Dark Humor,D_tema,atmosfer,,2501,claude_taslak
+3854,Lore-Rich,D_tema,atmosfer,Story;Discovery,2396,claude_taslak
+10397,Memes,D_tema,atmosfer,,1763,claude_taslak
+97376,Cozy,D_tema,atmosfer,,1428,claude_taslak
+15277,Philosophical,D_tema,atmosfer,Story,1337,claude_taslak
+19995,Dark Comedy,D_tema,atmosfer,,1230,claude_taslak
+4878,Parody ,D_tema,atmosfer,,1001,claude_taslak
+552282,Wholesome,D_tema,atmosfer,,903,claude_taslak
+1651,Satire,D_tema,atmosfer,,810,claude_taslak
+1755,Space,D_tema,donem_mekan,Discovery,4950,claude_taslak
+4295,Futuristic,D_tema,donem_mekan,Fantasy,4829,claude_taslak
+4172,Medieval,D_tema,donem_mekan,Fantasy,4821,claude_taslak
+30358,Nature,D_tema,donem_mekan,Discovery,4258,claude_taslak
+6691,1990's,D_tema,donem_mekan,,4074,claude_taslak
+7743,1980s,D_tema,donem_mekan,,2980,claude_taslak
+1678,War,D_tema,donem_mekan,Destruction,2889,claude_taslak
+3987,Historical,D_tema,donem_mekan,Fantasy,2845,claude_taslak
+4168,Military,D_tema,donem_mekan,Destruction,2360,claude_taslak
+5673,Modern,D_tema,donem_mekan,,2175,claude_taslak
+21006,Underground,D_tema,donem_mekan,Discovery,802,claude_taslak
+4150,World War II,D_tema,donem_mekan,Fantasy,649,claude_taslak
+9157,Underwater,D_tema,donem_mekan,Discovery,611,claude_taslak
+9803,Snow,D_tema,donem_mekan,,449,claude_taslak
+5179,Cold War,D_tema,donem_mekan,Fantasy,285,claude_taslak
+6702,Mars,D_tema,donem_mekan,Discovery,245,claude_taslak
+6948,Rome,D_tema,donem_mekan,Fantasy,182,claude_taslak
+5382,World War I,D_tema,donem_mekan,Fantasy,162,claude_taslak
+12095,Sexual Content,D_tema,icerik_uyarisi,,9149,claude_taslak
+6650,Nudity,D_tema,icerik_uyarisi,,8325,claude_taslak
+4667,Violent,D_tema,icerik_uyarisi,Destruction,5270,claude_taslak
+9130,Hentai,D_tema,icerik_uyarisi,,4899,claude_taslak
+4345,Gore,D_tema,icerik_uyarisi,Destruction,4401,claude_taslak
+7208,Female Protagonist,D_tema,karakter,Fantasy,10106,claude_taslak
+44868,LGBTQ+,D_tema,karakter,,3319,claude_taslak
+11333,Villain Protagonist,D_tema,karakter,Fantasy,195,claude_taslak
+15954,Silent Protagonist,D_tema,karakter,,104,claude_taslak
+1684,Fantasy,D_tema,kurgu_turu,Fantasy,15708,claude_taslak
+1667,Horror,D_tema,kurgu_turu,Excitement,11413,claude_taslak
+3942,Sci-fi,D_tema,kurgu_turu,Fantasy;Discovery,9901,claude_taslak
+5716,Mystery,D_tema,kurgu_turu,Discovery;Story,8168,claude_taslak
+1721,Psychological Horror,D_tema,kurgu_turu,Excitement;Story,7840,claude_taslak
+4604,Dark Fantasy,D_tema,kurgu_turu,Fantasy,4213,claude_taslak
+3835,Post-apocalyptic,D_tema,kurgu_turu,Fantasy,3095,claude_taslak
+4064,Thriller,D_tema,kurgu_turu,Excitement;Story,2843,claude_taslak
+5613,Detective,D_tema,kurgu_turu,Story;Discovery,2591,claude_taslak
+4115,Cyberpunk,D_tema,kurgu_turu,Fantasy,2326,claude_taslak
+5030,Dystopian ,D_tema,kurgu_turu,Fantasy;Story,1730,claude_taslak
+4598,Alternate History,D_tema,kurgu_turu,Fantasy,1440,claude_taslak
+6378,Crime,D_tema,kurgu_turu,Story,1354,claude_taslak
+6052,Noir,D_tema,kurgu_turu,Story,1033,claude_taslak
+7432,Lovecraftian,D_tema,kurgu_turu,Story,953,claude_taslak
+3952,Gothic,D_tema,kurgu_turu,Fantasy,759,claude_taslak
+10679,Time Travel,D_tema,kurgu_turu,Story,616,claude_taslak
+1777,Steampunk,D_tema,kurgu_turu,Fantasy,489,claude_taslak
+1647,Western,D_tema,kurgu_turu,Fantasy,435,claude_taslak
+1671,Superhero,D_tema,kurgu_turu,Power;Fantasy,412,claude_taslak
+1680,Heist,D_tema,kurgu_turu,Strategy,318,claude_taslak
+25959,Wuxia,D_tema,kurgu_turu,Fantasy,76,claude_taslak
+760247,Xianxia,D_tema,kurgu_turu,Fantasy;Power,40,claude_taslak
+1776,Espionage,D_tema,kurgu_turu,Fantasy,33,claude_taslak
+4057,Magic,D_tema,varlik_nesne,Fantasy;Power,5855,claude_taslak
+1659,Zombies,D_tema,varlik_nesne,Destruction,3064,claude_taslak
+9541,Demons,D_tema,varlik_nesne,Fantasy,2573,claude_taslak
+10808,Supernatural,D_tema,varlik_nesne,Fantasy,2465,claude_taslak
+1673,Aliens,D_tema,varlik_nesne,Fantasy,2452,claude_taslak
+5752,Robots,D_tema,varlik_nesne,Fantasy,2324,claude_taslak
+7926,Artificial Intelligence,D_tema,varlik_nesne,Story,2078,claude_taslak
+17894,Cats,D_tema,varlik_nesne,,1968,claude_taslak
+16094,Mythology,D_tema,varlik_nesne,Fantasy;Story,1502,claude_taslak
+4845,Capitalism,D_tema,varlik_nesne,Strategy,1293,claude_taslak
+5794,Science,D_tema,varlik_nesne,Discovery,1006,claude_taslak
+4046,Dragons,D_tema,varlik_nesne,Fantasy,899,claude_taslak
+5372,Conspiracy,D_tema,varlik_nesne,Story,824,claude_taslak
+6915,Martial Arts,D_tema,varlik_nesne,Challenge,779,claude_taslak
+1637,Dogs,D_tema,varlik_nesne,,759,claude_taslak
+4821,Mechs,D_tema,varlik_nesne,Power,666,claude_taslak
+180368,Faith,D_tema,varlik_nesne,Story,616,claude_taslak
+1688,Ninja,D_tema,varlik_nesne,Fantasy,597,claude_taslak
+12686,Vampires,D_tema,varlik_nesne,Fantasy,594,claude_taslak
+1681,Pirates,D_tema,varlik_nesne,Fantasy,575,claude_taslak
+13276,Tanks,D_tema,varlik_nesne,Destruction,524,claude_taslak
+10383,Transportation,D_tema,varlik_nesne,Strategy,493,claude_taslak
+5160,Dinosaurs,D_tema,varlik_nesne,Fantasy,455,claude_taslak
+97070,Assassins,D_tema,varlik_nesne,Fantasy,439,claude_taslak
+6910,Naval,D_tema,varlik_nesne,Fantasy,356,claude_taslak
+1616,Trains,D_tema,varlik_nesne,Fantasy,339,claude_taslak
+13577,Sailing,D_tema,varlik_nesne,Discovery,334,claude_taslak
+6041,Horses,D_tema,varlik_nesne,,255,claude_taslak
+4137,Transhumanism,D_tema,varlik_nesne,Story,239,claude_taslak
+17015,Werewolves,D_tema,varlik_nesne,Fantasy,227,claude_taslak
+9626,Animals,D_tema,varlik_nesne,,202,claude_taslak
+4291,Spaceships,D_tema,varlik_nesne,Fantasy,188,claude_taslak
+198913,Motorbike,D_tema,varlik_nesne,Excitement,187,claude_taslak
+19780,Submarine,D_tema,varlik_nesne,Discovery,183,claude_taslak
+123332,Bikes,D_tema,varlik_nesne,Excitement,181,claude_taslak
+4535,Dwarves,D_tema,varlik_nesne,Fantasy,92,claude_taslak
+150626,Gaming,D_tema,varlik_nesne,,91,claude_taslak
+11634,Vikings,D_tema,varlik_nesne,Fantasy,79,claude_taslak
+6214,Birds,D_tema,varlik_nesne,,68,claude_taslak
+6054,Elves,D_tema,varlik_nesne,Fantasy,54,claude_taslak
+507423,Foxes,D_tema,varlik_nesne,,50,claude_taslak
+129761,ATV,D_tema,varlik_nesne,Excitement,46,claude_taslak
+10617,Samurai,D_tema,varlik_nesne,Fantasy,38,claude_taslak
+52406,Cult,D_tema,varlik_nesne,Story,30,claude_taslak
+1352486,Capybaras,D_tema,varlik_nesne,,26,claude_taslak
+20486,Wolves,D_tema,varlik_nesne,,15,claude_taslak
+46348,Zoo,D_tema,varlik_nesne,Design,15,claude_taslak
+17770,Asynchronous Multiplayer,E_oyuncu,asenkron,Community,469,claude_taslak
+6730,PvE,E_oyuncu,isbirligi,Community,7875,claude_taslak
+1685,Co-op,E_oyuncu,isbirligi,Community,5455,claude_taslak
+3843,Online Co-Op,E_oyuncu,isbirligi,Community,3904,claude_taslak
+3841,Local Co-Op,E_oyuncu,isbirligi,Community,2605,claude_taslak
+4508,Co-op Campaign,E_oyuncu,isbirligi,Community,609,claude_taslak
+1775,PvP,E_oyuncu,rekabet,Competition,7021,claude_taslak
+5711,Team-Based,E_oyuncu,rekabet,Community;Competition,1553,claude_taslak
+3878,Competitive,E_oyuncu,rekabet,Competition,954,claude_taslak
+5055,eSports,E_oyuncu,rekabet,Competition,923,claude_taslak
+856791,Asymmetric VR,E_oyuncu,rekabet,Community,170,claude_taslak
+745697,Social Deduction,E_oyuncu,rekabet,Community;Competition,158,claude_taslak
+4182,Singleplayer,E_oyuncu,tek_cok,,67465,claude_taslak
+3859,Multiplayer,E_oyuncu,tek_cok,Community,11163,claude_taslak
+128,Massively Multiplayer,E_oyuncu,tek_cok,Community,1697,claude_taslak
+7368,Local Multiplayer,E_oyuncu,yerel_parti,Community,3650,claude_taslak
+4840,4 Player Local,E_oyuncu,yerel_parti,Community,1595,claude_taslak
+10816,Split Screen,E_oyuncu,yerel_parti,Community,822,claude_taslak
+7108,Party,E_oyuncu,yerel_parti,Community,420,claude_taslak
+4234,Short,F_kapsam,uzunluk,,2030,claude_taslak
+7250,Linear,F_kapsam,yapi,Story,9979,claude_taslak
+1695,Open World,F_kapsam,yapi,Discovery,6335,claude_taslak
+6869,Nonlinear,F_kapsam,yapi,Discovery,2173,claude_taslak
+4242,Episodic,F_kapsam,yapi,Story,204,claude_taslak
+7481,Controller,H_teknik,erisim,,9967,claude_taslak
+21978,VR,H_teknik,erisim,Fantasy,4635,claude_taslak
+1669,Moddable,H_teknik,erisim,Design,815,claude_taslak
+11123,Mouse Only,H_teknik,erisim,,555,claude_taslak
+25085,Touch-Friendly,H_teknik,erisim,,163,claude_taslak
+27758,Voice Control,H_teknik,erisim,,36,claude_taslak
+8075,TrackIR,H_teknik,erisim,,8,claude_taslak
+4711,Replay Value,X_degerlendirme,yargi,,2402,claude_taslak
+1756,Great Soundtrack,X_degerlendirme,yargi,,2170,claude_taslak
+5411,Beautiful,X_degerlendirme,yargi,,537,claude_taslak
+1693,Classic,X_degerlendirme,yargi,,536,claude_taslak
+3934,Immersive,X_degerlendirme,yargi,,534,claude_taslak
+4190,Addictive,X_degerlendirme,yargi,,267,claude_taslak
+14720,Nostalgia,X_degerlendirme,yargi,,250,claude_taslak
+3965,Epic,X_degerlendirme,yargi,,69,claude_taslak
+492,Indie,X_meta,dagitim,,52955,claude_taslak
+113,Free to Play,X_meta,dagitim,,9867,claude_taslak
+493,Early Access,X_meta,dagitim,,7563,claude_taslak
+12057,Tutorial,X_meta,dagitim,,2335,claude_taslak
+5708,Remake,X_meta,dagitim,,341,claude_taslak
+5230,Sequel,X_meta,dagitim,,196,claude_taslak
+5348,Mod,X_meta,dagitim,,50,claude_taslak
+3796,Based On A Novel,X_meta,dagitim,,40,claude_taslak
+5941,Reboot,X_meta,dagitim,,6,claude_taslak
+7948,Soundtrack,X_uygulama,yazilim,,926,claude_taslak
+84,Design & Illustration,X_uygulama,yazilim,,666,claude_taslak
+8013,Software,X_uygulama,yazilim,,415,claude_taslak
+13906,Game Development,X_uygulama,yazilim,,364,claude_taslak
+87,Utilities,X_uygulama,yazilim,,345,claude_taslak
+872,Animation & Modeling,X_uygulama,yazilim,,236,claude_taslak
+776177,360 Video,X_uygulama,yazilim,,135,claude_taslak
+1027,Audio Production,X_uygulama,yazilim,,105,claude_taslak
+784,Video Production,X_uygulama,yazilim,,88,claude_taslak
+809,Photo Editing,X_uygulama,yazilim,,70,claude_taslak
+21635,Language Learning,X_uygulama,yazilim,,45,claude_taslak
+1445,Software Training,X_uygulama,yazilim,,39,claude_taslak
+603297,Hardware,X_uygulama,yazilim,,19,claude_taslak
+5407,Benchmark,X_uygulama,yazilim,,11,claude_taslak

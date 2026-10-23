@@ -226,3 +226,46 @@ Steam satış veya indirme sayısı yayınlamıyor. Tek açık tahmin SteamSpy'�
 - **Açık konu:** Tarihi doğrulanamayan düşük etkili adaylar (Grove Street Games, 3D Realms, Amplitude; toplam 9 oyun) eklenmedi.
 
 **Bilinen sınır, büyük bağımsız stüdyolar:** Destiny 2 (Bungie, 2019) ve Detroit: Become Human (Quantic Dream, 2020) çıktıkları tarihte bağımsız oldukları için kural gereği organik. Black Myth: Wukong (Game Science), Crytek ve TaleWorlds da öyle. Stüdyo büyüklüğü gözlenmediği için kural elle bükülmedi. Ana bulgular T4 hariç tutularak da tekrarlanacak.
+
+## Process 5: İçerik katmanları ve sızıntı ayıklama (2026-10-23)
+
+### Üç içerik katmanı
+
+| Katman | Kim belirliyor | Kullanım |
+|---|---|---|
+| Steam türleri (`10c_temizle_tur.py`) | Geliştirici | 33 tür, kohortun %99,9'u. **Tahmin modeline giren tek tür bilgisi.** Sınır: FronkonGames 2026-10 anlık görüntüsü, çıkış anındaki değer değil |
+| Steam etiketleri | Geliştirici başlatır, oyuncular oylar | 429 etiket, oyun başına ortanca 18. Betimsel analiz (M2) için; sonradan oylandığı için tahmin modeline girmez (R4) |
+| IGDB tür, tema, mod, bakış açısı, motor, anahtar kelime | Editörler | Betimsel analiz; anahtar kelimeler hiçbir modele girmez |
+
+### Etiket taksonomisi (`r01_etiket_taksonomi.py` → `data/referans/etiket_taksonomi.csv`)
+
+- 429 etiketin her biri tam olarak bir boyuta bağlandı (betik eksik ya da tekrar varsa durur; ilk çalıştırmada 3 eksik yakaladı).
+- Dağılım: A tür 152, B mekanik 64, C görsel 33, D tema 118, E oyuncu yapısı 19, F kapsam 5, H teknik 7.
+- **Yeni grup `X_degerlendirme` (8 etiket):** Great Soundtrack, Beautiful, Addictive, Classic, Epic, Immersive, Replay Value, Nostalgia. Bunlar içerik değil, beğeni yargısı; başarıyla ilişkileri döngüsel, içerik niteliği olarak **kullanılmaz**.
+- **`X_uygulama` (14) ve `X_meta` (9):** Oyun dışı yazılım işaretleri ve dağıtım bilgisi.
+- **Motivasyon:** 324 etiket Quantic Foundry'nin 12 motivasyonundan en fazla ikisine bağlandı. Bu **birinci kodlayıcı taslağı** (`claude_taslak`). Plan gereği ikinci kodlayıcı (Mert) bağımsız kodlayacak, uyum Cohen κ ile ölçülecek.
+
+### T01b: Oyun olarak sınıflandırılmış yazılımlar
+
+Yazılım türü taşıyan kayıtlar elle incelendi. İlk kural (yazılım türü + ilk 3 etikette yazılım) 33 kayıt yakaladı, ama aralarında gerçek oyunlar vardı. Neden: geliştiriciler "Game Development" türünü "bağımsız yapım" anlamında da seçiyor. Sıkı kural ("Game Development" hariç; yalnızca yazılım türü, ya da yazılım türü + **en güçlü** etiket yazılım) **12 kayıt** bırakıyor; hepsi araç, video ya da film. `yazilim_suphe` bayrağı; ana analizden çıkarılır.
+
+### T10e: IGDB anahtar kelimelerinde sızıntı
+
+Hades'in anahtar kelimelerinde "The Game Awards – best action game – winner" ve "netflix" bulundu: çıkıştan sonra oluşmuş, başarının sonucu olan bilgiler. Kesin desenlerle 116 kelime (1.220 kullanım) `sonradan_bilgi` olarak işaretlendi: ödüller, Netflix, PS Plus, Game Pass, bedava dağıtımlar. Elle doğrulanan istisnalar: "world premiere" (çıkış öncesi tanıtım), "avatar awards" (Xbox özelliği), Kickstarter (çıkış öncesi bilgi, ileride nitelik adayı).
+
+### R13'ün boyutu: kaldırılmış demolar ve Next Fest göstergesi
+
+IGDB, Haziran ve Ekim 2025 Next Fest katılımcılarını anahtar kelimeyle işaretlemiş (936 + 751 oyun). Bu, dolaylı Next Fest göstergemizi **doğrulamak** için kullanıldı. Karşılaştırmada yalnızca IGDB eşleşmesi olan ve festival başladığında henüz çıkmamış oyunlar alındı:
+
+| Edisyon | IGDB etiketli | Duyarlılık (göstergenin yakaladığı) | Kesinlik |
+|---|---|---|---|
+| Haziran 2025 | 930 | %52,0 | %28,5 |
+| Ekim 2025 | 745 | %54,8 | %31,3 |
+
+Kaçırılan katılımcıların **446'nın 435'inde, 333'ün 333'ünde** verimizde hiç demo yok. Next Fest için demo şart olduğuna göre bu oyunların demoları çıkıştan sonra mağazadan **kaldırılmış**. Kesinlik bir alt sınır, çünkü IGDB listesi de eksik olabilir.
+
+**Sonuçlar:**
+1. Mevcut haliyle H3 göstergesi katılımcıların yarısını kaçırıyor.
+2. H2'nin demo değişkeni de aynı sorundan etkileniyor: demolu oyunların bir kısmı demosuz görünüyor, demo etkisi olduğundan küçük tahmin edilir.
+
+**Çözüm (planda R13):** Steam'in tam uygulama listesinden (kaldırılmış demolar dahil) demo uygulamalarını bulup `parent_appid` ile ana oyuna bağlamak. Bunun için Steam Web API anahtarı gerekiyor; şu an `.env`'de boş. Anahtar gelene kadar H2 ve H3 sonuçları bu sınırla birlikte raporlanır. 2025 için IGDB etiketleri ikinci bir doğrulama kaynağı olarak kalır.

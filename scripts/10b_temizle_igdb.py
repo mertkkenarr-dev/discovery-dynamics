@@ -72,6 +72,21 @@ def main() -> None:
         uzun.append(pd.DataFrame({"appid": ex.appid, "alan": kisa, "deger_id": ex[alan].astype(int), "ad": ex[alan].map(ad)}))
         print(f"      {kisa:8s}: dolu %{dolu.mean() * 100:5.1f}  farklı değer {ex[alan].nunique():,}")
     oz = pd.concat(uzun, ignore_index=True)
+    # Sızıntı (R6): çıkıştan SONRA oluşan anahtar kelimeler. Kesin desenler; elle kontrol edildi (2026-10-23).
+    # Kickstarter, twitch entegrasyonu gibi çıkış ÖNCESİ bilgiler sızıntı değildir ve tutulur.
+    # İstisna: "world premiere" çıkış öncesi tanıtımdır, "avatar awards" eski bir Xbox özelliğidir; ikisi de sızıntı değil.
+    sonradan = r"(?:award|nominee|winner|game critics|golden joystick|bafta|\bgoty\b|game of the year|netflix|playstation plus|game pass|^free game$|giveaway)"
+    istisna = r"(?:world premiere|avatar awards)"
+    ad = oz.ad.fillna("")
+    oz["sonradan_bilgi"] = (oz.alan == "anahtar") & ad.str.contains(sonradan, case=False, regex=True) & ~ad.str.contains(istisna, case=False, regex=True)
+    K.ekle(
+        "T10e",
+        f"IGDB anahtar kelimesi çıkıştan sonra oluşan bilgi (ödül, Netflix/PS Plus/Game Pass, bedava dağıtım): {oz[oz.sonradan_bilgi].ad.nunique()} farklı kelime",
+        int(oz.sonradan_bilgi.sum()),
+        int((oz.alan == "anahtar").sum()),
+        "sonradan_bilgi bayrağı; tahmin modeline hiçbir anahtar kelime girmez, betimsel analizde bunlar çıkarılır",
+        "Başarının sonucu olan bilgi neden gibi görünür (ör. Hades: 'The Game Awards - best action game - winner')",
+    )
     adsiz = oz.ad.isna()
     K.ekle(
         "T10d",

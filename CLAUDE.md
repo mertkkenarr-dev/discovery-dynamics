@@ -54,5 +54,7 @@ Kohort 2018-01-01 – 2025-12-31 · hit ≥ 500 (duyarlılık 100 / 1.000) · or
 - ✅ Process: `10_temizle_steam.py`, `10b_temizle_igdb.py`, `11_sonuc.py` tam veriyle çalıştı. Kesin kohort **95.647**, `reviews_365` %91,5 dolu, hit %6,5.
 - ✅ `12_kontrol.py`: 32/32 geçti (dil anahtarı ve stüdyo tekrarı düzeltildikten sonra; bkz. PILOT_RAPORU 'Process 3').
 - ✅ `11b_oznitelik.py`: organik örneklem 84.131 (%88); büyük yayıncı listesi tarihe duyarlı (`gecerli_baslangic/bitis`). R8: inceleme ~ sahip aralığı Spearman 0,585.
-- ⏭ Sıradaki: `11c_icerik.py` (novelty_score: çıkıştan önceki oyunlarla kNN kosinüs uzaklığı, etiket sırası ilk 10 (R4); saturation: aynı etiket kombinasyonu son 12 ay; motivasyon eşlemesi ayrı iş) → `13_yayinla.py` (DuckDB, Excel, VERI_RAPORU.md).
+- ✅ İçerik katmanları: `10c_temizle_tur.py` (Steam türleri, yazilim_suphe), `r01_etiket_taksonomi.py` (429 etiket → boyut + motivasyon taslağı), IGDB `sonradan_bilgi` sızıntı bayrağı. 36/36 kontrol.
+- ⚠️ R13 büyük: Next Fest göstergesi IGDB 2025 etiketlerine göre katılımcıların ~%53'ünü yakalıyor; kaçanların demoları kaldırılmış. Çözüm Steam Web API anahtarı (kullanıcı alacak) → tam uygulama listesinden demo → parent eşlemesi.
+- ⏭ Sıradaki: (a) kullanıcı STEAM_API_KEY'i .env'e ekleyince `04_demolar.py`; (b) `11c_icerik.py` (novelty: çıkıştan önceki oyunlarla kNN kosinüs, etiketlerden X_* gruplar hariç, ilk 10 sıra (R4); saturation: aynı tür+etiket kombinasyonu son 12 ay); (c) motivasyon ikinci kodlayıcı (Mert); (d) `13_yayinla.py`.
 - Git deposu kuruldu (main). Commit yazarı Mert; Claude ortak yazar satırı eklenmez.

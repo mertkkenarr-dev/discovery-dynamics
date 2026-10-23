@@ -9,7 +9,7 @@ from __future__ import annotations
 import sys
 
 import pandas as pd
-from ortak import INTERIM, ayarlar
+from ortak import INTERIM, KOK, ayarlar
 
 SONUC: list[dict] = []
 
@@ -94,6 +94,15 @@ def main() -> None:
     kontrol("K06", "IGDB kapsaması (kohort, ≥10 inceleme)", f"%{kap * 100:.1f}", kap > 0.60, "> %60")
     dolu = float(k.reviews_365.notna().mean())
     kontrol("K06", "reviews_365 doluluğu (kohort)", f"%{dolu * 100:.1f}", dolu > 0.85, "> %85", kritik=False)
+
+    print("— Referans tabloları")
+    tx = pd.read_csv(KOK / "data" / "referans" / "etiket_taksonomi.csv")
+    eksik = int((~et.tagid.isin(tx.tagid)).sum())
+    kontrol("K07", "etiket_taksonomi tüm etiket satırlarını kapsıyor", eksik, eksik == 0, "0 eşlenmemiş")
+    kontrol("K07", "etiket_taksonomi: tagid benzersiz", int(tx.tagid.duplicated().sum()), not tx.tagid.duplicated().any(), "0 tekrar")
+    tr = oku("oyun_steam_tur")
+    kontrol("K07", "oyun_steam_tur: (appid, tur) benzersiz", int(tr.duplicated(["appid", "tur"]).sum()), not tr.duplicated(["appid", "tur"]).any(), "0 tekrar")
+    kontrol("K07", "oyun_steam_tur.appid ⊂ oyun_steam.appid", int((~tr.appid.isin(o.appid)).sum()), tr.appid.isin(o.appid).all(), "0 yetim")
 
     pd.DataFrame(SONUC).assign(zaman=pd.Timestamp.now(tz="UTC").tz_convert(None)).to_parquet(INTERIM / "meta_kontrol.parquet", index=False)
     kalan = [r for r in SONUC if r["durum"] == "kaldi"]

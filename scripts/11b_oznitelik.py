@@ -1,6 +1,6 @@
 """11b: Türetilmiş nitelikler — organik örneklem, stüdyo deneyimi, demo / Next Fest, fiyat bandı, zamanlama, IGDB bayrakları.
 
-Kullanım: cd scripts && python 11b_oznitelik.py      (10, 10b, 11'den sonra)
+Kullanım: cd scripts && python 11b_oznitelik.py      (10, 10b, 10c, 11'den sonra)
 Çıktı   : interim/oznitelik.parquet    oyun başına (tüm type=0 oyunlar; kohort bayrağı sonuc.parquet'ten)
           interim/studyo_oyun.parquet  geliştirici × oyun, stüdyo içi sıra (M6 için)
 Sızıntı kuralı (R6): her nitelik çıkış anında bilinebilir olmalı. "Önceki" sayımlar yalnız kesin olarak daha önce çıkan
@@ -151,6 +151,8 @@ def main() -> None:
     ig = pd.read_parquet(INTERIM / "oyun_igdb.parquet")[["appid", "igdb_tur", "igdb_ilk_cikis", "n_tema", "n_bakis", "n_motor"]]
     o = o.merge(ig, on="appid", how="left")
     o["steam_oncesi_cikis"] = (o.igdb_ilk_cikis < o.t - 365 * GUN).where(o.igdb_ilk_cikis.notna())
+    o = o.merge(pd.read_parquet(INTERIM / "oyun_tur_ozet.parquet"), on="appid", how="left")  # 10c: n_steam_tur, yazilim_suphe
+    o["yazilim_suphe"] = o.yazilim_suphe.fillna(False).astype(bool)
     K.ekle(
         "N06",
         "IGDB ilk çıkışı Steam'den 1 yıldan fazla önce (başka platformda önceden çıkmış)",
