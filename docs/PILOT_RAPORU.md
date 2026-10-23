@@ -294,3 +294,33 @@ Kaçırılan katılımcıların **446'nın 435'inde, 333'ün 333'ünde** verimiz
 2. En eski oyunlarda k = 20 için yeterli önceki komşu yokken değer **sonsuz** çıkıyordu (geçerlilik k = 10'a göre kontrol ediliyordu). Her k için ayrı kontrol eklendi; yetersizse `NULL`.
 
 Düzeltmelerden sonra **42 / 42 kontrol geçti.**
+
+## Process 7: Yayın (2026-10-24)
+
+*Betik: `13_yayinla.py`. Tüm hat tek komutla: `bash scripts/hat.sh`.*
+
+- **`data/processed/discovery.duckdb` (91 MB):** 17 tablo. `oyun_tablosu`, 11 köprü/olay/meta tablosu, `ref_*` referans tabloları ve `meta_sozluk`. Her çalıştırmada baştan kurulur.
+- **`oyun_tablosu`:** 113.564 oyun × 88 sütun; kohort 95.647, organik 84.131. Her sütun `scripts/sozluk.py`'de tanımlı (tür + açıklama + çıkış öncesi mi). Sözlükle tablo uyuşmazsa betik durur.
+- **`discovery_veri.xlsx`:** Kohort tablosu, sözlük, kararlar, kontroller, etiket taksonomisi.
+- **`docs/VERI_RAPORU.md`:** Otomatik üretilir (huni, yıllar, T13 testi, kararlar, sözlük).
+- **Güvenlikler:**
+  - `meta_kontrol`'de başarısız kontrol varsa yayın yapılmaz.
+  - Çakışan sütunlar açıkça seçilir. `gozlem_gun` düzeltilmiş tarihten alınır; düzeltilmemiş kopyası atılır (808 oyunda farklıydı).
+
+**Analiz örneklemi hunisi:** 113.564 → kohort 95.647 → organik 84.131 → `reviews_365` dolu 76.673 → bayraksız (seri üretici, yetişkin, yazılım, listelenmemiş hariç) **66.999**.
+
+### T13 bulgusu: IGDB alanlarının eksikliği başarıya bağlı
+
+| Sütun | T0 eksik | T4 eksik |
+|---|---|---|
+| IGDB bakış açısı (`n_bakis`) | %75,5 | %6,1 |
+| IGDB motor (`n_motor`) | %67,7 | %11,2 |
+| IGDB tema (`n_tema`) | %48,9 | %5,6 |
+| `novelty_k10` | %5,5 | %0 |
+| `kombo_12ay` | %15,3 | %1,3 |
+| Fiyat (yalnız ücretli oyunlar) | %1,2 | %3,5 |
+
+**Yorum ve karar:**
+- IGDB editörleri başarılı oyunları çok daha ayrıntılı kodluyor; eksiklik rastgele değil (MNAR). IGDB tema, bakış açısı ve motor alanları **birincil kaynak olamaz.** Görsel stil ve bakış açısı için Steam etiketleri (doluluk %99,9) kullanılır. IGDB alanları yalnız eksiklik göstergesiyle ya da dolu alt örneklemde duyarlılık testi olarak kullanılır.
+- `novelty` ve `kombo` eksikliği de kademeye bağlı, çünkü az incelenen oyunlar az etiket alıyor. Bu, R4'ün doğrudan kanıtı. H1 ve H7 analizlerinde `n_icerik_etiket` kontrol değişkeni olur; R4'teki "az oylanmış alt grupta da aynı yön" testi zorunlu.
+- İlk raporda fiyat eksikliği T1–T4'te %24 görünüyordu. Bunun nedeni F2P oyunlarda fiyatın tanım gereği `NULL` olması; test yalnız ücretli oyunları sayacak şekilde düzeltildi.

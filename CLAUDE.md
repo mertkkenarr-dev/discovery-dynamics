@@ -34,7 +34,7 @@ Kohort 2018-01-01 – 2025-12-31 · hit ≥ 500 (duyarlılık 100 / 1.000) · or
 
 - `scripts/NN_ad.py` numaralı sırayla. Ortak yardımcılar `scripts/ortak.py` içinde: yollar, `ayarlar()`, `http_json` (429/5xx'te üstel geri çekilme), `Hiz`, `jsonl_gz_oku/ekle`, `manifeste_ekle`.
 - Her çekici **kaldığı yerden devam eder**: önce çıktıdaki tamamlanmış kimlikleri okur.
-- Ortam: `uv run --no-project --python 3.12 --with ...` (bkz. `scripts/calistir_histogram.sh`). Stil: `ruff` (`ruff.toml`).
+- Ortam: `uv run --no-project --python 3.12 --with ...` (bkz. `scripts/hat.sh`). zsh'de komut dizisini değişkende tutma, kelimelere bölünmez. Stil: `ruff` (`ruff.toml`).
 - **Claude'un Bash ortamı uzun işleri öldürür.** Dakikalar süren çekimler kullanıcının Terminal panelinde `caffeinate -i` ile, **mutlak yolla** başlatılır (`cd /Users/mert/Desktop/Projeler/discovery-dynamics && ...`).
 - Anahtarlar `.env` dosyasında. Değerleri asla ekrana yazdırma ya da loglama.
 
@@ -56,5 +56,5 @@ Kohort 2018-01-01 – 2025-12-31 · hit ≥ 500 (duyarlılık 100 / 1.000) · or
 - ✅ `11b_oznitelik.py`: organik örneklem 84.131 (%88); büyük yayıncı listesi tarihe duyarlı (`gecerli_baslangic/bitis`). R8: inceleme ~ sahip aralığı Spearman 0,585.
 - ✅ İçerik katmanları: `10c_temizle_tur.py` (Steam türleri, yazilim_suphe), `r01_etiket_taksonomi.py` (429 etiket → boyut + motivasyon taslağı), IGDB `sonradan_bilgi` sızıntı bayrağı. 36/36 kontrol.
 - ⚠️ R13 büyük: Next Fest göstergesi IGDB 2025 etiketlerine göre katılımcıların ~%53'ünü yakalıyor; kaçanların demoları kaldırılmış. Çözüm Steam Web API anahtarı (kullanıcı alacak) → tam uygulama listesinden demo → parent eşlemesi.
-- ⏭ Sıradaki: (a) kullanıcı STEAM_API_KEY'i .env'e ekleyince `04_demolar.py`; (b) ✅ `11c_icerik.py` tamam (novelty_k5/10/20, kombo_12ay, benzer_12ay; 42/42 kontrol; H1 = etiket kombinasyonu yeniliği); (c) motivasyon ikinci kodlayıcı (Mert); (d) `13_yayinla.py`.
+- ⏭ Sıradaki: (a) kullanıcı STEAM_API_KEY'i .env'e ekleyince `04_demolar.py`; (b) ✅ `11c_icerik.py` tamam (novelty_k5/10/20, kombo_12ay, benzer_12ay; 42/42 kontrol; H1 = etiket kombinasyonu yeniliği); (c) motivasyon ikinci kodlayıcı (Mert); (d) ✅ `13_yayinla.py` + `scripts/hat.sh` (tüm Process hattı tek komut). Sıradaki: Analyze fazı (M1 → M2 → M3 → M4 → M6 → M5 → M7 → M8); başlamadan önce kullanıcıyla analiz sırasını teyit et.
 - Git deposu kuruldu (main). Commit yazarı Mert; Claude ortak yazar satırı eklenmez.

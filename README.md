@@ -12,8 +12,8 @@ Steam'de her yıl ~20.000 oyun çıkıyor ve büyük çoğunluğu neredeyse hiç
 | Faz | Durum |
 |---|---|
 | 0. Kapsam ve hipotezler | ✅ Tamamlandı (2026-10-18) |
-| 1. Prepare: veri toplama | 🔄 GetItems ✅ · IGDB ✅ · inceleme serileri çekiliyor · referans tabloları bekliyor |
-| 2. Process: temizleme ve öznitelik üretimi | 🔄 Steam temizliği (`10`) ✅ · sonuç metrikleri (`11`) yazıldı, tam veriyle yeniden çalışacak |
+| 1. Prepare: veri toplama | ✅ GetItems, IGDB, inceleme serileri, referans tabloları · ⏳ kaldırılmış demolar (Steam API anahtarı bekliyor) |
+| 2. Process: temizleme ve öznitelik üretimi | ✅ 2026-10-24: `bash scripts/hat.sh` · 42/42 kontrol · docs/VERI_RAPORU.md |
 | 3. Analyze: analiz modülleri M1–M8 | — |
 | 4. Share: landing page, Explorer, dashboard | — |
 | 5. Act: öneriler ve yayın | — |
@@ -26,6 +26,7 @@ Steam'de her yıl ~20.000 oyun çıkıyor ve büyük çoğunluğu neredeyse hiç
 - [docs/ANALIZ_PLANI.md](docs/ANALIZ_PLANI.md): ilk inceleme bulguları, veri ihtiyaç matrisi, saçma sonuç risk kaydı, pilot ve yol haritası
 - [docs/PILOT_RAPORU.md](docs/PILOT_RAPORU.md): 1.000 oyunluk pilotun veri kalitesi bulguları
 - [docs/VERI_MIMARISI.md](docs/VERI_MIMARISI.md): veri katmanları, şema, temizlik protokolü (T01–T13), otomatik kontroller
+- [docs/VERI_RAPORU.md](docs/VERI_RAPORU.md): otomatik veri raporu (huni, kararlar, eksiklik testi, sütun sözlüğü)
 
 ## Klasör yapısı
 
