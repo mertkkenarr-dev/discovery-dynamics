@@ -1,0 +1,23 @@
+kohort:
+  baslangic: 2018-01-01
+  bitis: 2025-12-31
+  min_gozlem_gun: 365
+basari:
+  hit_esik: 500
+  duyarlilik_esikleri: [100, 1000]
+  kademeler: [10, 100, 500, 5000]
+organik:
+  yayinci_max_oyun: 5
+  duyarlilik_max_oyun: [3, 10]
+magaza:
+  cc: us
+  dil: english
+hiz_limiti_saniye:
+  appdetails: 1.6
+  steamspy: 1.0
+  inceleme: 0.7
+  igdb: 0.26
+temizlik:
+  seri_uretici_yillik: 12   # bir takvim yılında bu sayıdan fazla oyun çıkaran geliştirici = seri üretici (T05)
+  yetiskin_icerik_id: [3, 4]  # Steam içerik uyarısı: 3 Adult Only Sexual, 4 Frequent Nudity or Sexual Content (T06)
+  dil_spam_ek_dil: 40   # bu sayıda ek dil (elanguage=-1) iddia eden oyun = dil spam'i (T17); dağılımda 20–40 arası boş

@@ -1,0 +1,20 @@
+# Sürümler ilk kurulumdan sonra requirements.txt'ye sabitlenecek
+duckdb
+pandas
+pyarrow
+numpy
+scipy
+statsmodels
+scikit-learn
+lightgbm
+shap
+openpyxl
+requests
+tenacity
+python-dotenv
+pyyaml
+rapidfuzz
+huggingface_hub
+kaggle
+tqdm
+ruff

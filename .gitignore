@@ -1,0 +1,10 @@
+.venv/
+.env
+data/raw/
+data/interim/
+data/processed/*.duckdb
+data/processed/*.xlsx
+__pycache__/
+.DS_Store
+node_modules/
+dist/
