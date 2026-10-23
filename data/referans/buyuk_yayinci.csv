@@ -1,36 +1,58 @@
-grup,desen,olcut,kaynak,not
-Tencent,^(tencent( games)?|level infinite|lightspeed studios|timi studio group|funcom)$,wiki_top50,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,Funcom 2020'den beri %100 Tencent
-Sony,^(sony interactive entertainment|playstation (publishing|pc|studios)( llc excluding china)?|playstation mobile)$,wiki_top50,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
-Microsoft / Xbox,^(xbox games? studios|microsoft( studios| game studios)?|bethesda softworks|activision( blizzard| excluding japan and asia| value publishing)?|blizzard entertainment|zenimax media)$,wiki_top50,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,Activision Blizzard 2023'ten beri Microsoft
-NetEase,^netease( games)?( global)?$,wiki_top50,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
-Electronic Arts,^(electronic arts|ea( sports| originals)?)$,wiki_top50,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,EA Originals bağımsız oyun etiketi de dahil
-Take-Two,^(2k( games)?|rockstar games|take two interactive( software)?|private division)$,wiki_top50,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,Private Division bağımsız etiket de dahil
-Valve,^valve$,wiki_top50,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
-Epic Games,^epic games( publishing)?$,wiki_top50,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,Epic Games Publishing bağımsız etiket de dahil
-miHoYo,^(mihoyo|hoyoverse|cognosphere)$,wiki_top50,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
-Bandai Namco,^bandai namco( entertainment| games)?( europe| america| us)?( s a s)?$,wiki_top50,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
-Nexon,^(nexon( america| korea)?|neople|embark studios)$,wiki_top50,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,Embark Studios Nexon'un %100 yan kuruluşu
-Sega,^(sega( europe| of america| america| japan)?|atlus( usa)?)$,wiki_top50,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
-Garena,^garena$,wiki_top50,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
-Krafton,^(krafton|pubg corporation)$,wiki_top50,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
-Konami,^konami( digital entertainment)?$,wiki_top50,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
-Netmarble,^netmarble$,wiki_top50,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
-NC,^(ncsoft|nc)$,wiki_top50,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
-Square Enix,^square enix( collective)?$,wiki_top50,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,Square Enix Collective bağımsız etiket de dahil
-Ubisoft,^ubisoft( entertainment)?$,wiki_top50,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
-Embracer Group,^(embracer group|thq nordic( mobile)?|plaion|deep silver|koch media|coffee stain publishing|saber interactive|gearbox publishing|gearbox software)$,wiki_top50,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,Sahiplik yıllar içinde değişti (Saber ve Gearbox 2024'te ayrıldı); güncel olmayan sahiplik sınırı raporda
-Capcom,^capcom( co| u)?$,wiki_top50,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
-NetDragon,^netdragon( websoft)?$,wiki_top50,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
-Wizards of the Coast,^wizards of the coast$,wiki_top50,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
-Smilegate,^smilegate( rpg| entertainment| stove)?$,wiki_top50,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
-Perfect World,^perfect world( entertainment| games)?( singapore pte)?$,wiki_top50,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
-Kakao Games,^kakao games$,wiki_top50,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
-Kingsoft,^(kingsoft|(amazing )?seasun( games)?( pte)?|seasun seed)$,wiki_top50,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
-Koei Tecmo,^koei tecmo( games| america| europe)?$,wiki_top50,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
-Lilith Games,^lilith games$,wiki_top50,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
-Com2uS,^com2us( holdings| roca)?$,wiki_top50,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
-Wemade,^wemade$,wiki_top50,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
-Larian Studios,^larian studios$,wiki_top50,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,Kendi oyununu yayınlayan büyük stüdyo
-Gameloft,^gameloft$,wiki_top50,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
-CD Projekt,^cd projekt( red)?$,gelir_500m_kohort_yili,https://gameworldobserver.com/2021/04/16/cd-projekt-estimates-record-revenue-for-2020-earning-over-560-million,2020 geliri ~561 milyon USD
-Warner Bros. Games,^(warner bros (games|interactive entertainment)|wb games)$,gelir_500m_kohort_yili,https://80.lv/articles/warner-bros-games-loses-usd384-million-in-2024,"Ana şirket oyun gelirini ayırmıyor; ölçek dolaylı (2015'te 1,5 milyar USD açıklandı). Doğrulama dolaylı"
+grup,desen,olcut,gecerli_baslangic,gecerli_bitis,dogrulama,kaynak,not
+Tencent,^(tencent( games)?|level infinite|lightspeed studios|timi studio group|funcom)$,wiki_top50,,,kaynakli,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,Funcom 2020'den beri %100 Tencent
+Sony,^(sony interactive entertainment|playstation (publishing|pc|studios)( llc excluding china)?|playstation mobile)$,wiki_top50,,,kaynakli,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
+Microsoft / Xbox,^(xbox games? studios|microsoft( studios| game studios)?|bethesda softworks|activision( blizzard| excluding japan and asia| value publishing)?|blizzard entertainment|zenimax media)$,wiki_top50,,,kaynakli,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,Activision Blizzard 2023'ten beri Microsoft
+NetEase,^netease( games)?( global)?$,wiki_top50,,,kaynakli,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
+Electronic Arts,^(electronic arts|ea( sports| originals)?)$,wiki_top50,,,kaynakli,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,EA Originals bağımsız oyun etiketi de dahil
+Take-Two,^(2k( games)?|rockstar games|take two interactive( software)?|private division)$,wiki_top50,,,kaynakli,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,Private Division bağımsız etiket de dahil
+Valve,^valve$,wiki_top50,,,kaynakli,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
+Epic Games,^epic games( publishing)?$,wiki_top50,,,kaynakli,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,Epic Games Publishing bağımsız etiket de dahil
+miHoYo,^(mihoyo|hoyoverse|cognosphere)$,wiki_top50,,,kaynakli,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
+Bandai Namco,^bandai namco( entertainment| games)?( europe| america| us)?( s a s)?$,wiki_top50,,,kaynakli,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
+Nexon,^(nexon( america| korea)?|neople|embark studios)$,wiki_top50,,,kaynakli,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,Embark Studios Nexon'un %100 yan kuruluşu
+Sega,^(sega( europe| of america| america| japan)?|atlus( usa)?)$,wiki_top50,,,kaynakli,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
+Garena,^garena$,wiki_top50,,,kaynakli,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
+Krafton,^(krafton|pubg corporation)$,wiki_top50,,,kaynakli,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
+Konami,^konami( digital entertainment)?$,wiki_top50,,,kaynakli,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
+Netmarble,^netmarble$,wiki_top50,,,kaynakli,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
+NC,^(ncsoft|nc)$,wiki_top50,,,kaynakli,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
+Square Enix,^square enix( collective)?$,wiki_top50,,,kaynakli,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,Square Enix Collective bağımsız etiket de dahil
+Ubisoft,^ubisoft( entertainment)?$,wiki_top50,,,kaynakli,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
+Embracer Group,^(embracer group|thq nordic( mobile)?|plaion|deep silver|koch media)$,wiki_top50,,,kaynakli,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,Sahiplik yıllar içinde değişti (Saber ve Gearbox 2024'te ayrıldı); güncel olmayan sahiplik sınırı raporda
+Capcom,^capcom( co| u)?$,wiki_top50,,,kaynakli,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
+NetDragon,^netdragon( websoft)?$,wiki_top50,,,kaynakli,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
+Wizards of the Coast,^wizards of the coast$,wiki_top50,,,kaynakli,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
+Smilegate,^smilegate( rpg| entertainment| stove)?$,wiki_top50,,,kaynakli,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
+Perfect World,^perfect world( entertainment| games)?( singapore pte)?$,wiki_top50,,,kaynakli,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
+Kakao Games,^kakao games$,wiki_top50,,,kaynakli,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
+Kingsoft,^(kingsoft|(amazing )?seasun( games)?( pte)?|seasun seed)$,wiki_top50,,,kaynakli,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
+Koei Tecmo,^koei tecmo( games| america| europe)?$,wiki_top50,,,kaynakli,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
+Lilith Games,^lilith games$,wiki_top50,,,kaynakli,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
+Com2uS,^com2us( holdings| roca)?$,wiki_top50,,,kaynakli,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
+Wemade,^wemade$,wiki_top50,,,kaynakli,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
+Larian Studios,^larian studios$,wiki_top50,,,kaynakli,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,Kendi oyununu yayınlayan büyük stüdyo
+Gameloft,^gameloft$,wiki_top50,,,kaynakli,https://en.wikipedia.org/wiki/List_of_largest_video_game_companies_by_revenue,
+CD Projekt,^cd projekt( red)?$,gelir_500m_kohort_yili,,,kaynakli,https://gameworldobserver.com/2021/04/16/cd-projekt-estimates-record-revenue-for-2020-earning-over-560-million,2020 geliri ~561 milyon USD
+Warner Bros. Games,^(warner bros (games|interactive entertainment)|wb games)$,gelir_500m_kohort_yili,,,kaynakli,https://80.lv/articles/warner-bros-games-loses-usd384-million-in-2024,"Ana şirket oyun gelirini ayırmıyor; ölçek dolaylı (2015'te 1,5 milyar USD açıklandı). Doğrulama dolaylı"
+Embracer Group,^coffee stain publishing$,alt_kurulus,2018-11-01,,kaynakli,https://embracer.com/,Coffee Stain Kasım 2018
+Embracer Group,^saber interactive$,alt_kurulus,2020-02-01,2024-03-28,kaynakli,https://en.wikipedia.org/wiki/Saber_Interactive,Embracer 2020-02 → Beacon Interactive 2024-03
+Embracer Group,^gearbox (publishing|software)$,alt_kurulus,2021-04-01,,kaynakli,https://en.wikipedia.org/wiki/Gearbox_Entertainment,Embracer 2021-04; 2024-06 sonrası Take-Two (yine büyük)
+Embracer Group,^milestone$,alt_kurulus,2019-08-14,,kaynakli,https://embracer.com/releases/thq-nordic-acquires-milestone-s-r-l/,
+Embracer Group,^vertigo games$,alt_kurulus,2020-09-16,,kaynakli,https://www.bluesnews.com/s/214902/koch-media-acquires-vertigo-games,
+Microsoft / Xbox,^(compulsion games|ninja theory)$,alt_kurulus,2018-06-10,,kaynakli,https://en.wikipedia.org/wiki/Xbox_(division),E3 2018 duyurusu; gün yaklaşık
+Microsoft / Xbox,^inxile entertainment$,alt_kurulus,2018-12-19,,kaynakli,https://en.wikipedia.org/wiki/InXile_Entertainment,
+Microsoft / Xbox,^double fine productions$,alt_kurulus,2019-06-09,,kaynakli,https://www.gamedeveloper.com/game-platforms/microsoft-acquires-double-fine-productions,
+NetEase,^grasshopper manufacture$,alt_kurulus,2021-10-21,,kaynakli,https://www.gematsu.com/2021/10/netease-games-acquires-grasshopper-manufacture,Hisse devri sözleşmesi 2021-05-31; 2026-09 ayrılık tek kaynakta
+NetEase,^quantic dream$,alt_kurulus,2022-08-31,,kaynakli,https://www.neteasegames.com/news/20220831/37000_1039928.html,
+Krafton,^unknown worlds entertainment$,alt_kurulus,2021-10-29,,kaynakli,https://gameinformer.com/2021/10/29/krafton-the-company-behind-pubg-acquires-subnautica-developer-unknown-worlds,
+Sony,^bungie$,alt_kurulus,2022-07-15,,bilinen_tarih,https://en.wikipedia.org/wiki/Bungie,Destiny 2 (2019) satın alma öncesi: organik kalır
+Sony,^firesprite$,alt_kurulus,2021-09-08,,bilinen_tarih,https://en.wikipedia.org/wiki/Firesprite,
+Take-Two,^zynga$,alt_kurulus,2022-05-23,,bilinen_tarih,https://en.wikipedia.org/wiki/Zynga,
+Square Enix,^taito$,alt_kurulus,,,kaynakli,https://en.wikipedia.org/wiki/Taito,2005'ten beri Square Enix
+Bandai Namco,^d3publisher$,alt_kurulus,,,kaynakli,https://en.wikipedia.org/wiki/D3_Publisher,2009'dan beri Bandai Namco
+Tencent,^next studios$,alt_kurulus,,,kaynakli,https://en.wikipedia.org/wiki/Tencent_Games,Tencent iç stüdyosu
+Nexon,^mintrocket$,alt_kurulus,,,kaynakli,https://en.wikipedia.org/wiki/Dave_the_Diver,Nexon iç markası
+Sega,^studio zero$,alt_kurulus,,,kaynakli,https://en.wikipedia.org/wiki/Atlus,Atlus/Sega iç stüdyosu
+Take-Two,^ruffian games$,alt_kurulus,,,kaynakli,https://en.wikipedia.org/wiki/Rockstar_Dundee,2010'dan beri Rockstar
+Amazon,^amazon game(s| studios)$,buyuk_teknoloji_medya,,,kaynakli,https://en.wikipedia.org/wiki/Amazon_Games,Fortune Global 500 şirketinin oyun yayın kolu; oyun geliri listeye girecek kadar büyük değil ama pazarlama gücü büyük
+Sony,^sony pictures virtual reality( spvr)?$,buyuk_teknoloji_medya,,,kaynakli,https://en.wikipedia.org/wiki/Sony_Pictures,Sony Group yayın kolu (aynı ölçüt)

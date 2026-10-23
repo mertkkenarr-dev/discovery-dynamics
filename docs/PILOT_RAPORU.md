@@ -193,3 +193,36 @@ Elle derlenir, her satır kaynaklıdır, `data/referans/` altında durur ve repo
 - R1: 2025 oyun sayısı 20.363, takipçi aralığı içinde.
 - R12: uyumsuzluk %2,5 (≤ %5).
 - Kapsama: histogram eksiği 0; IGDB %94,7; `reviews_365` doluluğu %91,5.
+
+## R8: İnceleme sayısı satışın vekili olarak (2026-10-23)
+
+Steam satış veya indirme sayısı yayınlamıyor. Tek açık tahmin SteamSpy'ın sahip aralıkları (FronkonGames'te `estimated_owners`). Kohortta:
+- Oyunların **%83'ü aynı en alt aralıkta** ("0–20 bin"), 12.839'u "0–0". Ayırt edici değil; birincil metrik olamaz.
+- Ayırt edilebilen 16.299 oyunda ömür boyu inceleme ile sahip aralığı arasındaki **Spearman sıra korelasyonu 0,585**. İnceleme ile eşzamanlı oyuncu zirvesi arasında 0,698 (n = 14.002).
+- Sahip aralığına göre ortanca inceleme monoton artıyor: 11 → 41 → 234 → 941 → 3.029 → 9.700 → 23.000 → 70.000 → … (tek istisna: birkaç oyunluk 50–100 milyon aralığı).
+
+**Sonuç:** İnceleme sayısı satışın sırasını iyi izliyor ve zaman damgalı tek sinyal. Ana metrik `reviews_365` olarak kalır, sonuçlar sıralama üzerinden yorumlanır, tür kontrolü kullanılır, gelir yalnızca aralık olarak verilir (KAPSAM §3.1).
+
+## Process 4: Türetilmiş nitelikler (2026-10-23)
+
+*Betik: `11b_oznitelik.py` → `interim/oznitelik.parquet` (113.564 oyun, 60 sütun), `interim/studyo_oyun.parquet`.*
+
+**Sızıntı kuralı (R6):** Her nitelik çıkış anında bilinebilir olmalı. "Önceki oyun" sayımları yalnızca kesin olarak daha önce çıkan oyunları sayar (aynı gün sayılmaz). Tarih olarak T14 ile düzeltilmiş çıkış kullanılır.
+
+| Kod | Nitelik | Kohort sonucu |
+|---|---|---|
+| N01 | Yayıncı bilgisi yok | 313 (%0,3) → organik = False |
+| N02 | **Organik örneklem** (kendi yayını veya yayıncının önceki oyunu ≤ 5, ve büyük yayıncı değil) | **84.131 (%88,0)**; duyarlılık ≤ 3: 83.006, ≤ 10: 85.913. Hedef (≥ %70) karşılandı |
+| N03 | Kendi yayını ama büyük yayıncı | 356 → organik dışı |
+| N04 | Demo çıkıştan önce yayında | 10.267 (%10,7). R13: kaldırılmış demolar görünmez |
+| N05 | Next Fest dolaylı göstergesi | Aralık 2019 sonrası çıkan 81.455 oyunun 8.071'i (%9,9) |
+| N06 | Steam'den 1 yıldan fazla önce başka platformda çıkmış (IGDB) | 3.357 (%3,5) |
+
+**Büyük yayıncı listesi tarihe duyarlı hale getirildi.** Organik sayılan en çok incelenen oyunlara bakılarak (analiz planındaki "veriden kontrol" adımı) üç eksik bulundu: büyük grupların kendi oyununu yayınlayan stüdyoları (Bungie, Quantic Dream), oyun geliri ilk 50'ye girmeyen dev şirketler (Amazon) ve zamanla değişen sahiplik. Çözüm:
+- IGDB'nin üst şirket zinciriyle büyük gruplara bağlı 37 aday stüdyo bulundu. IGDB'de hatalı bağlantılar var (Gravity ve GungHo "NetEase" altında görünüyor); bunlar reddedildi.
+- `buyuk_yayinci.csv`'ye `gecerli_baslangic` / `gecerli_bitis` eklendi. 22 yeni satır, satın alma tarihleri kaynaklı: Milestone 2019-08-14, Vertigo 2020-09-16, inXile 2018-12-19, Double Fine 2019-06-09, Unknown Worlds 2021-10-29, Quantic Dream 2022-08-31, Grasshopper 2021-10-21, Bungie 2022-07-15 vb. Saber (2020-02 → 2024-03) gibi ayrılmalar da tarihli.
+- Üçüncü ölçüt `buyuk_teknoloji_medya`: Fortune Global 500 şirketlerinin oyun yayın kolları (Amazon Games, Sony Pictures VR).
+- Doğrulama: Subnautica: Below Zero (2019, satın alma öncesi) organik; Psychonauts 2 (2021, Microsoft sonrası) organik değil.
+- **Açık konu:** Tarihi doğrulanamayan düşük etkili adaylar (Grove Street Games, 3D Realms, Amplitude; toplam 9 oyun) eklenmedi.
+
+**Bilinen sınır, büyük bağımsız stüdyolar:** Destiny 2 (Bungie, 2019) ve Detroit: Become Human (Quantic Dream, 2020) çıktıkları tarihte bağımsız oldukları için kural gereği organik. Black Myth: Wukong (Game Science), Crytek ve TaleWorlds da öyle. Stüdyo büyüklüğü gözlenmediği için kural elle bükülmedi. Ana bulgular T4 hariç tutularak da tekrarlanacak.
