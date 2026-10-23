@@ -1,10 +1,10 @@
 # Discovery Dynamics: Veri Raporu
 
-*Otomatik üretildi: `13_yayinla.py` · 2026-10-23T22:23:30Z · Elle düzenlemeyin.*
+*Otomatik üretildi: `13_yayinla.py` · 2026-10-23T23:05:11Z · Elle düzenlemeyin.*
 
 ## Kontroller
 
-42 / 42 kontrol geçti. Ayrıntı: `meta_kontrol` tablosu.
+47 / 47 kontrol geçti. Ayrıntı: `meta_kontrol` tablosu.
 
 ## Örneklem hunisi
 
@@ -85,6 +85,8 @@ Eksiklik kademeye göre değişiyorsa o alana dayanan bulgular yanlı olabilir; 
 | N06 | 11b_oznitelik | IGDB ilk çıkışı Steam'den 1 yıldan fazla önce (başka platformda önceden çıkmış) | 3,357 / 95,647 | steam_oncesi_cikis; IGDB yoksa NULL |
 | C01 | 11c_icerik | İçerik etiketi < 3 (vektör güvenilmez) | 3,155 / 95,647 | novelty ve benzer_12ay = NULL |
 | C02 | 11c_icerik | Alt tür etiketi yok (tür kombinasyonu tanımsız) | 10,624 / 95,647 | kombo_12ay = NULL |
+| B01 | 11d_basari | 2. yıl penceresi tam gözlenmemiş | 4,496 / 20,377 | kalicilik = NULL |
+| B02 | 11d_basari | Ticari ölçü tanımsız (F2P ya da fiyat bilinmiyor) | 14,911 / 87,488 | brut_gelir ve ticari_basari = NULL |
 
 ## Sütun sözlüğü (`oyun_tablosu`)
 
@@ -119,6 +121,16 @@ Eksiklik kademeye göre değişiyorsa o alana dayanan bulgular yanlı olabilir; 
 | `onceden_inceleme` | türetilmiş | %58.2 | Steam çıkış ayından önceki kovalardaki inceleme (T14 ölçütü) |
 | `r12_oran` | türetilmiş | %58.2 | omur_hist / inceleme_omur (R12) |
 | `r12_uyumsuz` | türetilmiş | %100.0 | r12_oran 0,95–1,30 dışında |
+| `begeni_wilson` | türetilmiş | %52.9 | Beğeni · İlk yıl olumlu oranının %95 Wilson alt sınırı (az incelemede temkinli) |
+| `reviews_2yil` | türetilmiş | %41.6 | Kalıcılık · 366.–730. gün incelemeleri (2. yıl tam gözlenmişse) |
+| `kalicilik` | türetilmiş | %16.6 | Kalıcılık · reviews_2yil / reviews_365 (reviews_365 ≥ 50) |
+| `brut_gelir_alt` | varsayım | %16.0 | Ticari · reviews_365 × 20 × fiyat (USD, reviews_365 ≥ 50, ücretli) |
+| `brut_gelir_orta` | varsayım | %75.9 | Ticari · reviews_365 × 30 × fiyat (USD, ücretli). Fiyat içerdiği için K1'de sonuç olarak kullanılmaz |
+| `brut_gelir_ust` | varsayım | %16.0 | Ticari · reviews_365 × 40 × fiyat (USD, reviews_365 ≥ 50, ücretli) |
+| `ticari_basari` | varsayım | %75.9 | Ticari · brut_gelir_orta ≥ 100.000 USD |
+| `ana_tur` | türetilmiş | %100.0 | En güçlü 'ana' tür etiketi (göreli sıra grubu için) |
+| `goreli_yuzdelik` | türetilmiş | %91.5 | Göreli · aynı yıl × ana tür içinde reviews_365 yüzdeliği (0–1) |
+| `basari_sinifi` | türetilmiş | %91.5 | gorunmez · orta · sessiz_basari · sevilen_hit · hit · tartismali_hit |
 | `f2p` | gözlem | %100.0 | ÖNCE · Ücretsiz |
 | `fiyat_liste_usd` | gözlem | %83.3 | ÖNCE* · Mevcut liste fiyatı (indirimsiz, USD). *Çıkış fiyatı değil (T03) |
 | `fiyat_kaynagi` | türetilmiş | %100.0 | f2p / mevcut_liste / yok |

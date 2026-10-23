@@ -26,6 +26,7 @@ def oyun_tablosu() -> pd.DataFrame:
     o = oku("oznitelik").drop(columns=["gozlem_gun", "inceleme_omur"])  # gozlem_gun: düzeltilmemiş tarihe göre → sonuc'tan alınır
     s = oku("sonuc").drop(columns=["ilk_cikis", "kohort", "ilk_cikis_kaynagi"])  # cikis, kohort, kaynak oznitelik'te (aynı kaynak, doldurulmuş)
     t = o.merge(s, on="appid", how="left", validate="1:1").merge(oku("icerik"), on="appid", how="left", validate="1:1")
+    t = t.merge(oku("basari"), on="appid", how="left", validate="1:1")
     eksik, fazla = sorted(set(t.columns) - set(SOZLUK)), sorted(set(SOZLUK) - set(t.columns))
     if eksik or fazla:
         sys.exit(f"Sözlük uyuşmuyor. Sözlükte olmayan sütun: {eksik} · tabloda olmayan sözlük girdisi: {fazla}")

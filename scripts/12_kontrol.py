@@ -122,6 +122,25 @@ def main() -> None:
     dolu = float(ki.novelty_k10.notna().mean())
     kontrol("K08", "novelty_k10 doluluğu (kohort)", f"%{dolu * 100:.1f}", dolu > 0.9, "> %90")
 
+    print("— İkincil başarı ailesi")
+    b = oku("basari")
+    kontrol(
+        "K09",
+        "basari: appid benzersiz ve ⊂ sonuc",
+        int(b.appid.duplicated().sum() + (~b.appid.isin(s.appid)).sum()),
+        not b.appid.duplicated().any() and b.appid.isin(s.appid).all(),
+        "0",
+    )
+    for col in ("begeni_wilson", "goreli_yuzdelik"):
+        disi = int((~b[col].dropna().between(0, 1)).sum())
+        kontrol("K09", f"{col} ∉ [0,1]", disi, disi == 0, "0")
+    gelir = (b.brut_gelir_alt > b.brut_gelir_orta) | (b.brut_gelir_orta > b.brut_gelir_ust)
+    kontrol("K09", "brüt gelir sırası (alt ≤ orta ≤ üst)", int(gelir.sum()), not gelir.any(), "0")
+    bs = b.merge(s[["appid", "hit"]], on="appid")
+    hit_sinif = bs.basari_sinifi.isin(["sevilen_hit", "hit", "tartismali_hit"])
+    uyusmaz = int((hit_sinif != bs.hit.fillna(False).astype(bool))[bs.hit.notna()].sum())
+    kontrol("K09", "başarı sınıfı ↔ hit uyuşmazlığı", uyusmaz, uyusmaz == 0, "0")
+
     pd.DataFrame(SONUC).assign(zaman=pd.Timestamp.now(tz="UTC").tz_convert(None)).to_parquet(INTERIM / "meta_kontrol.parquet", index=False)
     kalan = [r for r in SONUC if r["durum"] == "kaldi"]
     uyari = sum(r["durum"] == "uyari" for r in SONUC)

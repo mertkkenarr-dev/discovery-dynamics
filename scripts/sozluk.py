@@ -34,6 +34,17 @@ SOZLUK: dict[str, tuple[str, str]] = {
     "onceden_inceleme": ("türetilmiş", "Steam çıkış ayından önceki kovalardaki inceleme (T14 ölçütü)"),
     "r12_oran": ("türetilmiş", "omur_hist / inceleme_omur (R12)"),
     "r12_uyumsuz": ("türetilmiş", "r12_oran 0,95–1,30 dışında"),
+    # İkincil başarı ailesi (11d; tanımlar HIPOTEZLER 2026-10-24)
+    "begeni_wilson": ("türetilmiş", "Beğeni · İlk yıl olumlu oranının %95 Wilson alt sınırı (az incelemede temkinli)"),
+    "reviews_2yil": ("türetilmiş", "Kalıcılık · 366.–730. gün incelemeleri (2. yıl tam gözlenmişse)"),
+    "kalicilik": ("türetilmiş", "Kalıcılık · reviews_2yil / reviews_365 (reviews_365 ≥ 50)"),
+    "brut_gelir_alt": ("varsayım", "Ticari · reviews_365 × 20 × fiyat (USD, reviews_365 ≥ 50, ücretli)"),
+    "brut_gelir_orta": ("varsayım", "Ticari · reviews_365 × 30 × fiyat (USD, ücretli). Fiyat içerdiği için K1'de sonuç olarak kullanılmaz"),
+    "brut_gelir_ust": ("varsayım", "Ticari · reviews_365 × 40 × fiyat (USD, reviews_365 ≥ 50, ücretli)"),
+    "ticari_basari": ("varsayım", "Ticari · brut_gelir_orta ≥ 100.000 USD"),
+    "ana_tur": ("türetilmiş", "En güçlü 'ana' tür etiketi (göreli sıra grubu için)"),
+    "goreli_yuzdelik": ("türetilmiş", "Göreli · aynı yıl × ana tür içinde reviews_365 yüzdeliği (0–1)"),
+    "basari_sinifi": ("türetilmiş", "gorunmez · orta · sessiz_basari · sevilen_hit · hit · tartismali_hit"),
     # Ticari
     "f2p": ("gözlem", "ÖNCE · Ücretsiz"),
     "fiyat_liste_usd": ("gözlem", "ÖNCE* · Mevcut liste fiyatı (indirimsiz, USD). *Çıkış fiyatı değil (T03)"),
