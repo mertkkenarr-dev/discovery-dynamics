@@ -1,0 +1,206 @@
+{
+ "n": 66911,
+ "H6": {
+  "ols_log": {
+   "tahmin": 0.5609469039365649,
+   "alt": 0.519904643628526,
+   "ust": 0.6019891642446038,
+   "p": 4.47128272630845e-158,
+   "n": 66911
+  },
+  "logit_hit_OR": {
+   "tahmin": 3.068440882715904,
+   "alt": 2.7536598965718717,
+   "ust": 3.419205640625348,
+   "p": 1.2368096323747025e-91,
+   "n": 66911
+  },
+  "ucretli_ols": {
+   "tahmin": 0.6052335358773053,
+   "alt": 0.5600933369241725,
+   "ust": 0.6503737348304381,
+   "p": 3.339982962926381e-152,
+   "n": 54371
+  },
+  "psm": {
+   "ATT": 0.4953786744149109,
+   "alt": 0.45464383449575113,
+   "ust": 0.5374542307154497,
+   "n_tedavi": 14223,
+   "dislanan": 4695,
+   "maks_SMD": 0.0558,
+   "SMD": {
+    "yil": 0.0558,
+    "log_dil": 0.0084,
+    "ea": 0.0379,
+    "Action": 0.0,
+    "Adventure": 0.0,
+    "Casual": 0.0,
+    "RPG": 0.0,
+    "Simulation": 0.0,
+    "Strategy": 0.0,
+    "Sports": 0.0,
+    "Racing": 0.0,
+    "fiyat_10-20": 0.0,
+    "fiyat_20-30": 0.0,
+    "fiyat_5-10": 0.0,
+    "fiyat_<5": 0.0,
+    "fiyat_>=30": 0.0,
+    "fiyat_f2p": 0.0
+   }
+  },
+  "cikisa_yakin_2025": {
+   "tahmin": 0.44917205230227264,
+   "alt": 0.3443145078593663,
+   "ust": 0.5540295967451789,
+   "p": 4.6280507278500657e-17,
+   "n": 10153
+  },
+  "yuzde_tablo": {
+   "tahmin": {
+    "Ana model (tüm bağımsız oyunlar)": 75.23,
+    "Yalnız ücretli oyunlar": 83.17,
+    "Eğilim skoru eşleştirmesi": 64.11,
+    "Çıkışa en yakın dil durumu (2025)": 56.7
+   },
+   "alt": {
+    "Ana model (tüm bağımsız oyunlar)": 68.19,
+    "Yalnız ücretli oyunlar": 75.08,
+    "Eğilim skoru eşleştirmesi": 57.56,
+    "Çıkışa en yakın dil durumu (2025)": 41.1
+   },
+   "ust": {
+    "Ana model (tüm bağımsız oyunlar)": 82.57,
+    "Yalnız ücretli oyunlar": 91.63,
+    "Eğilim skoru eşleştirmesi": 71.16,
+    "Çıkışa en yakın dil durumu (2025)": 74.03
+   }
+  }
+ },
+ "H7": {
+  "kombo_OR": {
+   "tahmin": 1.059556985588915,
+   "alt": 1.030319638106023,
+   "ust": 1.089624000348078,
+   "p": 5.075535640240641e-05,
+   "n": 58995
+  },
+  "benzer_OR": {
+   "tahmin": 1.0516212255627928,
+   "alt": 1.0205267314002906,
+   "ust": 1.0836631398540113,
+   "p": 0.0010132656911808445,
+   "n": 58763
+  }
+ },
+ "etiket": {
+  "test_sayisi": 66,
+  "q<0.05": 36,
+  "en_olumlu": [
+   [
+    "Multiple Endings",
+    2.05
+   ],
+   [
+    "eSports",
+    2.09
+   ],
+   [
+    "Co-op",
+    2.73
+   ],
+   [
+    "Online Co-Op",
+    3.2
+   ],
+   [
+    "Multiplayer",
+    3.44
+   ]
+  ],
+  "en_olumsuz": [
+   [
+    "Grid-Based Movement",
+    0.29
+   ],
+   [
+    "Comic Book",
+    0.42
+   ],
+   [
+    "4 Player Local",
+    0.43
+   ],
+   [
+    "Score Attack",
+    0.44
+   ],
+   [
+    "Abstract",
+    0.46
+   ]
+  ]
+ },
+ "motivasyon": {
+  "Challenge": {
+   "arz": 9.0,
+   "hit": 3.22,
+   "sevilen": 2.6
+  },
+  "Community": {
+   "arz": 3.66,
+   "hit": 12.95,
+   "sevilen": 8.33
+  },
+  "Competition": {
+   "arz": 2.25,
+   "hit": 4.48,
+   "sevilen": 2.74
+  },
+  "Completion": {
+   "arz": 1.08,
+   "hit": 7.56,
+   "sevilen": 6.58
+  },
+  "Design": {
+   "arz": 1.17,
+   "hit": 13.94,
+   "sevilen": 8.77
+  },
+  "Destruction": {
+   "arz": 2.68,
+   "hit": 6.76,
+   "sevilen": 4.73
+  },
+  "Discovery": {
+   "arz": 17.78,
+   "hit": 4.37,
+   "sevilen": 3.35
+  },
+  "Excitement": {
+   "arz": 25.01,
+   "hit": 3.04,
+   "sevilen": 2.15
+  },
+  "Fantasy": {
+   "arz": 4.97,
+   "hit": 4.43,
+   "sevilen": 3.22
+  },
+  "Power": {
+   "arz": 0.77,
+   "hit": 6.47,
+   "sevilen": 3.14
+  },
+  "Story": {
+   "arz": 10.66,
+   "hit": 7.01,
+   "sevilen": 6.28
+  },
+  "Strategy": {
+   "arz": 20.99,
+   "hit": 4.8,
+   "sevilen": 3.38
+  }
+ }
+}

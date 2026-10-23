@@ -99,3 +99,61 @@ Başarıyı tek bir sayıyla ölçmek yerine dört açıdan bakıyoruz: **görü
 | Hit'lerin %74'ü sevilen hit; sessiz başarı (%4,7) sevilen hit (%3,6) kadar yaygın | Yüksek | Steam'in puan ölçeğine göre |
 | 100 bin USD'yi geçenlerin %35'i hit değil | Orta | Gelir kaba tahmin (×20–40 aralığı) |
 | Etkenlerin 8/9'u üç farklı başarı tanımında aynı yönde | Yüksek | Casual farkı ölçünün yapısından |
+
+---
+
+## M2: İçerik DNA'sı: neyin içinde olduğu fark yaratıyor mu?
+
+*Betikler: `analysis/m2_icerik.py`, `analysis/m2b_cince_ters_nedensellik.py` · 2026-10-24. Doğrulayıcı testler: H6, H7. Holm düzeltmesi H1–H7 ailesi tamamlanınca uygulanacak; p değerleri şimdilik ham.*
+
+### H6: Basitleştirilmiş Çince desteği: **desteklendi (ilişki), ama bir kısmı ters nedensellik**
+
+![H6](../analysis/sekiller/M2_1_H6_cince.png)
+
+- Diğer her şey sabitken Çince arayüz desteği olan oyunlar ilk yılında **%75 daha fazla inceleme** alıyor (%95 GA: 68–83). Eğilim skoru eşleştirmesiyle +%64 (58–71); eşleştirme dengesi bütün kontrollerde iyi (en büyük fark 0,056 < 0,1).
+- **Ama başarılı oyunlar Çince'yi sonradan ekliyor:**
+
+![Ters nedensellik](../analysis/sekiller/M2_5_H6_ters_nedensellik.png)
+
+- Şubat'tan Ekim 2026'ya, sadece 8 ayda, en başarılı oyunların %6,1'i Çince ekledi; en alttakilerin %0,5'i (13 kat fark). Yani "Çince → başarı" ilişkisinin bir kısmı aslında "başarı → Çince".
+- Çıkışa en yakın dil durumunu kullanan en temkinli tahmin **+%57** (41–74). Bu da çıkıştan 5–13 ay sonrasını yansıttığı için bir **üst sınır** olarak okunmalı.
+- **Geliştirici için anlamı:** Çince desteği güçlü biçimde başarıyla birlikte görülüyor ve etki ters nedensellik ayıklandıktan sonra da büyük kalıyor. Yine de "Çince ekle, %57 daha çok inceleme al" demek için neden-sonuç tasarımı gerekir. Bu veriyle mümkün değil, çünkü çıkış günündeki dil listesi gözlenmiyor.
+- Ön kayıttaki yan kanıt (Çince yazılmış incelemelerin payı) inceleme dili verisi gerektiriyor; **test edilemedi.**
+
+**Bu analizde düzeltilen iki hata:**
+1. İlk eşleştirme yalnız eğilim skoruyla yapılmıştı ve Action/RPG türlerinde denge ölçütünü tutturamadı (fark 0,17). Tür kombinasyonu ve fiyat bandında birebir eşleştirme eklenince düzeldi.
+2. Ters nedensellik testinin ilk sürümünde "Şubat" ve "Ekim" için iki farklı açık veri seti kullanılmıştı ve test sıfır değişiklik buldu. Kontrol edince iki setin 122.876 oyunda birebir aynı olduğu anlaşıldı: FronkonGames'in oyun bilgileri Şubat 2026'da donmuş. Test, Ekim durumu için kendi Steam çekimimizle yeniden kuruldu.
+
+### H7: Doygunluk: **desteklenmedi**
+
+![H7](../analysis/sekiller/M2_2_H7_doygunluk.png)
+
+- Ham tabloda kalabalık kombinasyonlarda hit oranı biraz düşük (%5,5'ten %4,7'ye).
+- Ama ön kayıtlı test (tür sabit etkisi ve kontrollerle) ilişkinin **tersine** döndüğünü gösteriyor: aynı ana tür içinde daha kalabalık kombinasyonlarda başarı ihtimali biraz **daha yüksek** (log birim başına OR 1,06; %95 GA 1,03–1,09). Diğer doygunluk ölçüsüyle de aynı (OR 1,05).
+- **Yorum:** Düşüş türler arası farktan geliyor: kalabalık türler (Casual, Action) zaten daha az hit veriyor. Aynı tür içinde ise kalabalık bir alt tür, büyük ihtimalle oyuncu talebinin işareti. "Kalabalık alandan kaç" tavsiyesi veriyle desteklenmiyor; "talebin olduğu yerde ol" daha yakın.
+
+### Keşifsel: Hangi içerik etiketleri başarıyla birlikte görülüyor?
+
+![Etiketler](../analysis/sekiller/M2_3_etiket_etkileri.png)
+
+- 66 mekanik, görsel ve oyuncu yapısı etiketi test edildi; 36'sı çoklu test düzeltmesinden (BH, q < 0,05) sonra da anlamlı.
+- **En güçlü olumlu ilişkiler oyuncu yapısında:** Multiplayer ×3,4, Online Co-Op ×3,2, Co-op ×2,7, eSports ×2,1. Hikâye mekanikleri de olumlu: Multiple Endings ×2,05, Choices Matter ×1,6. Görselde Anime ×1,8 ve Cinematic ×1,6.
+- **Olumsuz:** Grid-Based Movement ×0,29, Comic Book ×0,42, 4 Player Local ×0,43, Score Attack ×0,44, Abstract ×0,46. Ayrıca yaygın görsel tercihler (Top-Down, Colorful, Side Scroller, 2.5D) ×0,55–0,6.
+- **Dikkat:** Çok oyunculu oyunlar oyuncu başına daha çok inceleme alıyor olabilir (arkadaşlarla oynanır, topluluk büyür). Ayrıca etiketler oyuncu oyuyla şekillendiği için başarı etiketleri de etkileyebilir (R4). Bunlar keşifsel ilişkiler.
+
+### Keşifsel: Oyuncu motivasyonu haritası
+
+![Motivasyon](../analysis/sekiller/M2_4_motivasyon_haritasi.png)
+
+- **"Fırsat bölgesi"** (az arz, yüksek başarı): **Design** (yaratma, inşa, kişiselleştirme; oyunların %1,2'si, hit oranı %14) ve **Community** (birlikte oynama; %3,7 arz, %13 hit).
+- **En kalabalık ve en zor:** **Excitement** (aksiyon heyecanı; oyunların %25'inin baskın motivasyonu, hit oranı %3) ve **Challenge** (zorluk; %9 arz, %3,2 hit).
+- **Dikkat:** Ham oranlar (tür ve fiyat kontrolü yok). Etiket–motivasyon eşlemesi tek kodlayıcı taslağı; ikinci kodlayıcı (Mert) beklendiği için bu harita **ön bulgu**.
+
+### M2 özeti
+
+| Bulgu | Sonuç | Not |
+|---|---|---|
+| H6 · Çince desteği | **Desteklendi (ilişki)**: +%57 ile +%75 arası | Ters nedensellik kanıtlandı; +%57 en temkinli, yine de üst sınır |
+| H7 · Doygunluk | **Desteklenmedi**: aynı tür içinde katsayı pozitif (OR 1,06) | Ham düşüş türler arası farktan |
+| Çok oyunculu / co-op | ×2,7–3,4 (keşifsel) | Oyuncu başına inceleme farkı olabilir |
+| Fırsat motivasyonları: Design, Community | Az arz, ~%13–14 hit (keşifsel, ham) | Eşleme taslak |

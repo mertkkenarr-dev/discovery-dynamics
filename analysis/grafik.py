@@ -64,6 +64,8 @@ def baslik(fig: plt.Figure, ana: str, alt: str) -> None:
 
 def kaydet(fig: plt.Figure, ad: str, veri: pd.DataFrame, kaynak: str) -> Path:
     SEKIL.mkdir(parents=True, exist_ok=True)
+    if fig.subplotpars.bottom < 0.14:  # kaynak satırı x ekseni başlığıyla çakışmasın
+        fig.subplots_adjust(bottom=0.14)
     fig.text(0.01, 0.005, kaynak, ha="left", va="bottom", fontsize=7.5, color=SOLUK)
     yol = SEKIL / f"{ad}.png"
     fig.savefig(yol, facecolor=YUZEY, bbox_inches="tight", pad_inches=0.25)

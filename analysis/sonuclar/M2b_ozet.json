@@ -1,0 +1,39 @@
+{
+ "ekleme_kademe": {
+  "ekleyen": {
+   "T0": 0.457,
+   "T1": 0.928,
+   "T2": 2.302,
+   "T3": 4.894,
+   "T4": 6.14
+  },
+  "n": {
+   "T0": 29290,
+   "T1": 15090,
+   "T2": 2911,
+   "T3": 940,
+   "T4": 114
+  }
+ },
+ "kohort2025": {
+  "cin_subat": {
+   "yuzde": 56.7,
+   "alt": 41.1,
+   "ust": 74.0,
+   "n": 10153
+  },
+  "cin_ekim": {
+   "yuzde": 70.2,
+   "alt": 53.1,
+   "ust": 89.2,
+   "n": 10153
+  }
+ },
+ "tum_kohort_yuzde": {
+  "cin_subat": 70.3,
+  "cin_ekim": 75.2
+ },
+ "n_eslesen": 66911,
+ "ekleyen_toplam": 394,
+ "ters_yon_taban": 42
+}

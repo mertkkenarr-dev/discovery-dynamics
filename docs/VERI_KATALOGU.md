@@ -88,3 +88,14 @@ Her set indirildiğinde şu alanlar doldurulacak: satır sayısı, gerçek sütu
 - **FronkonGames Parquet'te `tags` ve `movies` sütunları boş** (tip `list<null>`). JSON sürümünde etiket oyları var. Ancak etiket ağırlıkları Steam `IStoreBrowseService/GetItems` ile daha güncel ve resmi biçimde alınabildiği için JSON indirilmedi.
 - **Yeni omurga kaynağı:** `IStoreBrowseService/GetItems` (resmi Steam Web API, anahtarsız, tek istekte 100 oyun). Ayrıntılar ANALIZ_PLANI.md B8'de.
 - **SteamSpy'ın rolü:** "Omurga"dan "çapraz doğrulama"ya indi.
+
+
+## Düzeltme (2026-10-24): FronkonGames oyun başına alanları Şubat 2026'da donmuş
+
+FronkonGames (HF commit 2026-10-15) ile Z02Z (2026-02-02) karşılaştırıldı. 122.876 ortak oyunda dil listeleri **ve** olumlu/olumsuz inceleme sayıları **%100 aynı**. Yani FronkonGames yeni oyun eklemeyi Şubat 2026'da bıraktığı gibi (B4) mevcut oyunların alanlarını da güncellememiş; Z02Z onun kopyası.
+
+**Sonuçları:**
+- FronkonGames'ten alınan her alan (Steam türleri `10c`, dil metinleri, SteamSpy sahip aralıkları) **Şubat 2026 anlık görüntüsüdür.**
+- Steam türleri için bu çıkış anına daha yakın olduğundan avantaj.
+- Z02Z bağımsız bir doğrulama kaynağı **değildir.**
+- Ekim 2026 durumu yalnız kendi GetItems çekimimizden gelir.
