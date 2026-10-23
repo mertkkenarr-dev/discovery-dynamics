@@ -53,5 +53,6 @@ Kohort 2018-01-01 – 2025-12-31 · hit ≥ 500 (duyarlılık 100 / 1.000) · or
 - ✅ Prepare tamam: GetItems, IGDB, histogram (57.107), referans tabloları (`data/referans/`).
 - ✅ Process: `10_temizle_steam.py`, `10b_temizle_igdb.py`, `11_sonuc.py` tam veriyle çalıştı. Kesin kohort **95.647**, `reviews_365` %91,5 dolu, hit %6,5.
 - ✅ `12_kontrol.py`: 32/32 geçti (dil anahtarı ve stüdyo tekrarı düzeltildikten sonra; bkz. PILOT_RAPORU 'Process 3').
-- ⏭ Sıradaki: `11b_oznitelik.py` (organik örneklem: yayıncı ≤5 oyun + `buyuk_yayinci.csv`; demo çıkış öncesi mi; Next Fest penceresi; `steam_oncesi_cikis` IGDB'den; novelty/saturation) → `13_yayinla.py` (DuckDB, Excel, VERI_RAPORU.md).
-- Proje git deposu değil; kullanıcıya `git init` önerildi, cevap bekliyor.
+- ✅ `11b_oznitelik.py`: organik örneklem 84.131 (%88); büyük yayıncı listesi tarihe duyarlı (`gecerli_baslangic/bitis`). R8: inceleme ~ sahip aralığı Spearman 0,585.
+- ⏭ Sıradaki: `11c_icerik.py` (novelty_score: çıkıştan önceki oyunlarla kNN kosinüs uzaklığı, etiket sırası ilk 10 (R4); saturation: aynı etiket kombinasyonu son 12 ay; motivasyon eşlemesi ayrı iş) → `13_yayinla.py` (DuckDB, Excel, VERI_RAPORU.md).
+- Git deposu kuruldu (main). Commit yazarı Mert; Claude ortak yazar satırı eklenmez.
