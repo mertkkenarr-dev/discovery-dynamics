@@ -66,3 +66,4 @@ Bu belge kilitli. Değişiklik gerekirse bu dosya düzenlenmez. Değişiklik, ge
 |---|---|---|
 | 2026-10-18 | İlk kayıt | — |
 | 2026-10-18 | H8'e Twitch klip verisi ek kanıt olarak eklendi (hipotez ve test değişmedi) | Twitch Get Clips geçmişe dönük veri sağlıyor |
+| 2026-10-24 | H1 ölçüm kapsamı netleştirildi: `novelty_score` **etiket kombinasyonu yeniliğini** ölçer (çıkıştan önceki en yakın 10 oyuna ortalama kosinüs uzaklığı; içerik etiketleri, sıra ağırlığı, 2018 öncesi IDF). Mekanik buluşu yakalamaz: Vampire Survivors 0,199 (ortanca 0,271) çıktı, çünkü onu tanımlayan "Bullet Heaven" etiketi başarısından sonra doğdu. Hipotez, test ve çürütme ölçütü değişmedi. H7 doygunluk ölçüsü `kombo_12ay` (aynı alt tür ikilisi, son 365 gün); duyarlılık `benzer_12ay` (kosinüs ≥ 0,6) | Yüz geçerliliği testi sonuç verisine bakılmadan yapıldı (PILOT_RAPORU "Process 6") |

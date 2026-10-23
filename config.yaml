@@ -21,3 +21,10 @@ temizlik:
   seri_uretici_yillik: 12   # bir takvim yılında bu sayıdan fazla oyun çıkaran geliştirici = seri üretici (T05)
   yetiskin_icerik_id: [3, 4]  # Steam içerik uyarısı: 3 Adult Only Sexual, 4 Frequent Nudity or Sexual Content (T06)
   dil_spam_ek_dil: 40   # bu sayıda ek dil (elanguage=-1) iddia eden oyun = dil spam'i (T17); dağılımda 20–40 arası boş
+icerik:
+  ilk_n_etiket: 10          # vektöre giren içerik etiketi sayısı (sıra ağırlığı; R4: oy sayısı kullanılmaz)
+  min_etiket: 3             # bundan az içerik etiketi olan oyunda novelty = NULL
+  novelty_k: [5, 10, 20]    # ana k = 10; diğerleri duyarlılık
+  idf_bitis: 2018-01-01     # IDF yalnız bu tarihten önce çıkan oyunlardan (sızıntısız)
+  benzer_esik: 0.6          # benzer_12ay eşiği: en yakın komşu benzerliğinin ~%5. yüzdeliği (0,63); 0,7 → %32 sıfır, 0,5 → aşırı gevşek. Sonuca bakılmadan seçildi
+  icerik_boyutlari: [A_tur, B_mekanik, C_gorsel, D_tema, E_oyuncu, F_kapsam]

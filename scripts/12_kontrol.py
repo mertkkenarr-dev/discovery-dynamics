@@ -104,6 +104,24 @@ def main() -> None:
     kontrol("K07", "oyun_steam_tur: (appid, tur) benzersiz", int(tr.duplicated(["appid", "tur"]).sum()), not tr.duplicated(["appid", "tur"]).any(), "0 tekrar")
     kontrol("K07", "oyun_steam_tur.appid ⊂ oyun_steam.appid", int((~tr.appid.isin(o.appid)).sum()), tr.appid.isin(o.appid).all(), "0 yetim")
 
+    print("— İçerik metrikleri")
+    ic = oku("icerik")
+    kontrol(
+        "K08",
+        "icerik: appid benzersiz ve ⊂ oyun_steam",
+        int(ic.appid.duplicated().sum() + (~ic.appid.isin(o.appid)).sum()),
+        not ic.appid.duplicated().any() and ic.appid.isin(o.appid).all(),
+        "0",
+    )
+    for col in ("novelty_k5", "novelty_k10", "novelty_k20"):
+        disi = int((~ic[col].dropna().between(0, 1)).sum())
+        kontrol("K08", f"{col} ∉ [0,1]", disi, disi == 0, "0")
+    sira = (ic.benzer_12ay_t70 > ic.benzer_12ay_t60) | (ic.benzer_12ay_t60 > ic.benzer_12ay_t50) | (ic.benzer_12ay_t50 > ic.benzer_12ay_t40)
+    kontrol("K08", "benzer_12ay eşik sırası (yüksek eşik ≤ düşük eşik)", int(sira.sum()), not sira.any(), "0")
+    ki = ic[ic.appid.isin(k.appid)]
+    dolu = float(ki.novelty_k10.notna().mean())
+    kontrol("K08", "novelty_k10 doluluğu (kohort)", f"%{dolu * 100:.1f}", dolu > 0.9, "> %90")
+
     pd.DataFrame(SONUC).assign(zaman=pd.Timestamp.now(tz="UTC").tz_convert(None)).to_parquet(INTERIM / "meta_kontrol.parquet", index=False)
     kalan = [r for r in SONUC if r["durum"] == "kaldi"]
     uyari = sum(r["durum"] == "uyari" for r in SONUC)

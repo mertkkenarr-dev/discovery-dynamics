@@ -269,3 +269,28 @@ Kaçırılan katılımcıların **446'nın 435'inde, 333'ün 333'ünde** verimiz
 2. H2'nin demo değişkeni de aynı sorundan etkileniyor: demolu oyunların bir kısmı demosuz görünüyor, demo etkisi olduğundan küçük tahmin edilir.
 
 **Çözüm (planda R13):** Steam'in tam uygulama listesinden (kaldırılmış demolar dahil) demo uygulamalarını bulup `parent_appid` ile ana oyuna bağlamak. Bunun için Steam Web API anahtarı gerekiyor; şu an `.env`'de boş. Anahtar gelene kadar H2 ve H3 sonuçları bu sınırla birlikte raporlanır. 2025 için IGDB etiketleri ikinci bir doğrulama kaynağı olarak kalır.
+
+## Process 6: İçerik metrikleri, yenilik ve doygunluk (2026-10-24)
+
+*Betik: `11c_icerik.py` → `interim/icerik.parquet`. Ayarlar `config.yaml` → `icerik` altında.*
+
+**Tanımlar:**
+- **Vektör:** Yalnız içerik etiketleri (A–F; `X_*` ve H hariç). İçerik etiketleri arasındaki sıraya göre ilk 10, ağırlık (11 − sıra)/10 × IDF. IDF yalnız 2018 öncesi oyunlardan hesaplanır. Oy sayısı kullanılmaz (R4).
+- **`novelty_k10`:** 1 − (kesin olarak önce çıkmış en benzer 10 oyunla ortalama kosinüs benzerliği). Duyarlılık için k = 5 ve 20. Oyunlar tarihe göre sıralanıp her parti yalnız kendinden önceki satırlarla çarpıldığı için gelecek bilgisi yapısal olarak giremez.
+- **`kombo_12ay`** (H7 ana ölçü): En güçlü 2 alt tür etiketini paylaşan, son 365 günde çıkmış oyun sayısı (4.311 farklı kombinasyon).
+- **`benzer_12ay`** (duyarlılık): Son 365 günde çıkmış ve kosinüs benzerliği ≥ 0,6 olan oyun sayısı.
+- Eşik seçimi yalnız benzerlik dağılımına göre yapıldı: en yakın komşu benzerliğinin %5'lik dilimi 0,63. Eşik 0,7 oyunların %32'sinde sıfır veriyordu, 0,5 aşırı gevşekti. Sonuç verisine bakılmadı.
+
+**Dağılım (kohort):** `novelty_k10` ortanca 0,271 (%5–95 aralığı: 0,075–0,434). `benzer_12ay` ortanca 11, %9'u sıfır. `kombo_12ay` ortanca 17.
+
+**Yüz geçerliliği testi:**
+- ✔ **Doygunluk dinamiği yakalanıyor.** "Bullet Heaven" oyunlarının ortanca yeniliği tür doldukça düşüyor: 2020'de 0,52 → 2022'de 0,31 → 2023'te 0,17 → 2024'te 0,15.
+- ✔ **Komşular anlamlı.** Hades'in en yakın komşuları aksiyon roguelike oyunları (Asura, Rogues Like Us, Skelly Selest).
+- ✘ **Mekanik buluş yakalanmıyor.** Vampire Survivors 0,199 çıktı (ortancanın altında); etiketleri eski bullet hell ve roguelite oyunlarıyla aynı. Türü tanımlayan "Bullet Heaven" etiketi başarısından sonra doğdu.
+- **Karar:** Ölçü değiştirilmedi. Pioneer oyunu yüksek gösterecek şekilde ayarlamak, sonuca göre ölçü uydurmak olurdu. H1 "etiket kombinasyonu yeniliği" olarak test edilir; kapsam HIPOTEZLER değişiklik günlüğüne işlendi.
+
+**Kontrol hattının yakaladığı iki hata:**
+1. Etiketleri birebir aynı oyunlarda float32 yuvarlaması (benzerlik 1,0000001 → yenilik −1,19e−07). Seri üretici kopyalarında sık. Değerler [0,1] aralığına kırpıldı.
+2. En eski oyunlarda k = 20 için yeterli önceki komşu yokken değer **sonsuz** çıkıyordu (geçerlilik k = 10'a göre kontrol ediliyordu). Her k için ayrı kontrol eklendi; yetersizse `NULL`.
+
+Düzeltmelerden sonra **42 / 42 kontrol geçti.**
