@@ -1,0 +1,208 @@
+/* Steam Galaksisi: gece gökyüzü fotoğraf plakası. Tek koyu tema; renk sıcaklığı başarıyı taşır (soğuk toz → altın).
+   Metin kutulara konmaz: gökyüzü sol kenarda karartılır, yazı doğrudan plakanın üstünde durur. */
+@layer reset, base, layout, components;
+
+@layer reset {
+  *, *::before, *::after { box-sizing: border-box; }
+  body, h1, h2, h3, p, figure, dl, dd, ul, ol { margin: 0; padding: 0; }
+  ul, ol { list-style: none; }
+  svg { display: block; max-width: 100%; }
+  button, input { font: inherit; color: inherit; }
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    --ground: oklch(17% 0.035 255);
+    --ground-deep: oklch(13% 0.03 258);
+    --ink: oklch(94% 0.014 85);
+    --muted: oklch(77% 0.025 250);
+    --rule: oklch(42% 0.035 255);
+    --accent: oklch(83% 0.13 74);
+    --accent-ink: oklch(20% 0.04 255);
+    --series-1: var(--accent);
+    --series-2: oklch(68% 0.075 252);
+    --series-3: var(--muted);
+    --t0: oklch(46% 0.05 262);
+    --t1: oklch(70% 0.07 258);
+    --t2: oklch(92% 0.02 255);
+    --t3: oklch(91% 0.07 80);
+    --t4: oklch(83% 0.13 70);
+    --font-display: 'Literata Variable', Georgia, serif;
+    --font-ui: 'Familjen Grotesk Variable', 'Helvetica Neue', sans-serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+    --gutter: clamp(1rem, 5vw, 4.5rem);
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    line-height: 1.65;
+    font-optical-sizing: auto;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+  }
+  h1, h2, h3 { text-wrap: balance; }
+  p { text-wrap: pretty; }
+  a { color: inherit; text-decoration-color: var(--accent); text-decoration-thickness: 0.07em; text-underline-offset: 0.22em; }
+  a:hover { text-decoration-thickness: 0.14em; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+  ::selection { background: var(--accent); color: var(--accent-ink); }
+  strong { font-weight: 650; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-delay: 0ms !important; transition-duration: 0.01ms !important; }
+  }
+}
+
+@layer layout {
+  .sahne-kap { position: fixed; inset: 0; z-index: 0; }
+  .sahne-kap .sahne { width: 100%; height: 100%; }
+  /* Sol kenar karartması: yazı plakanın üstünde okunur kalsın diye. Keşifte kalkar, harita bütünüyle görünür. */
+  .sahne-kap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(90deg, color-mix(in oklch, var(--ground-deep) 88%, transparent) 0%, color-mix(in oklch, var(--ground-deep) 55%, transparent) 30%, transparent 58%);
+    transition: opacity 0.8s var(--ease);
+  }
+  .sahne-kap[data-kesif='true']::after { opacity: 0.35; }
+  @media (max-width: 62rem) {
+    .sahne-kap::after { background: linear-gradient(0deg, color-mix(in oklch, var(--ground-deep) 94%, transparent) 0%, color-mix(in oklch, var(--ground-deep) 80%, transparent) 50%, transparent 80%); }
+  }
+
+  main { position: relative; z-index: 1; }
+  .giris, .adim, .kesif { padding-inline: var(--gutter); }
+}
+
+@layer components {
+  .ust {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 3;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 1.25rem var(--gutter) 2.5rem;
+    font-family: var(--font-ui);
+    font-size: 0.9375rem;
+    background: linear-gradient(180deg, var(--ground-deep) 0%, color-mix(in oklch, var(--ground-deep) 70%, transparent) 55%, transparent);
+    pointer-events: none;
+  }
+  .ust a { pointer-events: auto; }
+  .ust .marka { font-family: var(--font-display); font-style: italic; font-weight: 500; font-size: 1.0625rem; text-decoration: none; }
+
+  /* Giriş: plaka pozlanırken (shader, ~2,6 sn) başlık geç belirir; tek orkestre an budur. */
+  .giris { min-height: 100svh; display: grid; align-content: end; gap: 2rem; padding-block: 8rem 4rem; }
+  .giris h1 { display: grid; gap: 0.25rem; max-width: 15ch; font-size: clamp(2.75rem, 7vw, 6.5rem); line-height: 1.02; letter-spacing: -0.005em; }
+  .giris h1 .ince { font-weight: 300; }
+  .giris h1 .kalin { font-weight: 750; letter-spacing: 0; }
+  .giris h1 span, .giris-metin, .anahtar, .asagi { animation: belir 1.4s var(--ease) both; }
+  .giris h1 .ince { animation-delay: 1.5s; }
+  .giris h1 .kalin { animation-delay: 2.3s; }
+  .giris-metin { animation-delay: 3s; max-width: 40ch; font-size: 1.1875rem; color: var(--muted); }
+  .anahtar { animation-delay: 3.3s; }
+  .asagi { animation-delay: 3.6s; justify-self: start; font-family: var(--font-ui); font-size: 1rem; }
+  @keyframes belir { from { opacity: 0; filter: blur(6px); } to { opacity: 1; filter: blur(0); } }
+  .durum { font-family: var(--font-ui); color: var(--muted); }
+  .hata { color: oklch(80% 0.11 30); }
+
+  .anahtar { display: grid; gap: 0.5rem; max-width: 40rem; font-family: var(--font-ui); font-size: 0.875rem; color: var(--muted); }
+  .anahtar figcaption { color: var(--ink); font-weight: 600; }
+  .anahtar ul { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; }
+  .anahtar li { display: inline-flex; align-items: center; gap: 0.5rem; font-variant-numeric: tabular-nums; }
+  .anahtar p { max-width: 52ch; }
+  .nokta { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--t0); }
+  .nokta.t1 { background: var(--t1); }
+  .nokta.t2 { background: var(--t2); }
+  .nokta.t3 { background: var(--t3); box-shadow: 0 0 6px var(--t3); }
+  .nokta.t4 { width: 0.75rem; height: 0.75rem; background: var(--t4); box-shadow: 0 0 10px var(--t4); }
+
+  .adim { min-height: 110vh; display: flex; align-items: center; padding-block: 6rem; }
+  .adim .metin { max-width: 32rem; display: grid; gap: 1rem; opacity: 0.28; transition: opacity 0.6s var(--ease); }
+  .adim[data-etkin='true'] .metin { opacity: 1; }
+  .katalog { font-family: var(--font-mono); font-size: 0.8125rem; color: var(--accent); letter-spacing: 0.02em; }
+  .adim h2, .kesif h2, .son h2 { font-size: clamp(1.625rem, 2.8vw, 2.375rem); line-height: 1.16; font-weight: 600; letter-spacing: -0.003em; }
+  .govde { display: grid; gap: 1rem; }
+  .grafik { display: grid; gap: 0.25rem; margin-top: 0.5rem; }
+  .grafik figcaption { font-family: var(--font-ui); font-size: 0.875rem; font-weight: 600; }
+
+  .dizin { position: fixed; right: var(--gutter); top: 50%; transform: translateY(-50%); z-index: 2; font-family: var(--font-ui); font-size: 0.8125rem; }
+  .dizin ol { display: grid; gap: 0.25rem; justify-items: end; }
+  .dizin a { text-shadow: 0 0 6px var(--ground-deep), 0 0 2px var(--ground-deep); display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0; color: var(--muted); text-decoration: none; transition: color 0.2s var(--ease); }
+  .dizin a::after { content: ''; width: 0.25rem; height: 0.25rem; border-radius: 50%; background: var(--rule); transition: background-color 0.2s var(--ease), box-shadow 0.2s var(--ease); }
+  .dizin a:hover { color: var(--ink); }
+  .dizin a[aria-current='step'] { color: var(--ink); }
+  .dizin a[aria-current='step']::after { background: var(--accent); box-shadow: 0 0 8px var(--accent); }
+  @media (max-width: 62rem) { .dizin { display: none; } }
+
+  .kesif { min-height: 150vh; padding-block: 8rem; pointer-events: none; }
+  .kesif .metin { position: sticky; top: 6rem; max-width: 26rem; display: grid; gap: 1rem; pointer-events: auto; }
+  .kesif-panel { display: grid; gap: 1rem; font-family: var(--font-ui); font-size: 1rem; }
+  .arama { display: grid; gap: 0.5rem; font-weight: 600; }
+  .arama input {
+    width: 100%;
+    min-height: 2.75rem;
+    padding: 0.5rem 0.75rem;
+    background: color-mix(in oklch, var(--ground-deep) 80%, transparent);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    font-weight: 400;
+    transition: border-color 0.2s var(--ease);
+  }
+  .arama input:focus-visible { border-color: var(--accent); outline-offset: 2px; }
+  .sonuclar { display: grid; border-top: 1px solid var(--rule); }
+  .sonuclar li { border-bottom: 1px solid var(--rule); }
+  .sonuclar button { width: 100%; display: flex; justify-content: space-between; gap: 1rem; padding: 0.5rem 0; background: none; border: 0; text-align: left; cursor: pointer; }
+  .sonuclar button:hover, .sonuclar button[aria-pressed='true'] { color: var(--accent); }
+  .sonuclar .yil, .kunye dd { font-variant-numeric: tabular-nums; color: var(--muted); }
+  .sonuclar .bos { padding: 0.5rem 0; color: var(--muted); }
+  .kunye { display: grid; gap: 0.75rem; padding-top: 1rem; border-top: 2px solid var(--accent); }
+  .kunye h3 { font-family: var(--font-display); font-size: 1.5rem; line-height: 1.2; font-weight: 600; }
+  .kunye dl { display: grid; grid-template-columns: auto 1fr; gap: 0.25rem 1rem; }
+  .kunye dt { color: var(--muted); }
+  .kunye dd { color: var(--ink); }
+  .bayraklar { color: var(--muted); }
+  .kunye-alt { display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; }
+  .kunye-alt button { background: none; border: 0; padding: 0; color: var(--muted); cursor: pointer; text-decoration: underline; text-underline-offset: 0.22em; }
+
+  .ipucu {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 4;
+    pointer-events: none;
+    max-width: 18rem;
+    padding: 0.25rem 0.5rem;
+    background: var(--ground-deep);
+    font-family: var(--font-ui);
+    font-size: 0.875rem;
+  }
+
+  .son { position: relative; background: linear-gradient(180deg, transparent, var(--ground) 16rem); padding: 20rem var(--gutter) 0; }
+  .son-ic { max-width: 40rem; display: grid; gap: 1.5rem; }
+  .son-ic h2 + * { margin-top: -0.25rem; }
+  .son-ic h2:not(:first-child) { margin-top: 2rem; }
+  .sinirlar { display: grid; gap: 1rem; }
+  .sinirlar li { max-width: 62ch; }
+  .son .alt { margin-top: 6rem; padding-block: 2rem; border-top: 1px solid var(--rule); font-family: var(--font-ui); font-size: 0.875rem; color: var(--muted); }
+
+  /* Dar ekranda metin galaksinin üstüne biniyor; okunurluk için yarı saydam zemin (geniş ekranda gerek yok, sol kenar karartması yetiyor). */
+  @media (max-width: 62rem) {
+    .adim { align-items: flex-end; min-height: 120vh; padding-bottom: 3rem; }
+    .adim .metin, .kesif .metin {
+      margin-inline: -1rem;
+      padding: 1.5rem 1rem;
+      background: color-mix(in oklch, var(--ground-deep) 86%, transparent);
+    }
+    .giris { padding-top: 14rem; gap: 1.5rem; }
+    .giris h1 { max-width: none; font-size: 2.5rem; text-shadow: 0 0 1.5rem var(--ground-deep), 0 0 0.5rem var(--ground-deep); }
+    .giris h1 .ince { font-weight: 400; }
+    .giris-metin { font-size: 1.0625rem; }
+  }
+}

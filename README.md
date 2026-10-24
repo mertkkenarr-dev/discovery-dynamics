@@ -13,9 +13,9 @@ Steam'de her yıl ~20.000 oyun çıkıyor ve büyük çoğunluğu neredeyse hiç
 |---|---|
 | 0. Kapsam ve hipotezler | ✅ Tamamlandı (2026-10-18) |
 | 1. Prepare: veri toplama | ✅ GetItems, IGDB, inceleme serileri, referans tabloları · ⏳ kaldırılmış demolar (Steam API anahtarı bekliyor) |
-| 2. Process: temizleme ve öznitelik üretimi | ✅ 2026-10-24: `bash scripts/hat.sh` · 42/42 kontrol · docs/VERI_RAPORU.md |
+| 2. Process: temizleme ve öznitelik üretimi | ✅ 2026-10-24: `bash scripts/hat.sh` · 47/47 kontrol · docs/VERI_RAPORU.md |
 | 3. Analyze: analiz modülleri M1–M8 | 🔄 M1–M4, M6, K1–K4 ✅ · M5 (Steam API anahtarı), M7, M8 bekliyor · [ANALIZ_RAPORU](docs/ANALIZ_RAPORU.md) |
-| 4. Share: landing page, Explorer, dashboard | — |
+| 4. Share: landing page, Explorer, dashboard | 🔄 Steam Galaksisi taslağı: [web/](web/README.md) (2026-10-24) |
 | 5. Act: öneriler ve yayın | — |
 
 ## Belgeler
