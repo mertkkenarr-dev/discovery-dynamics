@@ -322,3 +322,29 @@ En doğru özet: "Tanıdık bir kalıbın içinde fark yaratmak", "alışılmad�
 - **Kaba hesap kuralı:** İlk ayın inceleme sayısını 2 ile çarp, ilk yılın kabaca nereye varacağını gör. Uzun kuyruğu iyi olan oyunlar 4 katına kadar çıkabiliyor. Uzun soluklu ilginin değeri M4'te görülmüştü.
 - **Lansman ayı belirleyici.** İlk 30 günde 100'ün altında kalan bir oyunun yılı hit kapatma ihtimali %3'ün altında. Pazarlama, wishlist toplama ve demo çalışmasının büyük kısmı **çıkıştan önce** yapılmalı. Çıkıştan sonra kurtarmak istisnai.
 - **Not:** Aylık çözünürlükteki oyunlarda ilk 30 gün yaklaşık hesaplanıyor (hata %2–8); aralık bazlı sonuçları etkilemiyor.
+
+### K4: Çıkış öncesi tahmin modeli
+
+*Betik: `analysis/k4_tahmin_modeli.py`. LightGBM; eğitim ≤ 2023, test 2024–2025 (23.465 oyun).*
+
+**Sızıntıya karşı alınan önlemler:**
+- Oyuncu etiketleri ve onlardan türetilen yenilik/doygunluk ölçüleri modele girmedi (sonradan oylanıyor).
+- **IGDB'nin hiçbir alanı** girmedi. IGDB başarılı oyunları daha ayrıntılı kodluyor (T13); model "kaydın ne kadar dolu olduğundan" başarıyı öğrenebilirdi.
+
+![Tahmin isabeti](../analysis/sekiller/K4_1_tahmin_isabeti.png)
+
+| Model | İçerik | PR-AUC | ROC-AUC |
+|---|---|---|---|
+| Rastgele tahmin | — | 0,05 | 0,50 |
+| B (katı) | Yalnız kesin çıkış öncesi bilgiler | 0,19 | 0,76 |
+| **Ana model** | + liste fiyatı ve platformlar | **0,26** | **0,81** |
+| A | + dil bilgisi (Çince, dil sayısı) | 0,34 | 0,85 |
+
+- Ana modelin "en umut verici" bulduğu %10'luk dilimde gerçek hit oranı **%22**, ortalamanın (%4,8) **4,6 katı.** En alttaki %10'da ise %0,5.
+- **Neden ana model "dilsiz"?** Dil bilgisi eklenince PR-AUC 0,26'dan 0,34'e çıkıyor, ama M2'de başarılı oyunların Çince'yi sonradan eklediği gösterildi. Bu artışın bir kısmı sızıntı. A bir üst sınır, B bir alt sınır.
+
+![Katkılar](../analysis/sekiller/K4_2_tahmin_katkilari.png)
+
+- **Tahmine en çok katkı yapan bilgiler:** fiyat (açık ara), yayıncının deneyimi, stüdyo yaşı, macOS desteği, Simulation/RPG türü, aynı hafta çıkan oyun sayısı. "Kendi yayını" ve "geliştiricinin önceki oyunları" düşük olasılık yönünde; M1 ve M6 bulgularıyla tutarlı.
+
+**Anlamı:** Çıkış öncesi bilgilerle oyunların "umut verici" ve "riskli" olanlarını kabaca ayırmak mümkün; en riskli %50'de hit oranı %2'nin altında. Ama tahmin gücü sınırlı: en umut verici dilimdeki oyunların bile %78'i hit olmuyor. Lansman sonrası (K3: ilk ay) ve içerik (M2) çok daha belirleyici. Bu model Indie Opportunity Explorer'ın motoru olacak; çıktısı bir "kesin tahmin" değil, "benzer oyunların geçmişte ne yaptığı" olarak sunulmalı.
