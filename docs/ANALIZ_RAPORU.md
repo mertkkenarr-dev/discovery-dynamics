@@ -245,3 +245,27 @@ En doğru özet: "Tanıdık bir kalıbın içinde fark yaratmak", "alışılmad�
 - **M6 aynı stüdyonun içi:** aynı stüdyonun ikinci oyunu ortalamada ilkini geçmiyor.
 
 **Geliştirici için anlamı:** "İlk oyun deneme, ikincide tutar" beklentisi veriyle desteklenmiyor. İlk oyunu görünmez kalan stüdyoların büyük çoğunluğu ikincide de görünmez kalıyor. Bir şeyin değişmesi gerekiyor: tür, kapsam, pazarlama, ya da M2–M4'teki etkenler.
+
+---
+
+## Keşifsel analizler (K1–K4)
+
+*Ön kayıtta yoktu; sonuçlara bakılmadan 2026-10-24'te kayda geçirildi (HIPOTEZLER). Holm ailesinin dışında, "keşifsel" etiketiyle raporlanır.*
+
+### K2: Yapay zekâ içerik beyanı
+
+*Betik: `analysis/k2_yapay_zeka.py`*
+
+![Yapay zekâ](../analysis/sekiller/K2_1_yapay_zeka.png)
+
+- Steam Ocak 2024'ten beri oyunlarda yapay zekâ kullanımının beyan edilmesini istiyor. IGDB bu beyanları anahtar kelime olarak aktarıyor (görsel, müzik, ses, çeviri, pazarlama, kod; Steam'in kategorileriyle birebir). IGDB'de anahtar kelimesi kodlanmış oyunlar içinde beyan oranı 2023'te %0,5, 2024'te **%6,9**, 2025'te **%15,5.**
+- 2024–2025 çıkışlı 8.185 bağımsız oyunda, yapay zekâ beyan eden 1.001 oyun:
+  - **%65'i görünmez kaldı** (beyan etmeyenlerde %39). Kontrollü OR **×3,0** (2,6–3,5).
+  - %3,4'ü hit oldu (beyan etmeyenlerde %10,5). OR ×0,31.
+  - %2,4'ü sevilen hit oldu (%7,8'e karşı).
+  - 50+ incelemeli olanların ortanca olumlu oranı **5,6 puan daha düşük.**
+- **Nasıl okunmalı:** Bu bir neden-sonuç değil. Yapay zekâ beyanı büyük ihtimalle düşük bütçeli, hızlı üretilmiş projelerle birlikte görülüyor. Ama oyuncuların beyanı görüp tepki vermesi (daha düşük beğeni) de mümkün. İki açıklama bu veriyle ayrılamaz.
+- **Sınırlar:**
+  - Steam API'leri beyanı döndürmüyor (doğrudan kontrol edildi). Mağaza sayfalarını HTML olarak taramak kaynak politikasına aykırı olduğu için kullanılmadı.
+  - Yalnız **beyan eden** oyunlar ölçülüyor; kullanıp beyan etmeyenler "beyan yok" grubunda. Bu, farkı küçültme yönünde çalışır.
+  - IGDB'nin anahtar kelime kodladığı oyunlar genelden daha başarılı (bu alt örneklemde görünmezlik %39, tüm kohortta %54). Mutlak oranlar değil, fark yorumlanmalı.
