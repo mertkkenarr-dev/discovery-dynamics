@@ -48,14 +48,13 @@ Kohort 2018-01-01 – 2025-12-31 · hit ≥ 500 (duyarlılık 100 / 1.000) · or
 - FronkonGames parquet'inde etiketler boş; etiket ağırlıkları GetItems'tan gelir.
 - Steam dil listesi: `elanguage = -1` satırlarında dil `eadditionallanguage`'da (ayrı numaralandırma). `n_dil` = ana diller, `n_ek_dil` ayrı; ≥ 40 ek dil = `dil_spam`.
 
-## Kaldığımız yer (2026-10-23 gece)
+## Kaldığımız yer (2026-10-24, gece otonom oturumu)
 
-- ✅ Prepare tamam: GetItems, IGDB, histogram (57.107), referans tabloları (`data/referans/`).
-- ✅ Process: `10_temizle_steam.py`, `10b_temizle_igdb.py`, `11_sonuc.py` tam veriyle çalıştı. Kesin kohort **95.647**, `reviews_365` %91,5 dolu, hit %6,5.
-- ✅ `12_kontrol.py`: 32/32 geçti (dil anahtarı ve stüdyo tekrarı düzeltildikten sonra; bkz. PILOT_RAPORU 'Process 3').
-- ✅ `11b_oznitelik.py`: organik örneklem 84.131 (%88); büyük yayıncı listesi tarihe duyarlı (`gecerli_baslangic/bitis`). R8: inceleme ~ sahip aralığı Spearman 0,585.
-- ✅ İçerik katmanları: `10c_temizle_tur.py` (Steam türleri, yazilim_suphe), `r01_etiket_taksonomi.py` (429 etiket → boyut + motivasyon taslağı), IGDB `sonradan_bilgi` sızıntı bayrağı. 36/36 kontrol.
-- ⚠️ R13 büyük: Next Fest göstergesi IGDB 2025 etiketlerine göre katılımcıların ~%53'ünü yakalıyor; kaçanların demoları kaldırılmış. Çözüm Steam Web API anahtarı (kullanıcı alacak) → tam uygulama listesinden demo → parent eşlemesi.
-- ⏭ Sıradaki: (a) kullanıcı STEAM_API_KEY'i .env'e ekleyince `04_demolar.py`; (b) ✅ `11c_icerik.py` tamam (novelty_k5/10/20, kombo_12ay, benzer_12ay; 42/42 kontrol; H1 = etiket kombinasyonu yeniliği); (c) motivasyon ikinci kodlayıcı (Mert); (d) ✅ `13_yayinla.py` + `scripts/hat.sh` (tüm Process hattı tek komut). Analyze: M1 ✅ (`analysis/m1_gorunurluk.py`). Sıra: M1 → M2 → M3 → M4 → M6 → M5 → M7 → M8 + keşifsel K1 fiyat, K2 yapay zekâ beyanı, K3 erken uyarı, K4 tahmin modeli (kullanıcı seçti).
-- Analiz kuralları: grafikler `analysis/grafik.py` stiliyle (dataviz paleti doğrulandı, tek eksen, başlık sonucu söyler, her PNG'nin CSV'si). Bulgular `docs/ANALIZ_RAPORU.md`'ye sade Türkçe. F2P ücretli oyunlarla aynı modele girmez (R8). Her grafiği kaydettikten sonra Read ile gözle kontrol et.
-- Git deposu kuruldu (main). Commit yazarı Mert; Claude ortak yazar satırı eklenmez.
+- ✅ Prepare + Process tamam (`bash scripts/hat.sh`, 47/47 kontrol). İkincil başarı ailesi `11d_basari.py`.
+- ✅ Analyze: M1, M1b, M2 (+M2b), M3, M4, M6 ve keşifsel K1–K4 tamam → `docs/ANALIZ_RAPORU.md` (başta kısa özet + hipotez tablosu, `analysis/hipotez_ozeti.py`).
+  - Hipotezler: H4 ✅, H6 ✅ (ters nedensellik payıyla); H1, H5, H7 ❌; H2, H3 (M5) Steam API anahtarı bekliyor; H8 (M8) veri bekliyor.
+- ⏭ Sıradaki: M8 için örneklem + tek tek inceleme çekimi (appreviews) → sıçrama tespiti → YouTube (günlük 10k kota) + Twitch klipleri. M7 için LLM API anahtarı yok.
+- ⚠️ Kullanıcıdan beklenenler: STEAM_API_KEY (.env), motivasyon eşlemesinin ikinci kodlaması.
+- Analiz kuralları: `analysis/grafik.py` stili; her grafik Read ile gözle kontrol; başlıklar veriden üretilir (önceden iddia yazma); rapordaki her sayı sonuç JSON/CSV ile doğrulanır; komut zincirleri `&&` (`;` hatayı yutar).
+- Bilinen tuzaklar: FronkonGames oyun alanları Şubat 2026'da donmuş (Z02Z = kopya); IGDB eksikliği başarıyla ilişkili (MNAR) → modellere IGDB girmez; schinese sonradan eklenebiliyor; <10 incelemede reviews_365 = ömür boyu üst sınır.
+- Git: main; commit yazarı Mert; Claude ortak yazar satırı yok.
