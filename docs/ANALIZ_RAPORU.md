@@ -211,3 +211,37 @@ En doğru özet: "Tanıdık bir kalıbın içinde fark yaratmak", "alışılmad�
   - **Uzun soluklu (%26):** İlk ay görece küçük, sonra iki yıl boyunca düz ve kalıcı; ikinci yıl iki yıllık incelemelerin %36'sı. Hit oranı **%33**, sevilen hit oranı %27; dört grubun en yükseği. Early Access payı da en yüksek (%30).
 - **Anlamı:** En başarılı oyunlar büyük bir lansman patlamasıyla değil, **kalıcı ilgiyle** başarıya ulaşıyor. Lansman haftasına her şeyi yatırmak yerine güncellemeler, içerik ve topluluk ile ilgiyi sürdürmek daha iyi sonuçla birlikte görülüyor.
 - **Sınır:** Örneklem ilk yılında 50+ inceleme alanlarla sınırlı. Kümeleme yöntemi ön kayıttan saptı: DTW yerine aylık profillerde k-means (gerekçesi HIPOTEZLER'de).
+
+---
+
+## M6: İkinci oyun: stüdyolar ikinci denemede daha mı başarılı?
+
+*Betik: `analysis/m6_ikinci_oyun.py` · 2026-10-24. Doğrulayıcı test: H5.*
+
+### H5: İkinci oyun etkisi: **desteklenmedi**
+
+![H5](../analysis/sekiller/M6_2_H5_ikinci_oyun.png)
+
+- İlk iki oyunu da analiz örnekleminde olan 7.774 stüdyoda ikinci oyun ilkinden **daha başarılı değil.** Stüdyoların %41'i ikinci oyununda daha çok inceleme aldı. Birinci farklar modeli (stüdyo sabit etkisine denk; arada geçen süre, tür, fiyat, dil ve EA farkları kontrol edildi) ortalama **−%12** gösteriyor (%95 GA: −15 ile −8).
+- **Sağlamlık:**
+
+| Örneklem | Değişim | İyileşen |
+|---|---|---|
+| Ana | −%12 [−15, −8] | %41 |
+| İkinci oyun büyük yayıncıyla da olabilir | −%12 [−16, −8] | %42 |
+| Yalnız Steam sabit kimlikli stüdyolar (ad eşleşme hatası yok) | −%9 [−15, −1] | %44 |
+| **Yalnız iki oyunu da tam seriyle ölçülenler** | **−%5 [−12, +2]** | %48 |
+
+- Negatif farkın bir kısmı ölçümden geliyor. 10'dan az incelemeli oyunlarda ilk yıl değeri ömür boyu sayının üst sınırı; eski ilk oyun daha uzun süre biriktirmiş oluyor. En temiz ölçümde fark sıfırdan ayırt edilemiyor. **Doğru özet: ikinci oyunun daha iyi olduğuna dair kanıt yok.**
+- **Kademeye göre:** İlk oyunu ne kadar başarılıysa ikinci oyun o kadar geride kalıyor (T2'de −%66, T4'te −%87). Bu büyük ölçüde **ortalamaya dönüş**: çok iyi giden bir ilk oyun kısmen şansla da iyi gitmiştir ve bunu tekrarlamak zordur.
+
+![Geçişler](../analysis/sekiller/M6_1_kademe_gecis.png)
+
+- İlk oyunu görünmez kalan (T0) stüdyoların **%77'si ikinci oyunda da görünmez** kalıyor. Sadece %3'ü 100+ incelemeye çıkıyor.
+- İlk oyunu hit olan (T3) stüdyoların üçte biri yine hit yapıyor (%32 + %7). Bu, rastgele bir oyunun hit olma ihtimalinin (%5) yaklaşık 8 katı. **Başarı tekrarlanmıyor, ama tamamen şans da değil:** başarılı stüdyolar başarılı kalma eğiliminde.
+
+**M1 ile çelişiyor mu?** M1'de "geliştiricinin önceki oyunu var" ×1,6 olumlu çıkmıştı. Çelişki yok, çünkü iki bulgu farklı şeyler ölçüyor:
+- **M1 stüdyolar arası karşılaştırma:** ikinci oyun çıkaran stüdyolar, ilk oyunu iyi gittiği için devam eden seçilmiş bir grup.
+- **M6 aynı stüdyonun içi:** aynı stüdyonun ikinci oyunu ortalamada ilkini geçmiyor.
+
+**Geliştirici için anlamı:** "İlk oyun deneme, ikincide tutar" beklentisi veriyle desteklenmiyor. İlk oyunu görünmez kalan stüdyoların büyük çoğunluğu ikincide de görünmez kalıyor. Bir şeyin değişmesi gerekiyor: tür, kapsam, pazarlama, ya da M2–M4'teki etkenler.
