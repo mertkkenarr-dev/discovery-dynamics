@@ -185,3 +185,29 @@ Başarıyı tek bir sayıyla ölçmek yerine dört açıdan bakıyoruz: **görü
 2. Alışılmadık etiket kombinasyonu bazen sadece niş ya da deneysel bir projeye işaret ediyor olabilir.
 
 En doğru özet: "Tanıdık bir kalıbın içinde fark yaratmak", "alışılmadık bir kalıp kurmaktan" daha güvenli görünüyor.
+
+---
+
+## M4: Yörüngeler: oyunların ilgisi zaman içinde nasıl değişiyor?
+
+*Betik: `analysis/m4_yorunge.py` · 2026-10-24. Doğrulayıcı test: H4. Ölçüm ayrıntısı test öncesi kayda geçti (HIPOTEZLER).*
+
+### H4: Early Access ve uzun kuyruk: **desteklendi**
+
+![H4](../analysis/sekiller/M4_1_H4_early_access.png)
+
+- İlk yılında 50+ inceleme alan 13.276 bağımsız oyunda, Early Access ile çıkanların incelemeleri zamana daha yayılmış. İlk yılın incelemelerinin 90. günden sonra gelen payının ortancası: **%42** (Early Access), **%37** (doğrudan tam sürüm).
+- **Kontrollü model:** OR 1,27 (%95 GA 1,23–1,31). **Eşleştirilmiş karşılaştırma:** +6,7 puan (5,8–7,6). Eşleştirme dengesi çok iyi (en büyük fark 0,02).
+- **Mekanizma:** Early Access oyunları genellikle ilk yıl içinde tam sürüme (1.0) geçiyor ve bu ikinci bir ilgi dalgası yaratıyor. Hipotezin öngördüğü "zamana yayılmış başarı" büyük ölçüde bu ikinci lansmanın etkisi olabilir.
+- **Not:** Steam'in EA kaydı tutmadığı ve tarihini bizim düzelttiğimiz 808 oyunun bir kısmı aslında EA'ydı ama "EA değil" sayılıyor. Bu, farkı küçültme yönünde çalışır.
+
+### Keşifsel: İnceleme eğrisi tipleri
+
+![Yörüngeler](../analysis/sekiller/M4_2_yorunge_tipleri.png)
+
+- 2 yılı gözlenmiş 10.333 oyunun aylık inceleme eğrisi kümelendi. Net ayrık tipler yok (siluet 0,15), eğriler bir süreklilik oluşturuyor. Üç tip bunun kaba bir özeti:
+  - **Patlayıp sönen (%26):** İncelemelerin yarısından fazlası ilk ayda; ikinci yılda neredeyse hiç (%9). Hit oranı **%16**.
+  - **Hızlı başlangıç (%48):** İlk ay güçlü, sonra yavaşça azalan. Hit oranı %24.
+  - **Uzun soluklu (%26):** İlk ay görece küçük, sonra iki yıl boyunca düz ve kalıcı; ikinci yıl iki yıllık incelemelerin %36'sı. Hit oranı **%33**, sevilen hit oranı %27; dört grubun en yükseği. Early Access payı da en yüksek (%30).
+- **Anlamı:** En başarılı oyunlar büyük bir lansman patlamasıyla değil, **kalıcı ilgiyle** başarıya ulaşıyor. Lansman haftasına her şeyi yatırmak yerine güncellemeler, içerik ve topluluk ile ilgiyi sürdürmek daha iyi sonuçla birlikte görülüyor.
+- **Sınır:** Örneklem ilk yılında 50+ inceleme alanlarla sınırlı. Kümeleme yöntemi ön kayıttan saptı: DTW yerine aylık profillerde k-means (gerekçesi HIPOTEZLER'de).

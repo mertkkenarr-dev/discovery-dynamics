@@ -25,10 +25,10 @@ KAYNAK = "Kaynak: Steam, IGDB; Discovery Dynamics analizi. Başarı = ilk 365 g�
 RNG = np.random.default_rng(20261024)
 
 
-def psm(d: pd.DataFrame, tedavi: str, sonuc: str) -> dict:
+def psm(d: pd.DataFrame, tedavi: str, sonuc: str, kontrol: str = KONTROL, haric: tuple[str, ...] = ()) -> dict:
     """Tür kombinasyonu × fiyat bandında birebir; katman içinde logit PS'de en yakın kontrol (yerine koyarak, kaliper 0,2 SD).
     İlk sürüm (yalnız PS) Action/RPG'de SMD 0,17 verdi (< 0,1 ölçütü tutmadı) → birebir katman eklendi (2026-10-24)."""
-    ps = smf.logit(f"{tedavi} ~ {KONTROL}", data=d).fit(disp=0)
+    ps = smf.logit(f"{tedavi} ~ {kontrol}", data=d).fit(disp=0)  # kontrol test edilen değişkeni içermemeli (M4'te ea)
     d = d.assign(lp=np.log(ps.predict(d) / (1 - ps.predict(d))))
     d["katman"] = d[TURLER].astype(int).astype(str).agg("".join, axis=1) + "|" + d.fiyat
     kaliper = 0.2 * d.lp.std()
@@ -50,7 +50,7 @@ def psm(d: pd.DataFrame, tedavi: str, sonuc: str) -> dict:
     fiyat = pd.get_dummies(pd.concat([tt.fiyat, cc.fiyat]), prefix="fiyat").astype(float)
     ft, fc = fiyat.iloc[: len(tt)], fiyat.iloc[len(tt) :]
     smd = {}
-    for v in ["yil", "log_dil", "ea", *TURLER]:
+    for v in [v for v in ["yil", "log_dil", "ea", *TURLER] if v not in haric]:
         s = np.sqrt((tt[v].var() + cc[v].var()) / 2)
         smd[v] = float(abs(tt[v].mean() - cc[v].mean()) / s) if s > 0 else 0.0
     for v in fiyat.columns:
