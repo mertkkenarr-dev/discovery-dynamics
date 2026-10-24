@@ -53,7 +53,7 @@ Kohort 2018-01-01 – 2025-12-31 · hit ≥ 500 (duyarlılık 100 / 1.000) · or
 - ✅ Prepare + Process tamam (`bash scripts/hat.sh`, 47/47 kontrol). İkincil başarı ailesi `11d_basari.py`.
 - ✅ Analyze: M1, M1b, M2 (+M2b), M3, M4, M6 ve keşifsel K1–K4 tamam → `docs/ANALIZ_RAPORU.md` (başta kısa özet + hipotez tablosu, `analysis/hipotez_ozeti.py`).
   - Hipotezler: H4 ✅, H6 ✅ (ters nedensellik payıyla); H1, H5, H7 ❌; H2, H3 (M5) Steam API anahtarı bekliyor; H8 (M8) veri bekliyor.
-- ⏭ Sıradaki: M8 için örneklem + tek tek inceleme çekimi (appreviews) → sıçrama tespiti → YouTube (günlük 10k kota) + Twitch klipleri. M7 için LLM API anahtarı yok.
+- ⛔ M8: Steam `appreviews` kaldırıldı (302); yeni IUserReviewsService yalnız son ≤365 gün → H8 şu haliyle test edilemez. Seçenekler kullanıcıda (HIPOTEZLER). M7 metinleri için yeni API son 365 günü verir; LLM API anahtarı yok.
 - ⚠️ Kullanıcıdan beklenenler: STEAM_API_KEY (.env), motivasyon eşlemesinin ikinci kodlaması.
 - Analiz kuralları: `analysis/grafik.py` stili; her grafik Read ile gözle kontrol; başlıklar veriden üretilir (önceden iddia yazma); rapordaki her sayı sonuç JSON/CSV ile doğrulanır; komut zincirleri `&&` (`;` hatayı yutar).
 - Bilinen tuzaklar: FronkonGames oyun alanları Şubat 2026'da donmuş (Z02Z = kopya); IGDB eksikliği başarıyla ilişkili (MNAR) → modellere IGDB girmez; schinese sonradan eklenebiliyor; <10 incelemede reviews_365 = ömür boyu üst sınır.
