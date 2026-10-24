@@ -157,3 +157,31 @@ Başarıyı tek bir sayıyla ölçmek yerine dört açıdan bakıyoruz: **görü
 | H7 · Doygunluk | **Desteklenmedi**: aynı tür içinde katsayı pozitif (OR 1,06) | Ham düşüş türler arası farktan |
 | Çok oyunculu / co-op | ×2,7–3,4 (keşifsel) | Oyuncu başına inceleme farkı olabilir |
 | Fırsat motivasyonları: Design, Community | Az arz, ~%13–14 hit (keşifsel, ham) | Eşleme taslak |
+
+---
+
+## M3: Yenilik: "tanıdık ama farklı" mı kazanıyor?
+
+*Betik: `analysis/m3_yenilik.py` · 2026-10-24. Doğrulayıcı test: H1. Yenilik ölçüsü = oyunun etiket kombinasyonunun, kendisinden önce çıkmış en benzer 10 oyuna uzaklığı (mekanik buluşu değil, etiket kombinasyonunu ölçer).*
+
+### H1: Ters U: **desteklenmedi**
+
+![H1](../analysis/sekiller/M3_1_H1_yenilik.png)
+
+- Ön kayıt, orta düzeyde yenilikçi oyunların en iyi sonucu alacağını (ters U) öngörüyordu. Veri bunu desteklemiyor: test penceresinde (oyunların %90'ı) ilişki **tek yönlü ve azalan.**
+  - Eğim pencerenin iki ucunda da negatif ve anlamlı (t = −11,1 ve −9,2).
+  - Kuadratik terim anlamsız (p = 0,39).
+  - Lind–Mehlum p = 1.
+- **Büyüklük:** Diğer her şey sabitken tipik bir oyunun beklenen ilk yıl incelemesi, yenilik skoru 0,11'den 0,44'e çıkınca kabaca **yarıya** iniyor.
+- **Duyarlılık:** Komşu sayısı 5 ya da 20 alındığında, sonuç hit olarak ölçüldüğünde ve az oylanmış oyunlarda (R4) sonuç değişmiyor: ters U hiçbirinde yok. Az oylanmış oyunlarda yüksek yenilikteki düşüş de sürüyor (t = −2,6); bulgu etiket oylamasının bir yan ürünü değil.
+- **Keşifsel ayrıntı:** Esnek eğri, test penceresinin altında (oyunların en tanıdık %5'i) bir tepe ve sonra düşüş gösteriyor. Etiketleri önceki oyunlarla neredeyse birebir aynı olan oyunlar da iyi yapmıyor olabilir. Bu bölgede veri az; ön kayıtlı test kapsamında değil.
+
+![Ham](../analysis/sekiller/M3_2_yenilik_ham.png)
+
+- Ham tabloda hafif bir tepe var (yenilik 0,21'de %5,9 hit), ama tür, fiyat ve yıl kontrol edilince kayboluyor. Ham tepe büyük ihtimalle tür karışımından geliyor.
+
+**Geliştirici için anlamı:** "Biraz farklı ol" tavsiyesi veride görünmüyor. Etiket kombinasyonu olarak **tanıdık** oyunlar daha iyi yapıyor: oyuncular aradıkları türü bulabildiklerinde satın alıyor. Ama bu bulgu iki sınırla birlikte okunmalı:
+1. Ölçü mekanik buluşu yakalamıyor. Vampire Survivors gibi türü değiştiren oyunlar etiket olarak "tanıdık" görünüyor (bkz. veri raporu).
+2. Alışılmadık etiket kombinasyonu bazen sadece niş ya da deneysel bir projeye işaret ediyor olabilir.
+
+En doğru özet: "Tanıdık bir kalıbın içinde fark yaratmak", "alışılmadık bir kalıp kurmaktan" daha güvenli görünüyor.
