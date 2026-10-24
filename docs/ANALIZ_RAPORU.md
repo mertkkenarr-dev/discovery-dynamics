@@ -38,7 +38,7 @@
 7. **Uzun soluklu ilgi kazandırıyor:** Early Access oyunlarının ilgisi zamana daha yayılmış (H4). İlgisi iki yıl süren oyunların hit oranı, patlayıp sönenlerin 2 katı (M4).
 8. **İkinci oyun ilkinden iyi değil:** İlk oyunu görünmez kalan stüdyoların %77'si ikincide de görünmez (M6).
 9. **Lansman ayı yılı belirliyor:** İlk 30 gün ile ilk yıl arasındaki sıra korelasyonu 0,93; tipik oyun yılı ilk ayının ~2,2 katıyla kapatıyor (K3).
-10. **Yapay zekâ beyan eden oyunlar 3 kat daha sık görünmez kalıyor** (2024–2025; ilişki, neden-sonuç değil) (K2).
+10. **Yapay zekâ beyan eden oyunların %65'i görünmez kalıyor, beyan etmeyenlerde %39** (kontrollü odds oranı ×3,0; 2024–2025; ilişki, neden-sonuç değil) (K2).
 
 ### Bu analizlerde bulunup düzeltilen önemli hatalar
 
