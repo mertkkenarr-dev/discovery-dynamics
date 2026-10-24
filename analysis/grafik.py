@@ -87,4 +87,4 @@ def wilson(k: pd.Series, n: pd.Series, z: float = 1.96) -> tuple[pd.Series, pd.S
     p = k / n
     m = z * ((p * (1 - p) / n + z**2 / (4 * n**2)) ** 0.5) / (1 + z**2 / n)
     c = (p + z**2 / (2 * n)) / (1 + z**2 / n)
-    return c - m, c + m
+    return (c - m).clip(0, 1), (c + m).clip(0, 1)  # p=0/1'de kayan nokta sınırı aşabiliyor (K3'te negatif hata çubuğu)

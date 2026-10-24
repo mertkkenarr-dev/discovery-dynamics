@@ -298,3 +298,27 @@ En doğru özet: "Tanıdık bir kalıbın içinde fark yaratmak", "alışılmad�
 - **Bu bir "fiyatını artır" tavsiyesi değil.** Fiyat büyük ölçüde oyunun kapsamını, üretim değerini ve geliştiricinin güvenini yansıtıyor; 25 USD'lik bağımsız oyun genelde daha büyük bir projedir.
 - Kullanılan fiyat çıkış fiyatı değil, Ekim 2026 liste fiyatı. Başarısız oyunların sonradan fiyat düşürmesi ucuz oyunların dezavantajını kısmen şişirebilir.
 - Güvenle söylenebilecek olan: **5 USD altı bir "görünürlük tuzağı" gibi duruyor** (her türde hit oranı %0,4–2). Ayrıca daha yüksek fiyat, beğeni çıtasını da yükseltiyor.
+
+### K3: Erken uyarı: ilk ay yılı ne kadar söylüyor?
+
+*Betik: `analysis/k3_erken_uyari.py`. Aralık sınırları sonuçlara bakılmadan sabitlendi.*
+
+![Erken uyarı](../analysis/sekiller/K3_1_erken_uyari.png)
+
+- **İlk 30 gün yılın büyük kısmını belirliyor.** İlk 30 günün inceleme sayısı ile ilk yıl arasındaki sıra korelasyonu **0,93**, ilk 90 gün için 0,96.
+- **İlk 30 günde X inceleme alan bir oyunun yılı hit kapatma olasılığı:**
+
+| İlk 30 gün | 10–19 | 20–49 | 50–99 | 100–199 | 200–499 |
+|---|---|---|---|---|---|
+| Yıl sonunda hit | %0,1 | %0,5 | %3 | **%17** | **%75** |
+
+- Bağımsız oyunların %68'i ilk ayında 10'dan az inceleme alıyor. Bunların ilk yılında hit olanı neredeyse yok.
+
+![İlk ay çarpanı](../analysis/sekiller/K3_2_ilk_ay_carpani.png)
+
+- **Tipik bir oyun ilk yılını ilk ayının ~2,2 katıyla kapatıyor.** Bu çarpan her büyüklükte şaşırtıcı derecede sabit (×1,8–2,2). En iyi %10'luk dilim ×3,6–4,6'ya ulaşıyor.
+
+**Geliştirici için anlamı:**
+- **Kaba hesap kuralı:** İlk ayın inceleme sayısını 2 ile çarp, ilk yılın kabaca nereye varacağını gör. Uzun kuyruğu iyi olan oyunlar 4 katına kadar çıkabiliyor. Uzun soluklu ilginin değeri M4'te görülmüştü.
+- **Lansman ayı belirleyici.** İlk 30 günde 100'ün altında kalan bir oyunun yılı hit kapatma ihtimali %3'ün altında. Pazarlama, wishlist toplama ve demo çalışmasının büyük kısmı **çıkıştan önce** yapılmalı. Çıkıştan sonra kurtarmak istisnai.
+- **Not:** Aylık çözünürlükteki oyunlarda ilk 30 gün yaklaşık hesaplanıyor (hata %2–8); aralık bazlı sonuçları etkilemiyor.
