@@ -10,6 +10,42 @@
 
 ---
 
+## Kısa özet (2026-10-24)
+
+### Ön kayıtlı hipotezler
+
+| Hipotez | Konu | Tek yönlü p | Holm p (geçici, 5 test) | Sonuç | Not |
+|---|---|---|---|---|---|
+| H1 | Yenilik ters U (M3) | 1 | 1 | **desteklenmedi** | β₂ anlamsız; eğim iki uçta negatif (ilişki azalan) |
+| H4 | Early Access → uzun kuyruk (M4) | 6.2e-46 | 2.5e-45 | **desteklendi** | OR 1.27 (1.23–1.31); PSM +6.7 puan |
+| H5 | İkinci oyun daha başarılı (M6) | 1 | 1 | **desteklenmedi** | FD -12%; en temiz ölçümde -5% |
+| H6 | Çince desteği (M2) | 2.2e-158 | 1.1e-157 | **desteklendi** | +%57–75; ters nedensellik payı var (M2b) |
+| H7 | Doygunluk (M2) | 1 | 1 | **desteklenmedi** | OR 1.06: ters yönde (aynı tür içinde kalabalık dezavantaj değil) |
+| H2 | Demo etkisi (M5) | — | — | bekliyor | Steam API anahtarı (kaldırılmış demolar, R13) |
+| H3 | Next Fest etkisi (M5) | — | — | bekliyor | Steam API anahtarı; dolaylı gösterge duyarlılığı ~%53 |
+| H8 | Mikro/makro içerik üreticisi (M8, ayrı aile) | — | — | bekliyor | YouTube/Twitch çekimi |
+
+*Hipotezler yönlü olduğu için Holm düzeltmesine öngörülen yöndeki tek yönlü p girer; ters yönde anlamlı bir sonuç (H7) desteklemez. Aile tamamlanınca (H2, H3) düzeltme yeniden hesaplanacak; desteklenen iki hipotezin p değerleri kararı değiştirmeyecek kadar küçük. Üretim: `analysis/hipotez_ozeti.py`.*
+
+### En önemli 10 bulgu
+
+1. **Görünmezlik yaygın ama sabit:** Bağımsız oyunların %54'ü ilk yılında 10'dan az inceleme alıyor, %5'i hit oluyor. Steam'e çıkan oyun 2,9 katına çıktığı halde bu oranlar 2018–2024 arasında değişmedi (M1).
+2. **Başarı türe ve fiyata göre 10 kattan fazla değişiyor:** 5 USD altında her türde hit oranı %0,4–2; 20 USD üstünde Action, RPG, Strategy ve Simulation'da %28–42. Fiyat büyük ihtimalle kapsamı ve bütçeyi yansıtıyor (M1, K1).
+3. **Tanıdık kazanıyor:** Ön kayıttaki "orta düzeyde yenilik en iyisi" (ters U) hipotezi tutmadı. Etiket kombinasyonu ne kadar alışılmadıksa beklenen inceleme o kadar az (M3).
+4. **Kalabalık tür dezavantaj değil:** Aynı tür içinde kalabalık alt türler biraz daha iyi; muhtemelen talep işareti (M2, H7).
+5. **Birlikte oynanan oyunlar öne çıkıyor:** Multiplayer, Online Co-op ve Co-op etiketleri ×2,7–3,4. Motivasyon haritasında "Design" ve "Community" az arz ve yüksek başarı bölgesinde (M2, keşifsel).
+6. **Çince desteği güçlü biçimde başarıyla birlikte, ama bir kısmı ters nedensellik:** Başarılı oyunlar Çince'yi sonradan 13 kat daha sık ekliyor; en temkinli tahmin +%57 (M2).
+7. **Uzun soluklu ilgi kazandırıyor:** Early Access oyunlarının ilgisi zamana daha yayılmış (H4). İlgisi iki yıl süren oyunların hit oranı, patlayıp sönenlerin 2 katı (M4).
+8. **İkinci oyun ilkinden iyi değil:** İlk oyunu görünmez kalan stüdyoların %77'si ikincide de görünmez (M6).
+9. **Lansman ayı yılı belirliyor:** İlk 30 gün ile ilk yıl arasındaki sıra korelasyonu 0,93; tipik oyun yılı ilk ayının ~2,2 katıyla kapatıyor (K3).
+10. **Yapay zekâ beyan eden oyunlar 3 kat daha sık görünmez kalıyor** (2024–2025; ilişki, neden-sonuç değil) (K2).
+
+### Bu analizlerde bulunup düzeltilen önemli hatalar
+
+Steam'in yeniden yayınlarda sıfırladığı çıkış tarihleri; eşleştirme dengesizliği; dondurulmuş açık veri setinin "bağımsız" sanılması; log eksende sessizce kaybolan veri noktası; Early Access'in kendisiyle tahmin edilmeye çalışılması; sonradan eklenen dil bilgisinin tahmin modeline sızması; ölçüm artefaktının "ikinci oyun daha kötü" gibi görünmesi. Her biri ilgili bölümde ve commit geçmişinde.
+
+---
+
 ## M1: Görünürlük: oyunların ne kadarı fark ediliyor?
 
 *Betik: `analysis/m1_gorunurluk.py` · 2026-10-24*
