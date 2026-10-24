@@ -312,7 +312,7 @@ En doğru özet: "Tanıdık bir kalıbın içinde fark yaratmak", "alışılmad�
 |---|---|---|---|---|---|
 | Yıl sonunda hit | %0,1 | %0,5 | %3 | **%17** | **%75** |
 
-- Bağımsız oyunların %68'i ilk ayında 10'dan az inceleme alıyor. Bunların ilk yılında hit olanı neredeyse yok.
+- Bağımsız oyunların %67'si ilk ayında 10'dan az inceleme alıyor. Bunların ilk yılında hit olanı neredeyse yok.
 
 ![İlk ay çarpanı](../analysis/sekiller/K3_2_ilk_ay_carpani.png)
 
