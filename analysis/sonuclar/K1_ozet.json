@@ -1,0 +1,251 @@
+{
+ "n": 54371,
+ "noktalar": {
+  "0.99": {
+   "n": 6581,
+   "hit": 44,
+   "sevilen": 38,
+   "hit_oran": 0.669,
+   "hit_alt": 0.498,
+   "hit_ust": 0.896,
+   "sevilen_oran": 0.577,
+   "sevilen_alt": 0.421,
+   "sevilen_ust": 0.792
+  },
+  "1.99": {
+   "n": 5465,
+   "hit": 62,
+   "sevilen": 52,
+   "hit_oran": 1.134,
+   "hit_alt": 0.886,
+   "hit_ust": 1.452,
+   "sevilen_oran": 0.952,
+   "sevilen_alt": 0.726,
+   "sevilen_ust": 1.246
+  },
+  "2.99": {
+   "n": 5405,
+   "hit": 78,
+   "sevilen": 69,
+   "hit_oran": 1.443,
+   "hit_alt": 1.158,
+   "hit_ust": 1.797,
+   "sevilen_oran": 1.277,
+   "sevilen_alt": 1.01,
+   "sevilen_ust": 1.612
+  },
+  "3.99": {
+   "n": 3874,
+   "hit": 47,
+   "sevilen": 42,
+   "hit_oran": 1.213,
+   "hit_alt": 0.914,
+   "hit_ust": 1.609,
+   "sevilen_oran": 1.084,
+   "sevilen_alt": 0.803,
+   "sevilen_ust": 1.462
+  },
+  "4.99": {
+   "n": 7954,
+   "hit": 134,
+   "sevilen": 117,
+   "hit_oran": 1.685,
+   "hit_alt": 1.424,
+   "hit_ust": 1.992,
+   "sevilen_oran": 1.471,
+   "sevilen_alt": 1.229,
+   "sevilen_ust": 1.76
+  },
+  "5.99": {
+   "n": 2497,
+   "hit": 63,
+   "sevilen": 55,
+   "hit_oran": 2.523,
+   "hit_alt": 1.977,
+   "hit_ust": 3.215,
+   "sevilen_oran": 2.203,
+   "sevilen_alt": 1.696,
+   "sevilen_ust": 2.856
+  },
+  "6.99": {
+   "n": 2119,
+   "hit": 79,
+   "sevilen": 61,
+   "hit_oran": 3.728,
+   "hit_alt": 3.002,
+   "hit_ust": 4.622,
+   "sevilen_oran": 2.879,
+   "sevilen_alt": 2.248,
+   "sevilen_ust": 3.68
+  },
+  "7.99": {
+   "n": 2139,
+   "hit": 78,
+   "sevilen": 65,
+   "hit_oran": 3.647,
+   "hit_alt": 2.932,
+   "hit_ust": 4.528,
+   "sevilen_oran": 3.039,
+   "sevilen_alt": 2.391,
+   "sevilen_ust": 3.855
+  },
+  "8.99": {
+   "n": 1072,
+   "hit": 41,
+   "sevilen": 36,
+   "hit_oran": 3.825,
+   "hit_alt": 2.832,
+   "hit_ust": 5.147,
+   "sevilen_oran": 3.358,
+   "sevilen_alt": 2.435,
+   "sevilen_ust": 4.614
+  },
+  "9.99": {
+   "n": 5212,
+   "hit": 202,
+   "sevilen": 161,
+   "hit_oran": 3.876,
+   "hit_alt": 3.385,
+   "hit_ust": 4.435,
+   "sevilen_oran": 3.089,
+   "sevilen_alt": 2.653,
+   "sevilen_ust": 3.594
+  },
+  "10.99": {
+   "n": 520,
+   "hit": 29,
+   "sevilen": 27,
+   "hit_oran": 5.577,
+   "hit_alt": 3.911,
+   "hit_ust": 7.895,
+   "sevilen_oran": 5.192,
+   "sevilen_alt": 3.593,
+   "sevilen_ust": 7.449
+  },
+  "11.99": {
+   "n": 969,
+   "hit": 55,
+   "sevilen": 39,
+   "hit_oran": 5.676,
+   "hit_alt": 4.386,
+   "hit_ust": 7.315,
+   "sevilen_oran": 4.025,
+   "sevilen_alt": 2.958,
+   "sevilen_ust": 5.455
+  },
+  "12.99": {
+   "n": 858,
+   "hit": 55,
+   "sevilen": 49,
+   "hit_oran": 6.41,
+   "hit_alt": 4.958,
+   "hit_ust": 8.251,
+   "sevilen_oran": 5.711,
+   "sevilen_alt": 4.347,
+   "sevilen_ust": 7.47
+  },
+  "13.99": {
+   "n": 325,
+   "hit": 26,
+   "sevilen": 19,
+   "hit_oran": 8.0,
+   "hit_alt": 5.518,
+   "hit_ust": 11.464,
+   "sevilen_oran": 5.846,
+   "sevilen_alt": 3.774,
+   "sevilen_ust": 8.95
+  },
+  "14.99": {
+   "n": 2402,
+   "hit": 197,
+   "sevilen": 159,
+   "hit_oran": 8.201,
+   "hit_alt": 7.17,
+   "hit_ust": 9.367,
+   "sevilen_oran": 6.619,
+   "sevilen_alt": 5.693,
+   "sevilen_ust": 7.685
+  },
+  "17.99": {
+   "n": 324,
+   "hit": 44,
+   "sevilen": 34,
+   "hit_oran": 13.58,
+   "hit_alt": 10.274,
+   "hit_ust": 17.74,
+   "sevilen_oran": 10.494,
+   "sevilen_alt": 7.607,
+   "sevilen_ust": 14.306
+  },
+  "19.99": {
+   "n": 2095,
+   "hit": 365,
+   "sevilen": 271,
+   "hit_oran": 17.422,
+   "hit_alt": 15.858,
+   "hit_ust": 19.106,
+   "sevilen_oran": 12.936,
+   "sevilen_alt": 11.566,
+   "sevilen_ust": 14.441
+  },
+  "24.99": {
+   "n": 742,
+   "hit": 191,
+   "sevilen": 137,
+   "hit_oran": 25.741,
+   "hit_alt": 22.726,
+   "hit_ust": 29.006,
+   "sevilen_oran": 18.464,
+   "sevilen_alt": 15.837,
+   "sevilen_ust": 21.415
+  },
+  "29.99": {
+   "n": 610,
+   "hit": 171,
+   "sevilen": 108,
+   "hit_oran": 28.033,
+   "hit_alt": 24.614,
+   "hit_ust": 31.726,
+   "sevilen_oran": 17.705,
+   "sevilen_alt": 14.881,
+   "sevilen_ust": 20.933
+  }
+ },
+ "tur_en_iyi_bant": {
+  "Action": "30+",
+  "Adventure": "30+",
+  "Casual": "20–30",
+  "RPG": "30+",
+  "Simulation": "20–30",
+  "Strategy": "30+",
+  "Sports": "20–30",
+  "Racing": "10–20"
+ },
+ "begeni": {
+  "<5": {
+   "n": 2625,
+   "olumlu": 0.8886,
+   "cok_olumlu": 0.7253
+  },
+  "5-10": {
+   "n": 2359,
+   "olumlu": 0.8702,
+   "cok_olumlu": 0.6897
+  },
+  "10-20": {
+   "n": 3204,
+   "olumlu": 0.8671,
+   "cok_olumlu": 0.6826
+  },
+  "20-30": {
+   "n": 839,
+   "olumlu": 0.8473,
+   "cok_olumlu": 0.6091
+  },
+  ">=30": {
+   "n": 302,
+   "olumlu": 0.8073,
+   "cok_olumlu": 0.5265
+  }
+ }
+}

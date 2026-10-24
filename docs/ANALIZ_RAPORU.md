@@ -269,3 +269,32 @@ En doğru özet: "Tanıdık bir kalıbın içinde fark yaratmak", "alışılmad�
   - Steam API'leri beyanı döndürmüyor (doğrudan kontrol edildi). Mağaza sayfalarını HTML olarak taramak kaynak politikasına aykırı olduğu için kullanılmadı.
   - Yalnız **beyan eden** oyunlar ölçülüyor; kullanıp beyan etmeyenler "beyan yok" grubunda. Bu, farkı küçültme yönünde çalışır.
   - IGDB'nin anahtar kelime kodladığı oyunlar genelden daha başarılı (bu alt örneklemde görünmezlik %39, tüm kohortta %54). Mutlak oranlar değil, fark yorumlanmalı.
+
+### K1: Fiyatın tatlı noktası
+
+*Betik: `analysis/k1_fiyat.py`. Ücretli bağımsız oyunlar (54.371). Ticari başarı sonuç olarak kullanılmadı, çünkü fiyat gelir formülünün içinde.*
+
+![Fiyat noktaları](../analysis/sekiller/K1_1_fiyat_noktalari.png)
+
+- **Hit oranı fiyatla neredeyse düzenli artıyor:**
+
+| Fiyat (USD) | 0,99 | 4,99 | 9,99 | 14,99 | 19,99 | 24,99 | 29,99 |
+|---|---|---|---|---|---|---|---|
+| Hit oranı | %0,7 | %1,7 | %3,9 | %8,2 | %17 | %26 | %28 |
+
+- Belirgin sıçramalar 9,99 → 10,99 (%3,9 → %5,6) ve 14,99 → 17,99 (%8 → %14) geçişlerinde.
+
+![Tür ve fiyat](../analysis/sekiller/K1_2_tur_fiyat_bandi.png)
+
+- 8 türün 7'sinde hit oranı 20 USD üstünde en yüksek. **Racing** istisna: en iyi bant 10–20 USD (%9), daha pahalı Racing oyunu zaten çok az.
+- Casual, Simulation ve Sports 20–30 USD'de tepe yapıp 30 USD üstünde düşüyor. Action, RPG ve Strategy'de 30 USD üstü de iyi.
+
+![Fiyat ve beğeni](../analysis/sekiller/K1_3_fiyat_begeni.png)
+
+- **Pahalı oyunlar daha sert yargılanıyor.** İlk yılında 50+ inceleme alan oyunlarda "çok olumlu" (%80+) oranı 5 USD altında %73, 30 USD üstünde %53. Oyuncular yüksek fiyat karşılığında daha çok bekliyor.
+- **Dikkat:** 50+ inceleme şartı ucuz oyunlarda daha seçici bir alt grup bırakıyor (5 USD altında 50+ inceleme almak zaten istisnai başarı). Bu farkın bir kısmını açıklayabilir.
+
+**Geliştirici için anlamı ve sınırları:**
+- **Bu bir "fiyatını artır" tavsiyesi değil.** Fiyat büyük ölçüde oyunun kapsamını, üretim değerini ve geliştiricinin güvenini yansıtıyor; 25 USD'lik bağımsız oyun genelde daha büyük bir projedir.
+- Kullanılan fiyat çıkış fiyatı değil, Ekim 2026 liste fiyatı. Başarısız oyunların sonradan fiyat düşürmesi ucuz oyunların dezavantajını kısmen şişirebilir.
+- Güvenle söylenebilecek olan: **5 USD altı bir "görünürlük tuzağı" gibi duruyor** (her türde hit oranı %0,4–2). Ayrıca daha yüksek fiyat, beğeni çıtasını da yükseltiyor.
