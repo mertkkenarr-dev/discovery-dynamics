@@ -23,7 +23,7 @@
 | H7 | Doygunluk (M2) | 1 | 1 | **desteklenmedi** | OR 1.06: ters yönde (aynı tür içinde kalabalık dezavantaj değil) |
 | H2 | Demo etkisi (M5) | — | — | bekliyor | Steam API anahtarı (kaldırılmış demolar, R13) |
 | H3 | Next Fest etkisi (M5) | — | — | bekliyor | Steam API anahtarı; dolaylı gösterge duyarlılığı ~%53 |
-| H8 | Mikro/makro içerik üreticisi (M8, ayrı aile) | — | — | bekliyor | YouTube/Twitch çekimi |
+| H8 | Mikro/makro içerik üreticisi (M8, ayrı aile) | — | — | test edilemiyor (şimdilik) | Steam tam inceleme geçmişini kapattı; seçenekler HIPOTEZLER'de |
 
 *Hipotezler yönlü olduğu için Holm düzeltmesine öngörülen yöndeki tek yönlü p girer; ters yönde anlamlı bir sonuç (H7) desteklemez. Aile tamamlanınca (H2, H3) düzeltme yeniden hesaplanacak; desteklenen iki hipotezin p değerleri kararı değiştirmeyecek kadar küçük. Üretim: `analysis/hipotez_ozeti.py`.*
 

@@ -40,7 +40,7 @@ def main() -> None:
         tablo.append(f"| {k} | {konu} | {p:.2g} | {duz[k]:.2g} | **{son}** | {notu} |")
     tablo += ["| H2 | Demo etkisi (M5) | — | — | bekliyor | Steam API anahtarı (kaldırılmış demolar, R13) |",
               "| H3 | Next Fest etkisi (M5) | — | — | bekliyor | Steam API anahtarı; dolaylı gösterge duyarlılığı ~%53 |",
-              "| H8 | Mikro/makro içerik üreticisi (M8, ayrı aile) | — | — | bekliyor | YouTube/Twitch çekimi |"]  # fmt: skip
+              "| H8 | Mikro/makro içerik üreticisi (M8, ayrı aile) | — | — | test edilemiyor (şimdilik) | Steam tam inceleme geçmişini kapattı; seçenekler HIPOTEZLER'de |"]  # fmt: skip
     md = "\n".join(tablo)
     (S / "hipotez_ozeti.md").write_text(md + "\n", encoding="utf-8")
     print(md)
