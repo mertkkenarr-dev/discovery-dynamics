@@ -99,7 +99,7 @@
 
   /* Giriş: plaka pozlanırken (shader, ~2,6 sn) başlık geç belirir; tek orkestre an budur. */
   .giris { min-height: 100svh; display: grid; align-content: end; gap: 2rem; padding-block: 8rem 4rem; }
-  .giris h1 { display: grid; gap: 0.25rem; max-width: 15ch; font-size: clamp(2.75rem, 7vw, 6.5rem); line-height: 1.02; letter-spacing: -0.005em; }
+  .giris h1 { display: grid; gap: 0.25rem; max-width: 19ch; font-size: clamp(2.75rem, 5.4vw, 5.25rem); line-height: 1.04; letter-spacing: -0.005em; }
   .giris h1 .ince { font-weight: 300; }
   .giris h1 .kalin { font-weight: 750; letter-spacing: 0; }
   .giris h1 span, .giris-metin, .anahtar, .asagi { animation: belir 1.4s var(--ease) both; }
@@ -107,6 +107,7 @@
   .giris h1 .kalin { animation-delay: 2.3s; }
   .giris-metin { animation-delay: 3s; max-width: 40ch; font-size: 1.1875rem; color: var(--muted); }
   .anahtar { animation-delay: 3.3s; }
+  .kunye-proje { animation: belir 1.4s var(--ease) both; animation-delay: 3.15s; }
   .asagi { animation-delay: 3.6s; justify-self: start; font-family: var(--font-ui); font-size: 1rem; }
   @keyframes belir { from { opacity: 0; filter: blur(6px); } to { opacity: 1; filter: blur(0); } }
   .durum { font-family: var(--font-ui); color: var(--muted); }
@@ -126,7 +127,11 @@
   .adim { min-height: 110vh; display: flex; align-items: center; padding-block: 6rem; }
   .adim .metin { max-width: 32rem; display: grid; gap: 1rem; opacity: 0.28; transition: opacity 0.6s var(--ease); }
   .adim[data-etkin='true'] .metin { opacity: 1; }
-  .katalog { font-family: var(--font-mono); font-size: 0.8125rem; color: var(--accent); letter-spacing: 0.02em; }
+  .katalog { font-family: var(--font-mono); font-size: 0.8125rem; color: var(--muted); letter-spacing: 0.02em; }
+  .katalog[data-hipotez] { color: var(--accent); }
+  .harita-notu, .yontem { font-family: var(--font-ui); font-size: 0.875rem; line-height: 1.5; color: var(--muted); }
+  .harita-notu span, .yontem span { color: var(--ink); font-weight: 600; }
+  .yontem { padding-top: 0.75rem; border-top: 1px solid var(--rule); font-size: 0.8125rem; }
   .adim h2, .kesif h2, .son h2 { font-size: clamp(1.625rem, 2.8vw, 2.375rem); line-height: 1.16; font-weight: 600; letter-spacing: -0.003em; }
   .govde { display: grid; gap: 1rem; }
   .grafik { display: grid; gap: 0.25rem; margin-top: 0.5rem; }
@@ -226,4 +231,22 @@
   .isaret-secim .ad { font-size: 0.9375rem; font-weight: 600; }
   .isaret-bolge .ad { position: static; transform: none; font-family: var(--font-display); font-style: italic; font-size: 1rem; color: var(--accent); }
   @keyframes halka { from { transform: scale(2.4); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+  .ust-baglanti { display: flex; gap: 1.5rem; }
+  @media (max-width: 40rem) { .ust-baglanti a:not(:last-child) { display: none; } }
+
+  .kunye-proje { display: grid; gap: 0.5rem; max-width: 44rem; font-family: var(--font-ui); font-size: 0.9375rem; }
+  .kunye-proje > div { display: grid; grid-template-columns: 6.5rem 1fr; gap: 1rem; padding-top: 0.5rem; border-top: 1px solid var(--rule); }
+  .kunye-proje dt { color: var(--muted); }
+
+  .hipotezler { width: 100%; border-collapse: collapse; font-family: var(--font-ui); font-size: 0.9375rem; }
+  .hipotezler th, .hipotezler td { text-align: left; padding: 0.5rem 0.75rem 0.5rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  .hipotezler thead th { color: var(--muted); font-weight: 400; font-size: 0.8125rem; }
+  .hipotezler tbody th { font-family: var(--font-mono); font-weight: 400; }
+  .hipotezler tr[data-sonuc='evet'] td:last-child { color: var(--accent); font-weight: 600; }
+  .hipotezler tr[data-sonuc='bekliyor'] td { color: var(--muted); }
+  .araclar { display: grid; gap: 0.5rem; font-family: var(--font-ui); font-size: 0.9375rem; }
+  .araclar > div { display: grid; grid-template-columns: 9rem 1fr; gap: 1rem; padding-top: 0.5rem; border-top: 1px solid var(--rule); }
+  .araclar dt { color: var(--muted); }
+  @media (max-width: 40rem) { .kunye-proje > div, .araclar > div { grid-template-columns: 1fr; gap: 0.125rem; } }
 }

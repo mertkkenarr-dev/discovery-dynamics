@@ -35,9 +35,14 @@ def main() -> None:
     }  # fmt: skip
     duz = holm({k: v[1] for k, v in satir.items()})
     tablo = ["| Hipotez | Konu | Tek yönlü p | Holm p (geçici, 5 test) | Sonuç | Not |", "|---|---|---|---|---|---|"]
+    js = {}
     for k, (konu, p, karar, notu) in satir.items():
         son = karar if (karar != "desteklendi" or duz[k] < 0.05) else "desteklenmedi (Holm)"
         tablo.append(f"| {k} | {konu} | {p:.2g} | {duz[k]:.2g} | **{son}** | {notu} |")
+        js[k] = {"konu": konu, "sonuc": son, "p_holm": duz[k]}
+    js |= {"H2": {"konu": "Demo etkisi (M5)", "sonuc": "bekliyor"}, "H3": {"konu": "Next Fest etkisi (M5)", "sonuc": "bekliyor"},
+           "H8": {"konu": "Mikro/makro içerik üreticisi (M8)", "sonuc": "test edilemiyor"}}  # fmt: skip
+    (S / "hipotez_ozeti.json").write_text(json.dumps(dict(sorted(js.items())), ensure_ascii=False, indent=1), encoding="utf-8")
     tablo += ["| H2 | Demo etkisi (M5) | — | — | bekliyor | Steam API anahtarı (kaldırılmış demolar, R13) |",
               "| H3 | Next Fest etkisi (M5) | — | — | bekliyor | Steam API anahtarı; dolaylı gösterge duyarlılığı ~%53 |",
               "| H8 | Mikro/makro içerik üreticisi (M8, ayrı aile) | — | — | test edilemiyor (şimdilik) | Steam tam inceleme geçmişini kapattı; seçenekler HIPOTEZLER'de |"]  # fmt: skip

@@ -1301,6 +1301,130 @@
    }
   }
  },
+ "hipotez": {
+  "H1": {
+   "konu": "Yenilik ters U (M3)",
+   "sonuc": "desteklenmedi",
+   "p_holm": 1.0
+  },
+  "H2": {
+   "konu": "Demo etkisi (M5)",
+   "sonuc": "bekliyor"
+  },
+  "H3": {
+   "konu": "Next Fest etkisi (M5)",
+   "sonuc": "bekliyor"
+  },
+  "H4": {
+   "konu": "Early Access → uzun kuyruk (M4)",
+   "sonuc": "desteklendi",
+   "p_holm": 2.4921335126046815e-45
+  },
+  "H5": {
+   "konu": "İkinci oyun daha başarılı (M6)",
+   "sonuc": "desteklenmedi",
+   "p_holm": 1.0
+  },
+  "H6": {
+   "konu": "Çince desteği (M2)",
+   "sonuc": "desteklendi",
+   "p_holm": 1.1178206815771126e-157
+  },
+  "H7": {
+   "konu": "Doygunluk (M2)",
+   "sonuc": "desteklenmedi",
+   "p_holm": 1.0
+  },
+  "H8": {
+   "konu": "Mikro/makro içerik üreticisi (M8)",
+   "sonuc": "test edilemiyor"
+  }
+ },
+ "k9": {
+  "modeller": {
+   "Yalnız metin (TF-IDF)": {
+    "pr_auc": 0.18953,
+    "alt": 0.16948,
+    "ust": 0.21454,
+    "roc_auc": 0.78201,
+    "fark": -0.07882,
+    "fark_alt": -0.10589,
+    "fark_ust": -0.04915
+   },
+   "Yalnız metin (gömme)": {
+    "pr_auc": 0.11439,
+    "alt": 0.1029,
+    "ust": 0.12905,
+    "roc_auc": 0.72427,
+    "fark": -0.15396,
+    "fark_alt": -0.17736,
+    "fark_ust": -0.12876
+   },
+   "K4 nitelikleri": {
+    "pr_auc": 0.26835,
+    "alt": 0.2425,
+    "ust": 0.29433,
+    "roc_auc": 0.81162,
+    "fark": 0.0,
+    "fark_alt": 0.0,
+    "fark_ust": 0.0
+   },
+   "K4 + metin": {
+    "pr_auc": 0.31294,
+    "alt": 0.28436,
+    "ust": 0.3429,
+    "roc_auc": 0.85041,
+    "fark": 0.04459,
+    "fark_alt": 0.02803,
+    "fark_ust": 0.0631
+   }
+  },
+  "uslup_or": {
+   "Metin uzunluğu (log)": {
+    "tahmin": 1.309,
+    "alt": 1.2384,
+    "ust": 1.3836,
+    "p": 0.0,
+    "n": 65472.0
+   },
+   "Ünlem sıklığı": {
+    "tahmin": 1.0569,
+    "alt": 1.0176,
+    "ust": 1.0978,
+    "p": 0.0043,
+    "n": 65472.0
+   },
+   "BÜYÜK HARF kelime payı": {
+    "tahmin": 1.0795,
+    "alt": 1.0514,
+    "ust": 1.1085,
+    "p": 0.0,
+    "n": 65472.0
+   },
+   "'You/your' payı": {
+    "tahmin": 1.0052,
+    "alt": 0.966,
+    "ust": 1.046,
+    "p": 0.7995,
+    "n": 65472.0
+   },
+   "Somut içerik sayısı ('50 levels')": {
+    "tahmin": 1.0405,
+    "alt": 1.0037,
+    "ust": 1.0787,
+    "p": 0.0309,
+    "n": 65472.0
+   },
+   "Abartı sıfatları (unique, epic…)": {
+    "tahmin": 1.0248,
+    "alt": 0.988,
+    "ust": 1.0629,
+    "p": 0.1888,
+    "n": 65472.0
+   }
+  },
+  "n_test": 22996
+ },
  "k8": {
   "tahmin": [
    {

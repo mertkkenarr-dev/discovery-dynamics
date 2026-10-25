@@ -4,7 +4,7 @@
  */
 import type { Bolum } from './bolumler'
 import type { Etiket } from './galaksi/Etiketler'
-import { esikGrafik, firsatGrafik, gizliGrafik, klonGrafik } from './grafikler_ek'
+import { esikGrafik, firsatGrafik, gizliGrafik, klonGrafik, metinGrafik } from './grafikler_ek'
 import { ekI } from './lib/ek'
 import { sayi, yuzde, type Galaksi, type Ozet } from './veri'
 
@@ -35,17 +35,17 @@ export function gizliBolum(oz: Ozet): Bolum {
   const k = oz.k7
   const onda = Math.round((k.n_gizli / k.cok_begenilen) * 10)
   const f = (ad: string) => k.farklar[ad]!
-  const sim = f('Tür: Simulation')
-  const pt = f('Playtest')
-  const demo = f('Çıkıştan önce demo')
+  const [sim, pt, demo] = [f('Tür: Simulation'), f('Playtest'), f('Çıkıştan önce demo')]
   return {
-    id: 'gizli', kisa: 'Gizli hazineler', modul: 'K7', maske: 'gizli', uzaklik: 21,
+    id: 'gizli', kisa: 'Gizli hazineler', maske: 'gizli', uzaklik: 21,
     baslik: `Çok beğenilen her 10 oyundan ${onda} tanesi de görünmez kalıyor.`,
     govde: <>
-      <p>Öne çıkanlar gizli hazineler: oyuncuların neredeyse hepsinin beğendiği ama ilk yılında 100'den az inceleme alan {sayi(k.n_gizli)} oyun. Kötü oyun olmak görünmez kalmanın tek nedeni değil.</p>
-      <p>Görünür olan hazinelerden (500+ inceleme) neyle ayrılıyorlar? Görünürler daha sık Simulation ({yz(sim.gizli * 100, 0)} yerine {yz(sim.gorunur * 100, 0)}) ve iki kat sık Playtest açmış ({yz(pt.gizli * 100, 0)} yerine {yz(pt.gorunur * 100, 0)}). Çıkış öncesi demo ise iki grupta da aynı: {yz(demo.gizli * 100, 0)}.</p>
+      <p>Oyuncularının neredeyse tamamının beğendiği ama ilk yılında 100'den az inceleme alan {sayi(k.n_gizli)} oyun var. Görünmezlik yalnız kalitesiz oyunların sorunu değil.</p>
+      <p>Bu gizli hazineleri, aynı beğeniye sahip görünür oyunlardan (500+ inceleme) ayıran çıkış öncesi özellikler: görünürler daha sık Simulation ({yz(sim.gizli * 100, 0)} yerine {yz(sim.gorunur * 100, 0)}) ve iki kat sık Playtest açmış ({yz(pt.gizli * 100, 0)} yerine {yz(pt.gorunur * 100, 0)}). Çıkış öncesi demo oranı ise iki grupta aynı: {yz(demo.gizli * 100, 0)}.</p>
     </>,
-    grafikler: [{ kur: gizliGrafik(oz), etiket: 'Gizli ve görünür hazinelerde nitelik payları', baslik: 'Gizli ve görünür hazineler: oyunların payı', yukseklik: 220 }],
+    harita: 'Gizli hazineler: ilk yılında 10–99 inceleme alan, çok beğenilen oyunlar.',
+    yontem: 'Beğeni: olumlu inceleme oranının Wilson %95 alt sınırı ≥ %80. Gruplar standartlaştırılmış farkla ve kontrollü lojistik modelle karşılaştırıldı. Keşifsel.',
+    grafikler: [{ kur: gizliGrafik(oz), etiket: 'Gizli ve görünür hazinelerde nitelik payları', baslik: 'Gizli ve görünür hazinelerde özelliklerin payı', yukseklik: 220 }],
   }
 }
 
@@ -55,31 +55,34 @@ export function klonBolum(oz: Ozet, g: Galaksi): Bolum {
   const dl = Object.values(k.takipci_dilim)
   const vs = k.dalgalar[0]!
   return {
-    id: 'klon', kisa: 'Taklit', modul: 'K5', maske: 'klon', uzaklik: 21, etiketler: oncuEtiketleri(oz, g),
-    baslik: ayni ? 'Bir hit’i taklit etmek ek şans getirmiyor. Şans, bölgenin kendisinde.' : 'Bir hit’i taklit edenler, ondan önce gelenlerden farklı sonuç alıyor.',
+    id: 'klon', kisa: 'Taklit', maske: 'klon', uzaklik: 21, etiketler: oncuEtiketleri(oz, g),
+    baslik: ayni ? 'Bir hit’i taklit etmek ek şans getirmiyor; şans, bölgenin kendisinde.' : 'Bir hit’i taklit edenler, ondan önce gelenlerden farklı sonuç alıyor.',
     govde: <>
-      <p>Öne çıkanlar {vs.ad} ile başlayan akıma ve {k.dalgalar[1]!.diger[0]} ile gelen deste kurma dalgasına katılan oyunlar. Büyük bir hit'e çok benzeyen sonraki oyunların {ekI(yz(k.takipci.hit_oran))} hit oluyor; bu, ortalamanın {sayi(k.takipci.hit_oran / oz.hit_yuzde, 0)} katı.</p>
-      <p>Ama aynı bölgeye hit'ten <em>önce</em> çıkanların da {ekI(yz(k.oncul.hit_oran))} hit olmuş: hit, verimli bir bölgenin işareti. Geç kalan kaybediyor: ilk altı ayda gelenlerin {yz(dl[0]!.oran)}, bir-iki yıl sonra gelenlerin {yz(dl[dl.length - 1]!.oran)} tutuyor. {vs.ad} akımına katılan {sayi(vs.takipci.length)} oyunun bağımsızlarından yalnız {ekI(yz((vs.hit / vs.orneklem) * 100))} hit oldu.</p>
+      <p>Büyük bir hit'e çok benzeyen sonraki oyunların {ekI(yz(k.takipci.hit_oran))} hit oluyor; örneklem ortalamasının {sayi(k.takipci.hit_oran / oz.hit_yuzde, 0)} katı. Ancak aynı içerik bölgesine hit'ten <em>önce</em> çıkanların da {ekI(yz(k.oncul.hit_oran))} hit olmuş: hit, zaten verimli bir bölgenin işareti.</p>
+      <p>Zamanlama önemli: ilk altı ayda gelen takipçilerin {yz(dl[0]!.oran)}, bir-iki yıl sonra gelenlerin {yz(dl[dl.length - 1]!.oran)} hit oluyor. {vs.ad} akımına katılan {sayi(vs.takipci.length)} oyunun bağımsızlarında oran yalnız {yz((vs.hit / vs.orneklem) * 100)}.</p>
     </>,
+    harita: `${vs.ad} ile başlayan akıma ve ${k.dalgalar[1]!.diger[0] ?? k.dalgalar[1]!.ad} ile gelen deste kurma dalgasına katılan oyunlar.`,
+    yontem: `Öncü: ilk yılında 5.000+ inceleme alan ${sayi(k.dalga.oncu.n_merkez)} oyun. Benzerlik: içerik etiketi vektörlerinin kosinüsü ≥ 0,70. Plasebo ve öncül karşılaştırmalı; Wilson aralıkları. Keşifsel.`,
     grafikler: [{ kur: klonGrafik(oz), etiket: 'Hit’ten önce ve sonra aynı bölgeye çıkan oyunların hit oranı', baslik: 'Hit olma oranı: hit’ten önce, sonra (ay) ve sıradan bir oyunun benzerleri', yukseklik: 200 }],
   }
 }
 
 export function firsatBolum(oz: Ozet): Bolum {
-  const b = oz.k6.bolgeler
-  const firsat = b.filter((x) => x.firsat)
+  const firsat = oz.k6.bolgeler.filter((x) => x.firsat)
   const cozy = firsat.find((x) => x.ad.startsWith('Cozy'))
   const sessiz = [...firsat].sort((a, z) => a.goreli_buyume - z.goreli_buyume)[0]
   return {
-    id: 'firsat', kisa: 'Fırsat bölgeleri', modul: 'K6', maske: 'firsat', uzaklik: 17,
+    id: 'firsat', kisa: 'Fırsat bölgeleri', maske: 'firsat', uzaklik: 17,
     etiketler: oz.k6.etiketler.map((e) => ({ konum: e.merkez, ad: bolgeAdi(e.ad), tur: 'bolge' as const })),
     baslik: `${firsat.length} içerik bölgesi hem az kalabalık hem beklenenden sık hit veriyor.`,
     govde: <>
-      <p>Haritayı içerik etiketlerine göre {oz.k6.k} bölgeye ayırdık ve her bölgede gerçek hit sayısını, aynı fiyat, tür ve yıl karışımından beklenenle karşılaştırdık. Öne çıkanlar fırsat bölgeleri: çoğu bölgeden az oyun çıkıyor, ama çıkanlar beklenenden sık hit oluyor.</p>
-      {cozy && <p>Cozy ve Wholesome oyunlar beklenenin {sayi(cozy.ob, 1)} katı hit veriyor, ama bu bölgeye çıkan oyun sayısı Steam'in {sayi(cozy.goreli_buyume, 1)} katı hızla artıyor: kapı kapanıyor.</p>}
-      {sessiz && sessiz !== cozy && <p>En sessiz fırsat {bolgeAdi(sessiz.ad, ' ve ')}: beklenenin {sayi(sessiz.ob, 1)} katı hit, arz ise Steam'den hızlı büyümüyor.</p>}
+      <p>Oyunları içerik etiketlerine göre {oz.k6.k} bölgeye ayırdık ve her bölgede gerçekleşen hit sayısını, aynı fiyat, tür ve yıl karışımından beklenenle karşılaştırdık. Fırsat bölgelerinde çoğu bölgeden az oyun çıkıyor, ama çıkanlar beklenenden sık hit oluyor.</p>
+      {cozy && <p>Cozy ve Wholesome oyunlar beklenenin {sayi(cozy.ob, 1)} katı hit veriyor; ancak bu bölgeye çıkan oyun sayısı Steam ortalamasının {sayi(cozy.goreli_buyume, 1)} katı hızla artıyor. Fırsat penceresi daralıyor.</p>}
+      {sessiz && sessiz !== cozy && <p>En sakin fırsat {bolgeAdi(sessiz.ad, ' ve ')}: beklenenin {sayi(sessiz.ob, 1)} katı hit, arz ise Steam'den hızlı büyümüyor.</p>}
     </>,
-    grafikler: [{ kur: firsatGrafik(oz), etiket: 'Bölgelere göre gözlenen ÷ beklenen hit', baslik: 'Hit: gerçekleşen ÷ beklenen (turuncu = fırsat)', yukseklik: 250 }],
+    harita: 'Fırsat bölgelerindeki oyunlar ve bölge adları.',
+    yontem: 'Küresel k-ortalamalar (içerik etiketi vektörleri). Beklenen hit: yıl, tür, fiyat, Early Access ve dil kontrollü lojistik model; oran için Poisson aralığı. Keşifsel.',
+    grafikler: [{ kur: firsatGrafik(oz), etiket: 'Bölgelere göre gözlenen ÷ beklenen hit', baslik: 'Hit: gerçekleşen ÷ beklenen (turuncu = fırsat bölgesi)', yukseklik: 250 }],
   }
 }
 
@@ -89,12 +92,34 @@ export function esikBolum(oz: Ozet): Bolum {
   const isaretli = (v: number) => `${v >= 0 ? '+' : '−'}%${sayi(Math.abs(v), 1)}`
   const yok = t.alt <= 0 && t.ust >= 0
   return {
-    id: 'esik', kisa: '50 eşiği', modul: 'K8', maske: null, uzaklik: 24,
-    baslik: yok ? '“50 incelemeyi geç, algoritma seni görsün” veride yok.' : `50 incelemeyi geçen oyunların ilgisi ${t.sicrama > 0 ? 'sıçrıyor' : 'düşüyor'}.`,
+    id: 'esik', kisa: '50 eşiği', maske: null, uzaklik: 24,
+    baslik: yok ? '“50 incelemeyi geç, algoritma seni görsün” veride karşılık bulmuyor.' : `50 incelemeyi geçen oyunların ilgisi ${t.sicrama > 0 ? 'sıçrıyor' : 'düşüyor'}.`,
     govde: <>
-      <p>Geliştiriciler arasında yaygın bir kanı var: 50 incelemeyi geçen oyunu Steam önermeye başlar. {sayi(Math.round(oz.k8.oyun / 1000))} bin oyunun {sayi(Math.round(oz.k8.gozlem / 1e6))} milyon aylık inceleme dilimine baktık: 50'yi geçince inceleme hızı {isaretli(yuz(t.sicrama))} değişiyor (%95 aralık {isaretli(yuz(t.alt))} … {isaretli(yuz(t.ust))}).</p>
-      <p>Etkisi olmaması gereken 20, 30, 40 gibi eşiklerden farkı yok. İlgi bir kapıdan geçer gibi değil, pürüzsüz büyüyor. (Puanın görünür olduğu 10 eşiği bu veriyle ölçülemiyor: seriler yalnız eninde sonunda 10'u geçen oyunlar için var.)</p>
+      <p>Geliştiriciler arasında yaygın bir kanı var: 50 incelemeyi geçen oyunu Steam önermeye başlar. {sayi(Math.round(oz.k8.oyun / 1000))} bin oyunun {sayi(Math.round(oz.k8.gozlem / 1e6))} milyon aylık inceleme diliminde, 50'yi geçen oyunların inceleme hızı {isaretli(yuz(t.sicrama))} değişiyor (%95 aralık {isaretli(yuz(t.alt))} … {isaretli(yuz(t.ust))}).</p>
+      <p>Etkisi olmaması gereken plasebo eşiklerden (20, 30, 40…) farkı yok. İlgi bir eşikte açılan bir kapı gibi değil, pürüzsüz büyüyor.</p>
     </>,
+    harita: 'Tüm oyunlar.',
+    yontem: 'Süreksizlik regresyonu (iki taraflı yerel doğrusal), plasebo eşikler, oyun düzeyinde kümelenmiş hata. 10 eşiği seçilim yanlılığı nedeniyle yorumlanmadı. Keşifsel.',
     grafikler: [{ kur: esikGrafik(oz), etiket: 'İnceleme eşiklerinde inceleme hızındaki sıçrama', baslik: 'Eşiği geçince inceleme hızındaki değişim', yukseklik: 210 }],
+  }
+}
+
+export function metinBolum(oz: Ozet): Bolum {
+  const m = oz.k9.modeller
+  const [k4, km, tf] = [m['K4 nitelikleri']!, m['K4 + metin']!, m['Yalnız metin (TF-IDF)']!]
+  const us = oz.k9.uslup_or
+  const uz = us['Metin uzunluğu (log)']!
+  const ab = us['Abartı sıfatları (unique, epic…)']!
+  const katiyor = km.fark_alt > 0
+  return {
+    id: 'metin', kisa: 'Mağaza sayfası', maske: 'hit', uzaklik: 22,
+    baslik: katiyor ? 'Mağaza sayfasının metni, oyunun kaderi hakkında ipucu veriyor.' : 'Mağaza sayfasının metni, başarı hakkında ek bilgi taşımıyor.',
+    govde: <>
+      <p>Çıkış öncesi bilgilerle kurduğumuz tahmin modeline mağaza açıklaması eklendiğinde isabet (PR-AUC) {sayi(k4.pr_auc, 2)} iken {sayi(km.pr_auc, 2)} oluyor; rastgele tahminin değeri {sayi(oz.hit_yuzde / 100, 2)}. Metin tek başına da {sayi(tf.pr_auc, 2)} alıyor.</p>
+      <p>Hit'le birlikte görülen ifadeler "co-op", "wishlist" ve "from the creators of"; ters yönde "VR", "arcade", "levels". Üslupta en güçlü işaret emek: uzun ve somut metinler daha sık tutuyor (×{sayi(uz.tahmin, 2)}). "Unique", "epic" gibi büyük sözcüklerin ise {ab.alt <= 1 && ab.ust >= 1 ? 'ilişkisi yok' : `etkisi ×${sayi(ab.tahmin, 2)}`}.</p>
+    </>,
+    harita: 'İlk yılında hit olan oyunlar.',
+    yontem: `${sayi(oz.k9.n_test)} test oyunu (2024–25), eğitim ≤ 2023. TF-IDF ve cümle gömmesi (MiniLM) + lojistik regresyon; LightGBM ile sızıntısız yığınlama; paired bootstrap. Ödül, satış ve basın alıntısı içeren cümleler çıkarıldı; metin bugünkü hâli olduğundan artış bir üst sınır. Keşifsel.`,
+    grafikler: [{ kur: metinGrafik(oz), etiket: 'Modellerin tahmin isabeti (PR-AUC)', baslik: 'Tahmin isabeti (PR-AUC, test 2024–2025)', yukseklik: 170 }],
   }
 }

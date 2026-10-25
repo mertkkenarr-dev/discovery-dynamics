@@ -118,7 +118,7 @@ def dalgalar(idx: dict[int, int], n: int = 3) -> list[dict]:
 def ozet(n_yildiz: int) -> dict:
     """Sayfa metnindeki her rakam buradan gelir (analiz sonuç dosyaları); metinde elle rakam yazılmaz."""
     S = KOK / "analysis" / "sonuclar"
-    j = {m: json.loads((S / f"{m}_ozet.json").read_text(encoding="utf-8")) for m in ("M1", "M1b", "M2", "M2b", "M3", "M4", "M6", "K1", "K2", "K3", "K4", "K5", "K6", "K7", "K8")}
+    j = {m: json.loads((S / f"{m}_ozet.json").read_text(encoding="utf-8")) for m in ("M1", "M1b", "M2", "M2b", "M3", "M4", "M6", "K1", "K2", "K3", "K4", "K5", "K6", "K7", "K8", "K9")}
     arz = pd.read_csv(KOK / "analysis" / "sekiller" / "M1_2_arz_ve_hit.csv", index_col=0)
     kum = {v["ad"]: v for v in j["M4"]["yorunge"]["kumeler"].values()}
     k30 = j["K3"]["ilk30"]
@@ -168,6 +168,8 @@ def ozet(n_yildiz: int) -> dict:
         "k7": {"n_gizli": j["K7"]["n_gizli"], "n_gorunur": j["K7"]["n_gorunur"], "cok_begenilen": j["K7"]["cok_begenilen_toplam"],
                "farklar": {k: j["K7"]["smd"][k] for k in ("Tür: Simulation", "Early Access ile çıkış", "Playtest", "Stüdyonun önceki oyunu var",
                                                           "Çıkıştan önce demo", "Kendi yayını")}},
+        "hipotez": json.loads((S / "hipotez_ozeti.json").read_text(encoding="utf-8")),
+        "k9": {k: j["K9"][k] for k in ("modeller", "uslup_or", "n_test")},
         "k8": {"tahmin": j["K8"]["tahmin"], "secilim": j["K8"]["secilim"], "gozlem": j["K8"]["gozlem"], "oyun": j["K8"]["oyun"]},
     }  # fmt: skip
 

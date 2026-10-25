@@ -50,6 +50,8 @@ export interface Ozet {
     etiketler: { ad: string; merkez: [number, number, number] }[]
   }
   k7: { n_gizli: number; n_gorunur: number; cok_begenilen: number; farklar: Record<string, { gorunur: number; gizli: number; smd: number }> }
+  hipotez: Record<string, { konu: string; sonuc: string; p_holm?: number }>
+  k9: { n_test: number; modeller: Record<string, { pr_auc: number; alt: number; ust: number; roc_auc: number; fark: number; fark_alt: number; fark_ust: number }>; uslup_or: Record<string, { tahmin: number; alt: number; ust: number }> }
   k8: { gozlem: number; oyun: number; tahmin: { esik: number; sicrama: number; alt: number; ust: number; yuzde: number }[]; secilim: Record<string, { sicrama: number; alt: number; ust: number }> }
 }
 

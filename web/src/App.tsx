@@ -10,7 +10,6 @@ import { Sahne, type SahneDurumu } from './galaksi/Sahne'
 import { Ipucu, isaretAyarla, Kesif, useAdlar } from './Kesif'
 import { QualityProvider } from './kit/quality'
 import { Son } from './Son'
-import { ekDe } from './lib/ek'
 import { galaksiYukle, jsonYukle, sayi, type Cift, type Galaksi, type Ozet } from './veri'
 
 type Durum = { durum: 'yukleniyor' } | { durum: 'hata'; mesaj: string } | { durum: 'hazir'; g: Galaksi; oz: Ozet; ciftler: Cift[] }
@@ -61,7 +60,11 @@ export function App() {
       </div>
       <header className="ust">
         <a href="#giris" className="marka">Steam Galaksisi</a>
-        <a href="#kesif">Haritayı keşfet</a>
+        <nav className="ust-baglanti" aria-label="Sayfa">
+          <a href={`#${liste[0]?.id ?? 'kesif'}`}>Bulgular</a>
+          <a href="#son">Yöntem</a>
+          <a href="#kesif">Haritayı keşfet</a>
+        </nav>
       </header>
       <main data-kesif={kesifte}>
         <section id="giris" className="giris" data-bolum="giris">
@@ -71,20 +74,30 @@ export function App() {
           {hazir && (
             <>
               <p className="giris-metin">
-                Her nokta 2018–2025 arasında Steam'de çıkmış bir oyun: {sayi(hazir.g.n)} tane. Benzer etiketlere sahip oyunlar birbirine yakın duruyor. Bir yıldızın
-                parlaklığı, oyunun ilk yılında aldığı inceleme sayısı.
+                Discovery Dynamics, Steam'de bağımsız bir oyunu görünür kılan şeyin ne olduğunu araştıran bir veri analizi projesi. 2018–2025 arasında çıkan{' '}
+                {sayi(hazir.g.n)} oyun, içerik benzerliğine göre bu haritaya yerleştirildi: yakın yıldızlar benzer oyunlar, parlaklık ilk yılın inceleme sayısı.
               </p>
+              <dl className="kunye-proje">
+                <div>
+                  <dt>Veri</dt>
+                  <dd>{sayi(hazir.oz.yildiz)} oyun; {sayi(Math.floor(hazir.oz.k8.gozlem / 1e6))} milyonu aşkın aylık inceleme kaydı</dd>
+                </div>
+                <div>
+                  <dt>Yaklaşım</dt>
+                  <dd>{Object.keys(hazir.oz.hipotez).length} ön kayıtlı hipotez, nedensel çıkarım, makine öğrenmesi ve metin analizi</dd>
+                </div>
+              </dl>
               <Anahtar />
-              <a className="asagi" href={`#${liste[0]?.id ?? 'kesif'}`}>Neden çoğu sönük kalıyor?</a>
+              <a className="asagi" href={`#${liste[0]?.id ?? 'kesif'}`}>Bulgulara geç</a>
             </>
           )}
         </section>
-        {hazir && <Anlati liste={liste} etkin={etkin} />}
+        {hazir && <Anlati liste={liste} etkin={etkin} hipotezler={hazir.oz.hipotez} />}
         {hazir && (
           <section id="kesif" className="kesif" data-bolum="kesif">
             <div className="metin">
-              <h2>Kendi yıldızını bul.</h2>
-              <p>Haritayı sürükleyip döndürün, tekerlekle yakınlaşın. Bir yıldızın üzerine gelince adı görünür, tıklayınca künyesi açılır.</p>
+              <h2>Bir oyunu haritada bul.</h2>
+              <p>Haritayı sürükleyerek döndürün, tekerlekle yakınlaşın. Bir yıldızın üzerine gelince oyunun adı görünür; tıklayınca künyesi açılır.</p>
               <Kesif g={hazir.g} ad={ad} secili={secili} onSec={sec} />
             </div>
           </section>
@@ -98,14 +111,10 @@ export function App() {
 }
 
 function Baslik({ oz }: { oz: Ozet }) {
-  const yillar = Object.keys(oz.arz)
-  const son = yillar[yillar.length - 1]!
   return (
     <h1>
-      <span className="ince">
-        {ekDe(son)} Steam'e {sayi(Math.round(oz.arz[son]! / 1000))} bin oyun düştü.
-      </span>
-      <span className="kalin">{oz.gorunmez_yuzde > 50 ? 'Çoğunu kimse görmedi.' : 'Neredeyse yarısını kimse görmedi.'}</span>
+      <span className="ince">Bu gökyüzündeki her yıldız bir Steam oyunu.</span>
+      <span className="kalin">{oz.gorunmez_yuzde > 50 ? 'Çoğu hiç parlamadı.' : 'Neredeyse yarısı hiç parlamadı.'}</span>
     </h1>
   )
 }

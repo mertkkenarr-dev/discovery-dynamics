@@ -88,3 +88,22 @@ export const esikGrafik = (oz: Ozet): Kur => ({ width, colors: c }) => {
     ],
   })
 }
+
+export const metinGrafik = (oz: Ozet): Kur => ({ width, colors: c }) => {
+  const ad: Record<string, string> = { 'Yalnız metin (gömme)': 'Yalnız metin (gömme)', 'Yalnız metin (TF-IDF)': 'Yalnız metin (TF-IDF)', 'K4 nitelikleri': 'Çıkış öncesi bilgiler', 'K4 + metin': 'Çıkış öncesi + metin' }
+  const d = Object.entries(oz.k9.modeller).map(([k, v]) => ({ ad: ad[k] ?? k, ...v, vurgu: k === 'K4 + metin' }))
+  return Plot.plot({
+    ...baseOptions(width, c, 40 + d.length * 30),
+    marginLeft: Math.min(150, width * 0.38),
+    marginRight: 40,
+    marginBottom: 32,
+    x: { label: null, domain: [0, 0.4], ticks: [0, 0.1, 0.2, 0.3, 0.4], tickFormat: (v: number) => sayi(v, 1), grid: true },
+    y: { label: null, domain: d.map((v) => v.ad), tickSize: 0 },
+    marks: [
+      Plot.ruleX([oz.hit_yuzde / 100], { stroke: c.muted, strokeDasharray: '3,3' }),
+      Plot.ruleY(d, { y: 'ad', x1: 'alt', x2: 'ust', stroke: (v: { vurgu: boolean }) => (v.vurgu ? c.accent : c.s2), strokeWidth: 2 }),
+      Plot.dot(d, { y: 'ad', x: 'pr_auc', r: 4.5, fill: (v: { vurgu: boolean }) => (v.vurgu ? c.accent : c.s2), stroke: c.ground, strokeWidth: 1.5 }),
+      Plot.text(d, { y: 'ad', x: 'ust', text: (v: { pr_auc: number }) => sayi(v.pr_auc, 2), dx: 6, textAnchor: 'start', fill: c.ink, fontSize: 11 }),
+    ],
+  })
+}
