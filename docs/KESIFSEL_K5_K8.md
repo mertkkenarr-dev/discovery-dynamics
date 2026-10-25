@@ -92,6 +92,23 @@ kosinüsü (ilk 10 içerik etiketi, sıra × 2018 öncesi IDF). Oranlar Wilson %
 - **Yorum:** TF-IDF modelinin en güçlü olumlu/olumsuz kelimeleri ve üslup ölçülerinin hit oranıyla ilişkisi (kontrollü lojistik).
 - **Dikkat:** Sızıntı filtresi kusursuz değil; metin sonradan baştan yazılmış da olabilir. Bu yüzden (c)'deki artış üst sınır sayılır.
 
+## K10: Türler: risk-ödül karnesi, hibrit türler, eğilimler (eklendi 2026-10-25, sonuçlara bakılmadan)
+
+**Soru:** Hangi alt türler riskli, hangileri ödüllü; hangi tür karışımları parçalarının toplamından iyi; hangi türler yükselişte?
+
+- **Alt tür:** Etiket taksonomisinde `A_tur` boyutundaki, `ana` olmayan etiketler (Roguelike, Metroidvania, Visual Novel…). Oyun bir
+  alt türe, o etiket ilk 10 etiketi arasındaysa üyedir (sıra, oy sayısı değil; R4). Analiz örnekleminde ≥ **500** oyunu olan alt türler.
+- **Karne (her alt tür):** hit oranı ve görünmez oranı (ilk yıl < 10 inceleme), ikisi de Wilson %95 GA; gözlenen ÷ beklenen hit (O/B,
+  `ortak_model.beklenen_hit`: yıl, ana tür, fiyat, EA, dil kontrollü; Poisson GA); 2022–25 arzı (tüm kohort) ve 2020–21 → 2024–25 göreli
+  büyüme; fiyat tatlı noktası = ücretli fiyat bantları içinde (n ≥ 100) hit oranı en yüksek bant.
+- **Eğilim:** hit oranı 2018–2020 ile 2022–2024 (2025 tam gözlenmedi) arasında; fark ve Newcombe %95 GA.
+- **Hibrit:** İki alt tür birlikte (ikisi de ilk 10 etikette), örneklemde ≥ 150 oyun. Beklenen = yukarıdaki kontrollere **tüm alt tür
+  kuklalarının ana etkileri** eklenmiş lojistik model (etkileşim yok). O/B > 1: karışım, parçalarının ayrı ayrı öngördüğünden iyi.
+  Poisson iki yönlü p, çiftler üzerinde Benjamini–Hochberg. **Eş anlamlı çiftler dışarıda:** biri diğerinin adını içeriyorsa
+  (Platformer / 2D Platformer) ya da birlikte görülme Jaccard'ı > 0,5 ise.
+- **Web:** karne tablosu, her alt türün üyelik bit dizisi (haritada vurgulama), en iyi ve en kötü hibritler.
+- **Dikkat:** Etiketler çıkıştan sonra oylanır (R4); alt tür bulguları keşifsel. O/B kalite ve bütçe farklarını da yansıtabilir.
+
 ## Değişiklik günlüğü
 
 - 2026-10-25: İlk sürüm.
