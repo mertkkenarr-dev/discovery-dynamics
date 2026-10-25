@@ -1,0 +1,506 @@
+{
+ "n_gizli": 3991,
+ "n_gorunur": 2217,
+ "cok_begenilen_toplam": 9112,
+ "smd": {
+  "Kendi yayını": {
+   "gorunur": 0.7808,
+   "gizli": 0.8441,
+   "smd": -0.1628
+  },
+  "Tür: Casual": {
+   "gorunur": 0.4005,
+   "gizli": 0.464,
+   "smd": -0.1284
+  },
+  "Aynı hafta çıkan oyun": {
+   "gorunur": 5.472,
+   "gizli": 5.5107,
+   "smd": -0.0997
+  },
+  "Yenilik (etiket kombinasyonu)": {
+   "gorunur": 0.2773,
+   "gizli": 0.2826,
+   "smd": -0.0529
+  },
+  "Tür: Racing": {
+   "gorunur": 0.0244,
+   "gizli": 0.0323,
+   "smd": -0.048
+  },
+  "Tür: Sports": {
+   "gorunur": 0.0289,
+   "gizli": 0.0321,
+   "smd": -0.0186
+  },
+  "Aynı hafta büyük yayıncı çıkışı": {
+   "gorunur": 0.8935,
+   "gizli": 0.896,
+   "smd": -0.008
+  },
+  "Çıkıştan önce demo": {
+   "gorunur": 0.1547,
+   "gizli": 0.1551,
+   "smd": -0.0011
+  },
+  "Ücretsiz": {
+   "gorunur": 0.2476,
+   "gizli": 0.2253,
+   "smd": 0.0527
+  },
+  "Mac ya da Linux desteği": {
+   "gorunur": 0.3554,
+   "gizli": 0.3252,
+   "smd": 0.0638
+  },
+  "Tür: Action": {
+   "gorunur": 0.392,
+   "gizli": 0.3596,
+   "smd": 0.0669
+  },
+  "Tür: Adventure": {
+   "gorunur": 0.4533,
+   "gizli": 0.4139,
+   "smd": 0.0795
+  },
+  "Stüdyonun önceki oyunu var": {
+   "gorunur": 0.4989,
+   "gizli": 0.4147,
+   "smd": 0.1696
+  },
+  "Tür: Strategy": {
+   "gorunur": 0.2192,
+   "gizli": 0.1518,
+   "smd": 0.1739
+  },
+  "Playtest": {
+   "gorunur": 0.1024,
+   "gizli": 0.0484,
+   "smd": 0.2057
+  },
+  "Tür: RPG": {
+   "gorunur": 0.2458,
+   "gizli": 0.1599,
+   "smd": 0.215
+  },
+  "Early Access ile çıkış": {
+   "gorunur": 0.2314,
+   "gizli": 0.1295,
+   "smd": 0.2671
+  },
+  "Fiyat": {
+   "gorunur": 1.9427,
+   "gizli": 1.5173,
+   "smd": 0.3677
+  },
+  "Tür: Simulation": {
+   "gorunur": 0.3297,
+   "gizli": 0.1546,
+   "smd": 0.4175
+  },
+  "Dil sayısı": {
+   "gorunur": 1.8473,
+   "gizli": 1.2974,
+   "smd": 0.6643
+  },
+  "Çince destek": {
+   "gorunur": 0.6649,
+   "gizli": 0.314,
+   "smd": 0.7495
+  }
+ },
+ "model_or": {
+  "Fiyat": {
+   "tahmin": 2.8592,
+   "alt": 2.557,
+   "ust": 3.1971,
+   "p": 0.0,
+   "n": 6165.0
+  },
+  "Ücretsiz": {
+   "tahmin": 22.6767,
+   "alt": 16.8903,
+   "ust": 30.4455,
+   "p": 0.0,
+   "n": 6165.0
+  },
+  "Dil sayısı": {
+   "tahmin": 1.4284,
+   "alt": 1.2838,
+   "ust": 1.5894,
+   "p": 0.0,
+   "n": 6165.0
+  },
+  "Çince destek": {
+   "tahmin": 2.8165,
+   "alt": 2.3548,
+   "ust": 3.3687,
+   "p": 0.0,
+   "n": 6165.0
+  },
+  "Early Access ile çıkış": {
+   "tahmin": 1.2785,
+   "alt": 1.0775,
+   "ust": 1.517,
+   "p": 0.0049,
+   "n": 6165.0
+  },
+  "Çıkıştan önce demo": {
+   "tahmin": 0.8156,
+   "alt": 0.6871,
+   "ust": 0.9682,
+   "p": 0.0198,
+   "n": 6165.0
+  },
+  "Stüdyonun önceki oyunu var": {
+   "tahmin": 1.3469,
+   "alt": 1.1868,
+   "ust": 1.5286,
+   "p": 0.0,
+   "n": 6165.0
+  },
+  "Kendi yayını": {
+   "tahmin": 0.7906,
+   "alt": 0.676,
+   "ust": 0.9245,
+   "p": 0.0032,
+   "n": 6165.0
+  },
+  "Yenilik (etiket kombinasyonu)": {
+   "tahmin": 0.4445,
+   "alt": 0.238,
+   "ust": 0.8302,
+   "p": 0.011,
+   "n": 6165.0
+  },
+  "Aynı hafta çıkan oyun": {
+   "tahmin": 0.7248,
+   "alt": 0.5127,
+   "ust": 1.0248,
+   "p": 0.0685,
+   "n": 6165.0
+  },
+  "Aynı hafta büyük yayıncı çıkışı": {
+   "tahmin": 1.0121,
+   "alt": 0.8236,
+   "ust": 1.2437,
+   "p": 0.909,
+   "n": 6165.0
+  },
+  "Mac ya da Linux desteği": {
+   "tahmin": 1.035,
+   "alt": 0.9111,
+   "ust": 1.1757,
+   "p": 0.5971,
+   "n": 6165.0
+  },
+  "Playtest": {
+   "tahmin": 1.7433,
+   "alt": 1.374,
+   "ust": 2.212,
+   "p": 0.0,
+   "n": 6165.0
+  },
+  "Tür: Action": {
+   "tahmin": 1.1957,
+   "alt": 1.0425,
+   "ust": 1.3714,
+   "p": 0.0106,
+   "n": 6165.0
+  },
+  "Tür: Adventure": {
+   "tahmin": 1.0885,
+   "alt": 0.9568,
+   "ust": 1.2384,
+   "p": 0.1975,
+   "n": 6165.0
+  },
+  "Tür: Casual": {
+   "tahmin": 0.8989,
+   "alt": 0.7863,
+   "ust": 1.0277,
+   "p": 0.1188,
+   "n": 6165.0
+  },
+  "Tür: RPG": {
+   "tahmin": 1.3696,
+   "alt": 1.1751,
+   "ust": 1.5961,
+   "p": 0.0001,
+   "n": 6165.0
+  },
+  "Tür: Simulation": {
+   "tahmin": 2.5122,
+   "alt": 2.1617,
+   "ust": 2.9195,
+   "p": 0.0,
+   "n": 6165.0
+  },
+  "Tür: Strategy": {
+   "tahmin": 1.066,
+   "alt": 0.9059,
+   "ust": 1.2544,
+   "p": 0.4413,
+   "n": 6165.0
+  },
+  "Tür: Sports": {
+   "tahmin": 0.528,
+   "alt": 0.3607,
+   "ust": 0.7728,
+   "p": 0.001,
+   "n": 6165.0
+  },
+  "Tür: Racing": {
+   "tahmin": 0.7167,
+   "alt": 0.4861,
+   "ust": 1.0569,
+   "p": 0.0928,
+   "n": 6165.0
+  }
+ },
+ "model_or_dilsiz": {
+  "Fiyat": {
+   "tahmin": 3.1073,
+   "alt": 2.7836,
+   "ust": 3.4687,
+   "p": 0.0,
+   "n": 6165.0
+  },
+  "Ücretsiz": {
+   "tahmin": 18.915,
+   "alt": 14.1809,
+   "ust": 25.2295,
+   "p": 0.0,
+   "n": 6165.0
+  },
+  "Early Access ile çıkış": {
+   "tahmin": 1.2768,
+   "alt": 1.0866,
+   "ust": 1.5004,
+   "p": 0.003,
+   "n": 6165.0
+  },
+  "Çıkıştan önce demo": {
+   "tahmin": 0.7991,
+   "alt": 0.6786,
+   "ust": 0.9411,
+   "p": 0.0072,
+   "n": 6165.0
+  },
+  "Stüdyonun önceki oyunu var": {
+   "tahmin": 1.5345,
+   "alt": 1.3635,
+   "ust": 1.727,
+   "p": 0.0,
+   "n": 6165.0
+  },
+  "Kendi yayını": {
+   "tahmin": 0.7144,
+   "alt": 0.6165,
+   "ust": 0.8279,
+   "p": 0.0,
+   "n": 6165.0
+  },
+  "Yenilik (etiket kombinasyonu)": {
+   "tahmin": 0.3585,
+   "alt": 0.1966,
+   "ust": 0.6538,
+   "p": 0.0008,
+   "n": 6165.0
+  },
+  "Aynı hafta çıkan oyun": {
+   "tahmin": 0.8528,
+   "alt": 0.6168,
+   "ust": 1.1792,
+   "p": 0.3356,
+   "n": 6165.0
+  },
+  "Aynı hafta büyük yayıncı çıkışı": {
+   "tahmin": 1.0063,
+   "alt": 0.8302,
+   "ust": 1.2197,
+   "p": 0.949,
+   "n": 6165.0
+  },
+  "Mac ya da Linux desteği": {
+   "tahmin": 1.0722,
+   "alt": 0.9491,
+   "ust": 1.2114,
+   "p": 0.2626,
+   "n": 6165.0
+  },
+  "Playtest": {
+   "tahmin": 1.9267,
+   "alt": 1.5471,
+   "ust": 2.3994,
+   "p": 0.0,
+   "n": 6165.0
+  },
+  "Tür: Action": {
+   "tahmin": 1.2416,
+   "alt": 1.0932,
+   "ust": 1.4102,
+   "p": 0.0009,
+   "n": 6165.0
+  },
+  "Tür: Adventure": {
+   "tahmin": 1.0873,
+   "alt": 0.9623,
+   "ust": 1.2285,
+   "p": 0.179,
+   "n": 6165.0
+  },
+  "Tür: Casual": {
+   "tahmin": 1.0727,
+   "alt": 0.9461,
+   "ust": 1.2162,
+   "p": 0.2737,
+   "n": 6165.0
+  },
+  "Tür: RPG": {
+   "tahmin": 1.3692,
+   "alt": 1.1832,
+   "ust": 1.5845,
+   "p": 0.0,
+   "n": 6165.0
+  },
+  "Tür: Simulation": {
+   "tahmin": 2.4941,
+   "alt": 2.1628,
+   "ust": 2.8762,
+   "p": 0.0,
+   "n": 6165.0
+  },
+  "Tür: Strategy": {
+   "tahmin": 1.2005,
+   "alt": 1.0321,
+   "ust": 1.3965,
+   "p": 0.0178,
+   "n": 6165.0
+  },
+  "Tür: Sports": {
+   "tahmin": 0.5289,
+   "alt": 0.3704,
+   "ust": 0.7551,
+   "p": 0.0005,
+   "n": 6165.0
+  },
+  "Tür: Racing": {
+   "tahmin": 0.7339,
+   "alt": 0.5225,
+   "ust": 1.0307,
+   "p": 0.0742,
+   "n": 6165.0
+  }
+ },
+ "ornek_liste": [
+  {
+   "appid": 2164490,
+   "ad": "Emberfate: Tempest of Elements",
+   "yil": 2023,
+   "ana_tur": "Simulation",
+   "fiyat_liste_usd": NaN,
+   "reviews_365": 95.362,
+   "olumlu_oran_365": 1.0
+  },
+  {
+   "appid": 2421540,
+   "ad": "白猫骑士物语/ White Cat Knight",
+   "yil": 2025,
+   "ana_tur": "Action-Adventure",
+   "fiyat_liste_usd": 1.99,
+   "reviews_365": 92.0,
+   "olumlu_oran_365": 1.0
+  },
+  {
+   "appid": 2658690,
+   "ad": "Supurr Cat Cafe: Sandwich Rush",
+   "yil": 2024,
+   "ana_tur": "Casual",
+   "fiyat_liste_usd": 5.99,
+   "reviews_365": 90.0,
+   "olumlu_oran_365": 1.0
+  },
+  {
+   "appid": 2234960,
+   "ad": "Pygmalion",
+   "yil": 2023,
+   "ana_tur": "Puzzle",
+   "fiyat_liste_usd": 4.99,
+   "reviews_365": 89.233,
+   "olumlu_oran_365": 1.0
+  },
+  {
+   "appid": 1857650,
+   "ad": "DEEP FOG",
+   "yil": 2022,
+   "ana_tur": "Action-Adventure",
+   "fiyat_liste_usd": 14.99,
+   "reviews_365": 89.0,
+   "olumlu_oran_365": 1.0
+  },
+  {
+   "appid": 1229390,
+   "ad": "TOMOMI",
+   "yil": 2022,
+   "ana_tur": "Action",
+   "fiyat_liste_usd": 7.99,
+   "reviews_365": 88.766,
+   "olumlu_oran_365": 1.0
+  },
+  {
+   "appid": 2383820,
+   "ad": "Super 10 Pin",
+   "yil": 2025,
+   "ana_tur": "Simulation",
+   "fiyat_liste_usd": 11.99,
+   "reviews_365": 88.0,
+   "olumlu_oran_365": 1.0
+  },
+  {
+   "appid": 2429100,
+   "ad": "Homestar Runner: Halloween Hide n' Seek",
+   "yil": 2023,
+   "ana_tur": "Adventure",
+   "fiyat_liste_usd": 1.99,
+   "reviews_365": 87.158,
+   "olumlu_oran_365": 1.0
+  },
+  {
+   "appid": 1559430,
+   "ad": "Purrfect Apawcalypse: Purrgatory Furever",
+   "yil": 2021,
+   "ana_tur": "RPG",
+   "fiyat_liste_usd": 5.99,
+   "reviews_365": 85.075,
+   "olumlu_oran_365": 1.0
+  },
+  {
+   "appid": 2759760,
+   "ad": "Prickle",
+   "yil": 2024,
+   "ana_tur": "Puzzle",
+   "fiyat_liste_usd": 6.99,
+   "reviews_365": 85.0,
+   "olumlu_oran_365": 1.0
+  },
+  {
+   "appid": 2585110,
+   "ad": "Last Stand Delivery",
+   "yil": 2024,
+   "ana_tur": "Strategy",
+   "fiyat_liste_usd": 6.99,
+   "reviews_365": 85.0,
+   "olumlu_oran_365": 1.0
+  },
+  {
+   "appid": 690420,
+   "ad": "Quickscoper Doge: The Dank Illuminati Memes",
+   "yil": 2020,
+   "ana_tur": "Action-Adventure",
+   "fiyat_liste_usd": 4.2,
+   "reviews_365": 83.933,
+   "olumlu_oran_365": 1.0
+  }
+ ]
+}
