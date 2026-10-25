@@ -29,8 +29,12 @@ export function Kamera({ merkez, uzaklik, kesif, ucus, hareketAzalt }: Props) {
   const kaymaY = useRef(0)
   const controls = useThree((s) => s.controls) as OrbitControlsImpl | null
 
+  const geriKalan = useRef(0)
+  const onceki = useRef<typeof ucus>(null)
   useEffect(() => {
     if (ucus) ucusKalan.current = 2.4
+    else if (onceki.current) geriKalan.current = 2 // seçim kalkınca yıldızın dibinden genel görünüme geri çekil
+    onceki.current = ucus
   }, [ucus])
 
   useFrame(({ camera, size }, dt) => {
@@ -55,10 +59,12 @@ export function Kamera({ merkez, uzaklik, kesif, ucus, hareketAzalt }: Props) {
       camera.setViewOffset(size.width, size.height, kayma.current, kaymaY.current, size.width, size.height)
       return
     }
-    if (Math.abs(kayma.current) > 0.5 || Math.abs(kaymaY.current) > 0.5) {
-      kayma.current *= 1 - k
-      kaymaY.current *= 1 - k
-      camera.setViewOffset(size.width, size.height, kayma.current, kaymaY.current, size.width, size.height)
+    if (controls && !ucus && geriKalan.current > 0) {
+      geriKalan.current -= dt
+      yon.copy(camera.position).sub(controls.target).normalize().multiplyScalar(uzaklik * 0.8).add(controls.target)
+      camera.position.lerp(yon, k * 1.6)
+      controls.update()
+      return
     }
     if (!controls || !ucus || ucusKalan.current <= 0) return
     ucusKalan.current -= dt

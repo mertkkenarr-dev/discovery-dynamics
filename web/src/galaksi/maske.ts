@@ -4,7 +4,7 @@
  */
 import { BAYRAK, type Galaksi } from '../veri'
 
-export type MaskeAdi = 'gorunmez' | 'hit' | 'pahali' | 'tanidik' | 'birlikte' | 'ea' | 'cince' | 'yapayZeka' | 'hicbiri'
+export type MaskeAdi = 'gorunmez' | 'hit' | 'pahali' | 'tanidik' | 'birlikte' | 'ea' | 'cince' | 'yapayZeka' | 'hicbiri' | 'gizli' | 'firsat' | 'klon'
 
 export interface Maske {
   dizi: Float32Array
@@ -51,7 +51,8 @@ function tanidikEsigi(g: Galaksi): number {
   return 254
 }
 
-export function maskeUretici(g: Galaksi) {
+/** klon: K5'in en kalabalık akımlarının takipçi indeksleri (ozet.json → k5.dalgalar). */
+export function maskeUretici(g: Galaksi, klon: number[]) {
   const onbellek = new Map<MaskeAdi, Maske>()
   return (ad: MaskeAdi): Maske => {
     const var_ = onbellek.get(ad)
@@ -87,6 +88,18 @@ export function maskeUretici(g: Galaksi) {
       case 'hicbiri':
         m = kur(g, () => false)
         break
+      case 'gizli':
+        m = kur(g, (i) => (g.bayrak[i]! & BAYRAK.gizli) !== 0)
+        break
+      case 'firsat':
+        m = kur(g, (i) => (g.bayrak[i]! & BAYRAK.firsat) !== 0)
+        break
+      case 'klon': {
+        const s = new Uint8Array(g.n)
+        for (const i of klon) s[i] = 1
+        m = kur(g, (i) => s[i] === 1)
+        break
+      }
     }
     onbellek.set(ad, m)
     return m

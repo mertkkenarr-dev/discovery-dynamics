@@ -14,7 +14,7 @@ export interface Galaksi {
   yenilik: Uint8Array
 }
 
-export const BAYRAK = { organik: 1, cokOyunculu: 2, ea: 4, yapayZeka: 8, sevilen: 16, cince: 32 } as const
+export const BAYRAK = { organik: 1, cokOyunculu: 2, ea: 4, yapayZeka: 8, sevilen: 16, cince: 32, gizli: 64, firsat: 128 } as const
 
 export interface Ozet {
   yildiz: number
@@ -36,6 +36,34 @@ export interface Ozet {
   yapay_zeka: { gorunmez: Record<string, { n: number; gorunmez: number; hit: number }>; or: number; pay_yil: Record<string, number> }
   model: { pr_auc: number; taban: number; ust_dilim: number }
   siniflar: Record<string, number>
+  k5: {
+    dalga: { oncu: Aralik & { n_merkez: number }; plasebo: Aralik & { n_merkez: number } }
+    oncul: HitOzet
+    takipci: HitOzet
+    takipci_dilim: Record<string, { n: number; oran: number; alt: number; ust: number }>
+    plasebo: HitOzet
+    dalgalar: { ad: string; yil: number; oncu: number[]; takipci: number[]; orneklem: number; hit: number; diger: string[] }[]
+  }
+  k6: {
+    k: number
+    bolgeler: { ad: string; n: number; hit_oran: number; ob: number; alt: number; ust: number; arz_22_25: number; goreli_buyume: number; firsat: boolean }[]
+    etiketler: { ad: string; merkez: [number, number, number] }[]
+  }
+  k7: { n_gizli: number; n_gorunur: number; cok_begenilen: number; farklar: Record<string, { gorunur: number; gizli: number; smd: number }> }
+  k8: { gozlem: number; oyun: number; tahmin: { esik: number; sicrama: number; alt: number; ust: number; yuzde: number }[]; secilim: Record<string, { sicrama: number; alt: number; ust: number }> }
+}
+
+interface Aralik {
+  oran: number
+  alt: number
+  ust: number
+}
+
+interface HitOzet {
+  n: number
+  hit_oran: number
+  wilson: [number, number]
+  ob: number
 }
 
 export type Cift = [number, number, number]

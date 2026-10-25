@@ -123,14 +123,17 @@ def en_buyuk(u: pd.DataFrame, X: np.ndarray, oncu: np.ndarray, a: pd.DataFrame, 
         else:
             hedef["oncu"].append(m)
             hedef["takipci"] |= k
-    sat = []
-    for g in sorted(gruplar, key=lambda g: -len(g["takipci"]))[:n]:
+    sat, uye = [], []
+    for sira, g in enumerate(sorted(gruplar, key=lambda g: -len(g["takipci"]))[:n]):
         uyeler = sorted(g["oncu"], key=lambda m: t[m])
         idx = np.fromiter(g["takipci"] - set(uyeler), dtype=int)
         h = hit[idx]
+        uye += [{"grup": sira, "appid": int(u.appid[m]), "rol": "oncu"} for m in uyeler]
+        uye += [{"grup": sira, "appid": int(u.appid[m]), "rol": "takipci"} for m in idx]
         sat.append({"ilk_oncu": u.ad[uyeler[0]], "ilk_oncu_appid": int(u.appid[uyeler[0]]), "yil": int(u.cikis.dt.year[uyeler[0]]),
                     "oncu_sayisi": len(uyeler), "diger_oncular": [u.ad[m] for m in uyeler[1:6]], "takipci": len(idx),
                     "orneklem": int(np.isfinite(h).sum()), "hit": int(np.nansum(h))})  # fmt: skip
+    pd.DataFrame(uye).to_parquet(KOK / "data" / "interim" / "k5_dalga.parquet", index=False)  # web haritası için
     return sat
 
 

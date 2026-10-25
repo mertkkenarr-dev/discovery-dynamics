@@ -29,10 +29,11 @@ export function App() {
   }, [])
 
   const hazir = d.durum === 'hazir' ? d : null
-  const liste = useMemo(() => (hazir ? bolumler(hazir.oz) : []), [hazir])
-  const maske = useMemo(() => (hazir ? maskeUretici(hazir.g) : null), [hazir])
+  const liste = useMemo(() => (hazir ? bolumler(hazir.oz, hazir.g) : []), [hazir])
+  const maske = useMemo(() => (hazir ? maskeUretici(hazir.g, hazir.oz.k5.dalgalar.slice(0, 2).flatMap((d) => d.takipci)) : null), [hazir])
   const kesifte = etkin === 'kesif'
   const ad = useAdlar(kesifte || secili !== null)
+  const secAd = secili !== null && ad.durum === 'hazir' ? ad.adlar[secili]?.[1] : undefined
 
   useEtkinBolum(useCallback((id: string) => setEtkin(id), []), hazir !== null)
 
@@ -47,8 +48,9 @@ export function App() {
       uzaklik: b?.uzaklik ?? (etkin === 'son' ? 30 : 26),
       kesif: kesifte,
       ucus: sec?.merkez ?? null,
+      etiketler: sec ? [{ konum: sec.merkez, ad: secAd ?? '', tur: 'secim' }] : kesifte ? [] : (b?.etiketler ?? []),
     }
-  }, [hazir, maske, liste, etkin, kesifte, secili])
+  }, [hazir, maske, liste, etkin, kesifte, secili, secAd])
 
   const sec = useCallback((i: number | null) => setSecili(i), [])
 
@@ -61,7 +63,7 @@ export function App() {
         <a href="#giris" className="marka">Steam Galaksisi</a>
         <a href="#kesif">Haritayı keşfet</a>
       </header>
-      <main>
+      <main data-kesif={kesifte}>
         <section id="giris" className="giris" data-bolum="giris">
           {hazir && <Baslik oz={hazir.oz} />}
           {d.durum === 'yukleniyor' && <p className="durum">Plaka banyo ediliyor: 92 bin oyunun konumu yükleniyor…</p>}

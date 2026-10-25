@@ -95,6 +95,7 @@ export function Yildizlar({ g, maske, yilAnim, hareketAzalt, etkilesim, onIsaret
         },
         onPointerOut: () => onIsaret(null),
         onClick: (e: ThreeEvent<MouseEvent>) => {
+          if (e.delta > 4) return // sürükleyip döndürme bir tıklama değil (delta = basma ile bırakma arası piksel)
           const i = ilk(e)
           if (i !== undefined) onSec(i)
         },

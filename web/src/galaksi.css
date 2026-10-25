@@ -141,6 +141,9 @@
   .dizin a[aria-current='step']::after { background: var(--accent); box-shadow: 0 0 8px var(--accent); }
   @media (max-width: 62rem) { .dizin { display: none; } }
 
+  /* Keşifte fare haritaya geçmeli: main ve bölüm tıklamayı geçirir, yalnız arama paneli yakalar.
+     (Yalnız bölümü geçirgen yapmak yetmiyordu: altındaki main kutusu sürüklemeyi yutuyordu.) */
+  main[data-kesif='true'] { pointer-events: none; }
   .kesif { min-height: 150vh; padding-block: 8rem; pointer-events: none; }
   .kesif .metin { position: sticky; top: 6rem; max-width: 26rem; display: grid; gap: 1rem; pointer-events: auto; }
   .kesif-panel { display: grid; gap: 1rem; font-family: var(--font-ui); font-size: 1rem; }
@@ -205,4 +208,22 @@
     .giris h1 .ince { font-weight: 400; }
     .giris-metin { font-size: 1.0625rem; }
   }
+
+  /* Haritadaki adlı işaretler (drei Html). Halka = tek yıldız; bölge adları halkasız, daha sönük. */
+  .isaret { position: relative; display: grid; place-items: center; font-family: var(--font-ui); white-space: nowrap; }
+  .isaret .ad {
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 0.25rem);
+    transform: translateX(-50%);
+    padding: 0.125rem 0.5rem;
+    background: color-mix(in oklch, var(--ground-deep) 82%, transparent);
+    font-size: 0.8125rem;
+    color: var(--ink);
+  }
+  .isaret .halka { width: 1.75rem; height: 1.75rem; border: 1.5px solid var(--accent); border-radius: 50%; box-shadow: 0 0 12px color-mix(in oklch, var(--accent) 60%, transparent); }
+  .isaret-secim .halka { width: 2.5rem; height: 2.5rem; animation: halka 1.6s var(--ease) both; }
+  .isaret-secim .ad { font-size: 0.9375rem; font-weight: 600; }
+  .isaret-bolge .ad { position: static; transform: none; font-family: var(--font-display); font-style: italic; font-size: 1rem; color: var(--accent); }
+  @keyframes halka { from { transform: scale(2.4); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 }

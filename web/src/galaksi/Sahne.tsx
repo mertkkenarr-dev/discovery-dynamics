@@ -8,6 +8,7 @@ import { BlendFunction, ToneMappingMode } from 'postprocessing'
 import { QualityMonitor, useQuality } from '../kit/quality'
 import type { Cift, Galaksi } from '../veri'
 import { Cizgiler } from './Cizgiler'
+import { Etiketler, type Etiket } from './Etiketler'
 import { Kamera } from './Kamera'
 import type { Maske } from './maske'
 import { Yildizlar, type Isaret } from './Yildizlar'
@@ -19,6 +20,7 @@ export interface SahneDurumu {
   uzaklik: number
   kesif: boolean
   ucus: [number, number, number] | null
+  etiketler: Etiket[]
 }
 
 interface Props {
@@ -56,6 +58,7 @@ export function Sahne({ g, ciftler, durum, hareketAzalt, onIsaret, onSec }: Prop
         onSec={onSec}
       />
       <Cizgiler g={g} ciftler={ciftler} gorunur={durum.cizgiler} />
+      <Etiketler liste={durum.etiketler} />
       <Kamera merkez={durum.maske?.merkez ?? MERKEZ} uzaklik={durum.uzaklik} kesif={durum.kesif} ucus={durum.ucus} hareketAzalt={hareketAzalt} />
       <EffectComposer multisampling={0} enableNormalPass={false}>
         {settings.bloom ? <Bloom luminanceThreshold={1} luminanceSmoothing={0.2} intensity={0.6} mipmapBlur radius={0.72} /> : <></>}

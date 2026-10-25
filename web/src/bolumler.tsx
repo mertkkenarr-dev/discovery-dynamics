@@ -3,11 +3,13 @@
  * yön tersine dönerse başlık "tutmadı" der (önceden yazılmış iddia yok). Kaynak: ozet.json ← analysis/sonuclar.
  */
 import type { ReactNode } from 'react'
+import { esikBolum, firsatBolum, gizliBolum, klonBolum } from './bolumler_ek'
+import type { Etiket } from './galaksi/Etiketler'
 import type { MaskeAdi } from './galaksi/maske'
 import { arzGrafik, fiyatGrafik, hitYilGrafik, ilkAyGrafik, yapayZekaGrafik } from './grafikler'
 import type { Colors } from './site/charts'
 import { ekDe, ekI } from './lib/ek'
-import { sayi, yuzde, type Ozet } from './veri'
+import { sayi, yuzde, type Galaksi, type Ozet } from './veri'
 
 export interface Grafik {
   kur: (o: { width: number; colors: Colors }) => SVGSVGElement | HTMLElement
@@ -27,11 +29,20 @@ export interface Bolum {
   uzaklik: number
   grafikler?: Grafik[]
   modul: string
+  etiketler?: Etiket[]
 }
 
 const kat = (v: number) => sayi(v, 1)
 
-export function bolumler(oz: Ozet): Bolum[] {
+export function bolumler(oz: Ozet, g: Galaksi): Bolum[] {
+  const b = temel(oz)
+  const sira = (id: string) => b.find((x) => x.id === id)!
+  // Anlatı sırası: görünmezlik → gizli hazineler → kalabalık → fiyat → yenilik → taklit → fırsat → … → ilk ay → 50 eşiği → …
+  return [sira('gorunmez'), gizliBolum(oz), sira('arz'), sira('fiyat'), sira('tanidik'), klonBolum(oz, g), firsatBolum(oz), sira('birlikte'), sira('ea'),
+    sira('cince'), sira('ilkay'), esikBolum(oz), sira('ikinci'), sira('yz')]  // fmt: skip
+}
+
+function temel(oz: Ozet): Bolum[] {
   const yillar = Object.keys(oz.arz)
   const arzIlk = oz.arz[yillar[0]!]!
   const arzSon = oz.arz[yillar[yillar.length - 1]!]!

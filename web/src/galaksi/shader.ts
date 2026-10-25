@@ -42,7 +42,8 @@ export const vertex = /* glsl */ `
 
     vec4 mv = modelViewMatrix * vec4(position, 1.0);
     float boyut = (1.7 + aParlak * 0.95) * mix(0.8, 1.15, odak);
-    gl_PointSize = boyut * uOlcek / -mv.z * gorunur;
+    // Üst sınır: keşifte kamera bir yıldıza çok yaklaşınca noktalar ekranı kaplayan lekelere dönüşüyordu.
+    gl_PointSize = min(boyut * uOlcek / -mv.z, uOlcek * 0.9) * gorunur;
     gl_Position = projectionMatrix * mv;
   }
 `
