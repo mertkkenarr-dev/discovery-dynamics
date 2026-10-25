@@ -6,9 +6,8 @@ Büyük setler buraya eklenmeden önce boyutu sorulur (bkz. docs/VERI_KATALOGU.m
 
 from __future__ import annotations
 
-import shutil
-
 import os
+import shutil
 
 os.environ.setdefault("HF_HUB_DISABLE_XET", "1")  # xet CDN yerine düz HTTP indirme
 

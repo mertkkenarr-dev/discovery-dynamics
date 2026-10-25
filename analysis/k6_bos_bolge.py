@@ -65,7 +65,7 @@ def ciz_harita(g: pd.DataFrame) -> None:
         ax.errorbar(h.arz_22_25, h.ob, yerr=[h.ob - h.alt, h.ust - h.ob], fmt="none", ecolor=renk, elinewidth=0.8, alpha=0.6)
         ax.scatter(h.arz_22_25, h.ob, s=np.sqrt(h.n) * 2.2, color=renk, edgecolor="white", linewidth=1, zorder=3,
                    label="Fırsat bölgesi" if f else "Diğer bölgeler")  # fmt: skip
-    for b, r in g[g.firsat].head(8).iterrows():
+    for _, r in g[g.firsat].head(8).iterrows():
         ax.annotate(r.ad, (r.arz_22_25, r.ob), xytext=(6, 4), textcoords="offset points", fontsize=7.8, color=MUREKKEP)
     r = g[g.cinsel_tema].sort_values("ob").iloc[-1]  # en uçtaki nokta açıklamasız kalmasın; kalabalık-başarılı bölgeler K6_2'de
     ax.annotate("cinsel içerik etiketli bölge", (r.arz_22_25, r.ob), xytext=(6, 0), textcoords="offset points", fontsize=7.5, color=IKINCIL)

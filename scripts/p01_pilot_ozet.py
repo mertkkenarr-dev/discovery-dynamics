@@ -2,9 +2,14 @@
 
 Kullanım: cd scripts && python p01_pilot_ozet.py
 """
-import sys; sys.path.insert(0,'.')
-from ortak import jsonl_gz_oku, RAW, INTERIM
-import pandas as pd, numpy as np
+import sys
+
+import numpy as np
+import pandas as pd
+
+sys.path.insert(0, ".")
+from ortak import INTERIM, RAW, jsonl_gz_oku  # noqa: E402  (betik dizininden çalıştırılır)
+
 ev=pd.read_parquet(INTERIM/'evren.parquet'); pl=pd.read_csv(INTERIM/'pilot_appid.csv')
 k=ev[(ev.yil_set>=2018)&(ev.yil_set<=2025)].copy()
 k['kademe_set']=pd.cut(k.inceleme_set,[-1,9,99,499,4999,np.inf],labels=['T0','T1','T2','T3','T4']).astype(str)

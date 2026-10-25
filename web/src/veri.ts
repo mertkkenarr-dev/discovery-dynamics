@@ -14,6 +14,9 @@ export interface Galaksi {
   yenilik: Uint8Array
 }
 
+/** Göreli veri yolu: site hangi alt yolda yayınlanırsa (GitHub Pages /discovery-dynamics/) orada çalışır. */
+const VERI = `${import.meta.env.BASE_URL}veri/`
+
 export const BAYRAK = { organik: 1, cokOyunculu: 2, ea: 4, yapayZeka: 8, sevilen: 16, cince: 32, gizli: 64, firsat: 128 } as const
 
 export interface Ozet {
@@ -105,7 +108,7 @@ export type Cift = [number, number, number]
 
 /** turler.bin (scripts/14_web_veri.turler_yaz): uint16 tür sayısı | uint32 yıldız | tür başına yıldız-bitlik üyelik (LSB önce). */
 export async function turlerYukle(n: number): Promise<Uint8Array[]> {
-  const r = await fetch('/veri/turler.bin')
+  const r = await fetch(`${VERI}turler.bin`)
   if (!r.ok) throw new Error(`Tür verisi yüklenemedi (HTTP ${r.status}).`)
   const buf = await r.arrayBuffer()
   const v = new DataView(buf)
@@ -118,7 +121,7 @@ export async function turlerYukle(n: number): Promise<Uint8Array[]> {
 export const uyeMi = (bit: Uint8Array, i: number) => ((bit[i >> 3]! >> (i & 7)) & 1) === 1
 
 export async function galaksiYukle(): Promise<Galaksi> {
-  const r = await fetch('/veri/galaksi.bin')
+  const r = await fetch(`${VERI}galaksi.bin`)
   if (!r.ok) throw new Error(`Galaksi verisi yüklenemedi (HTTP ${r.status}).`)
   const buf = await r.arrayBuffer()
   const n = new DataView(buf).getUint32(0, true)
@@ -136,7 +139,7 @@ export async function galaksiYukle(): Promise<Galaksi> {
 }
 
 export async function jsonYukle<T>(ad: string): Promise<T> {
-  const r = await fetch(`/veri/${ad}`)
+  const r = await fetch(`${VERI}${ad}`)
   if (!r.ok) throw new Error(`${ad} yüklenemedi (HTTP ${r.status}).`)
   return (await r.json()) as T
 }

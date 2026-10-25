@@ -1,4 +1,4 @@
-# Steam Galaksisi (web taslağı)
+# Steam Galaksisi / Steam Galaxy (web)
 
 2018–2025 arasında Steam'de çıkan 92.492 oyunun etiket benzerliğine göre 3B haritası ve Discovery Dynamics bulgularının kaydırmalı anlatısı.
 
@@ -18,9 +18,9 @@ flowchart LR
 - **Metin kuralı:** Sayılar ve yönler `ozet.json`'dan gelir (elle sayı yazılmaz); Türkçe ekler sayıya göre `src/lib/ek.ts`'te seçilir.
 
 ```bash
-cd web && npm install && npm run dev
+cd web && npm ci && npm run dev
 ```
 
 Veriyi yeniden üretmek (proje kökünden): `cd scripts && uv run --no-project --python 3.12 --with pandas --with pyarrow --with pyyaml --with requests --with numpy --with umap-learn python 14_web_veri.py`
 
-Kontroller: `npm run typecheck`, `npm run build`, `npm run slop`.
+Kontroller: `npm run lint`, `npm run typecheck`, `npm run build`, `npm run slop`. Site iki dilli (TR/EN, `?lang=`); `vite.config.ts` göreli `base` kullanır, GitHub Pages alt yolunda çalışır.
