@@ -112,3 +112,17 @@ export function tekYildiz(g: Galaksi, i: number): Maske {
   dizi[i] = 1
   return { dizi, adet: 1, merkez: [g.konum[i * 3]!, g.konum[i * 3 + 1]!, g.konum[i * 3 + 2]!] }
 }
+
+/** Bit dizilerinin birleşimi (bir ya da birkaç alt tür). Tür paneli ve tür bölümleri için; çağıran önbelleğe alır. */
+export function bitMaske(g: Galaksi, bitler: Uint8Array[]): Maske {
+  return kur(g, (i) => bitler.some((b) => ((b[i >> 3]! >> (i & 7)) & 1) === 1))
+}
+
+/** En az `esik` alt türe üye olan oyunlar (çok türlü, hibrit oyunlar). */
+export function cokTurMaske(g: Galaksi, bitler: Uint8Array[], esik: number): Maske {
+  return kur(g, (i) => {
+    let s = 0
+    for (const b of bitler) if (((b[i >> 3]! >> (i & 7)) & 1) === 1 && ++s >= esik) return true
+    return false
+  })
+}

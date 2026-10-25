@@ -52,6 +52,17 @@ export interface Ozet {
   k7: { n_gizli: number; n_gorunur: number; cok_begenilen: number; farklar: Record<string, { gorunur: number; gizli: number; smd: number }> }
   hipotez: Record<string, { konu: string; sonuc: string; p_holm?: number }>
   k9: { n_test: number; modeller: Record<string, { pr_auc: number; alt: number; ust: number; roc_auc: number; fark: number; fark_alt: number; fark_ust: number }>; uslup_or: Record<string, { tahmin: number; alt: number; ust: number }> }
+  k10: {
+    karne: TurKarne[]
+    merkez: [number, number, number][]
+    ort_hit: number
+    ort_gorunmez: number
+    n_cift: number
+    n_anlamli: number
+    n_p05: number
+    hibrit_uc: { cift: string; a: string; b: string; n: number; hit: number; ob: number; alt: number; ust: number; q: number }[]
+  }
+  duyarlilik: { K6: Record<string, { ob: number; alt: number; ust: number; n: number }> }
   k8: { gozlem: number; oyun: number; tahmin: { esik: number; sicrama: number; alt: number; ust: number; yuzde: number }[]; secilim: Record<string, { sicrama: number; alt: number; ust: number }> }
 }
 
@@ -68,7 +79,43 @@ interface HitOzet {
   ob: number
 }
 
+export interface TurKarne {
+  tur: string
+  n: number
+  hit: number
+  hit_alt: number
+  hit_ust: number
+  gorunmez: number
+  ob: number
+  ob_alt: number
+  ob_ust: number
+  arz_22_25: number
+  goreli_buyume: number
+  tatli_fiyat: string | null
+  tatli_fiyat_hit: number | null
+  hit_erken: number
+  hit_gec: number
+  egilim: number
+  egilim_alt: number
+  egilim_ust: number
+  ortanca_fiyat: number
+}
+
 export type Cift = [number, number, number]
+
+/** turler.bin (scripts/14_web_veri.turler_yaz): uint16 tür sayısı | uint32 yıldız | tür başına yıldız-bitlik üyelik (LSB önce). */
+export async function turlerYukle(n: number): Promise<Uint8Array[]> {
+  const r = await fetch('/veri/turler.bin')
+  if (!r.ok) throw new Error(`Tür verisi yüklenemedi (HTTP ${r.status}).`)
+  const buf = await r.arrayBuffer()
+  const v = new DataView(buf)
+  const [nt, ny] = [v.getUint16(0, true), v.getUint32(2, true)]
+  const bayt = Math.ceil(ny / 8)
+  if (ny !== n || buf.byteLength !== 6 + nt * bayt) throw new Error(`Tür verisi galaksiyle uyuşmuyor (${ny} / ${n} yıldız, ${buf.byteLength} bayt).`)
+  return Array.from({ length: nt }, (_, k) => new Uint8Array(buf, 6 + k * bayt, bayt))
+}
+
+export const uyeMi = (bit: Uint8Array, i: number) => ((bit[i >> 3]! >> (i & 7)) & 1) === 1
 
 export async function galaksiYukle(): Promise<Galaksi> {
   const r = await fetch('/veri/galaksi.bin')

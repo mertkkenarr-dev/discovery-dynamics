@@ -5,14 +5,15 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Anahtar, Anlati, Dizin, useEtkinBolum } from './Anlati'
 import { bolumler } from './bolumler'
-import { maskeUretici, tekYildiz } from './galaksi/maske'
+import { bitMaske, maskeUretici, tekYildiz } from './galaksi/maske'
 import { Sahne, type SahneDurumu } from './galaksi/Sahne'
 import { Ipucu, isaretAyarla, Kesif, useAdlar } from './Kesif'
 import { QualityProvider } from './kit/quality'
 import { Son } from './Son'
-import { galaksiYukle, jsonYukle, sayi, type Cift, type Galaksi, type Ozet } from './veri'
+import { TurPanel } from './TurPanel'
+import { galaksiYukle, jsonYukle, turlerYukle, sayi, type Cift, type Galaksi, type Ozet } from './veri'
 
-type Durum = { durum: 'yukleniyor' } | { durum: 'hata'; mesaj: string } | { durum: 'hazir'; g: Galaksi; oz: Ozet; ciftler: Cift[] }
+type Durum = { durum: 'yukleniyor' } | { durum: 'hata'; mesaj: string } | { durum: 'hazir'; g: Galaksi; oz: Ozet; ciftler: Cift[]; bitler: Uint8Array[] }
 
 const hareketAzalt = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
@@ -20,15 +21,17 @@ export function App() {
   const [d, setD] = useState<Durum>({ durum: 'yukleniyor' })
   const [etkin, setEtkin] = useState('giris')
   const [secili, setSecili] = useState<number | null>(null)
+  const [tur, setTur] = useState(0)
 
   useEffect(() => {
-    Promise.all([galaksiYukle(), jsonYukle<Ozet>('ozet.json'), jsonYukle<Cift[]>('ikinci.json')])
-      .then(([g, oz, ciftler]) => setD({ durum: 'hazir', g, oz, ciftler }))
+    galaksiYukle()
+      .then((g) => Promise.all([g, jsonYukle<Ozet>('ozet.json'), jsonYukle<Cift[]>('ikinci.json'), turlerYukle(g.n)]))
+      .then(([g, oz, ciftler, bitler]) => setD({ durum: 'hazir', g, oz, ciftler, bitler }))
       .catch((e: unknown) => setD({ durum: 'hata', mesaj: e instanceof Error ? e.message : 'Veri yüklenemedi.' }))
   }, [])
 
   const hazir = d.durum === 'hazir' ? d : null
-  const liste = useMemo(() => (hazir ? bolumler(hazir.oz, hazir.g) : []), [hazir])
+  const liste = useMemo(() => (hazir ? bolumler(hazir.oz, hazir.g, hazir.bitler) : []), [hazir])
   const maske = useMemo(() => (hazir ? maskeUretici(hazir.g, hazir.oz.k5.dalgalar.slice(0, 2).flatMap((d) => d.takipci)) : null), [hazir])
   const kesifte = etkin === 'kesif'
   const ad = useAdlar(kesifte || secili !== null)
@@ -40,16 +43,17 @@ export function App() {
     if (!hazir || !maske) return null
     const b = liste.find((x) => x.id === etkin)
     const sec = kesifte && secili !== null ? tekYildiz(hazir.g, secili) : null
+    const turMaske = etkin === 'turpanel' ? bitMaske(hazir.g, [hazir.bitler[tur]!]) : null
     return {
-      maske: sec ?? (b?.maske ? maske(b.maske) : null),
+      maske: sec ?? turMaske ?? b?.maskeOzel ?? (b?.maske ? maske(b.maske) : null),
       yilAnim: b?.yilAnim ?? false,
       cizgiler: b?.cizgiler ?? false,
-      uzaklik: b?.uzaklik ?? (etkin === 'son' ? 30 : 26),
+      uzaklik: b?.uzaklik ?? (etkin === 'son' ? 30 : etkin === 'turpanel' ? 19 : 26),
       kesif: kesifte,
       ucus: sec?.merkez ?? null,
       etiketler: sec ? [{ konum: sec.merkez, ad: secAd ?? '', tur: 'secim' }] : kesifte ? [] : (b?.etiketler ?? []),
     }
-  }, [hazir, maske, liste, etkin, kesifte, secili, secAd])
+  }, [hazir, maske, liste, etkin, kesifte, secili, secAd, tur])
 
   const sec = useCallback((i: number | null) => setSecili(i), [])
 
@@ -94,6 +98,16 @@ export function App() {
         </section>
         {hazir && <Anlati liste={liste} etkin={etkin} hipotezler={hazir.oz.hipotez} />}
         {hazir && (
+          <section id="turpanel" className="adim tur-bolum" data-bolum="turpanel" data-etkin={etkin === 'turpanel'}>
+            <div className="metin">
+              <p className="katalog">Etkileşimli</p>
+              <h2>Bir türü incele.</h2>
+              <p>Bir alt tür seçin: oyunları haritada yanar, karnesi açılır. Değerler 2021–2025 arasında çıkan bağımsız oyunlardan.</p>
+              <TurPanel oz={hazir.oz} secili={tur} onSec={setTur} />
+            </div>
+          </section>
+        )}
+        {hazir && (
           <section id="kesif" className="kesif" data-bolum="kesif">
             <div className="metin">
               <h2>Bir oyunu haritada bul.</h2>
@@ -104,7 +118,7 @@ export function App() {
         )}
         {hazir && <Son oz={hazir.oz} />}
       </main>
-      {hazir && <Dizin liste={[...liste, { id: 'kesif', kisa: 'Keşfet' }]} etkin={etkin} />}
+      {hazir && <Dizin liste={[...liste, { id: 'turpanel', kisa: 'Tür paneli' }, { id: 'kesif', kisa: 'Keşfet' }]} etkin={etkin} />}
       <Ipucu adlar={ad.durum === 'hazir' ? ad.adlar : null} />
     </QualityProvider>
   )

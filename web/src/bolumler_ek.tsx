@@ -78,7 +78,12 @@ export function firsatBolum(oz: Ozet): Bolum {
     govde: <>
       <p>Oyunları içerik etiketlerine göre {oz.k6.k} bölgeye ayırdık ve her bölgede gerçekleşen hit sayısını, aynı fiyat, tür ve yıl karışımından beklenenle karşılaştırdık. Fırsat bölgelerinde çoğu bölgeden az oyun çıkıyor, ama çıkanlar beklenenden sık hit oluyor.</p>
       {cozy && <p>Cozy ve Wholesome oyunlar beklenenin {sayi(cozy.ob, 1)} katı hit veriyor; ancak bu bölgeye çıkan oyun sayısı Steam ortalamasının {sayi(cozy.goreli_buyume, 1)} katı hızla artıyor. Fırsat penceresi daralıyor.</p>}
-      {sessiz && sessiz !== cozy && <p>En sakin fırsat {bolgeAdi(sessiz.ad, ' ve ')}: beklenenin {sayi(sessiz.ob, 1)} katı hit, arz ise Steam'den hızlı büyümüyor.</p>}
+      {sessiz && sessiz !== cozy && (
+        <p>
+          En sakin aday {bolgeAdi(sessiz.ad, ' ve ')}: beklenenin {sayi(sessiz.ob, 1)} katı hit, arz ise Steam'den hızlı büyümüyor.
+          {(oz.duyarlilik.K6[sessiz.ad]?.alt ?? 2) <= 1 && ` Ancak yalnız 2021 sonrası oyunlarla bakıldığında fark belirsizleşiyor (×${sayi(oz.duyarlilik.K6[sessiz.ad]!.ob, 2)}); bu bölge için sonuç sağlam değil.`}
+        </p>
+      )}
     </>,
     harita: 'Fırsat bölgelerindeki oyunlar ve bölge adları.',
     yontem: 'Küresel k-ortalamalar (içerik etiketi vektörleri). Beklenen hit: yıl, tür, fiyat, Early Access ve dil kontrollü lojistik model; oran için Poisson aralığı. Keşifsel.',

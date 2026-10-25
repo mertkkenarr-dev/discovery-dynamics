@@ -5,8 +5,9 @@
  */
 import type { ReactNode } from 'react'
 import { esikBolum, firsatBolum, gizliBolum, klonBolum, metinBolum } from './bolumler_ek'
+import { hibritBolum, turlerBolum } from './bolumler_tur'
 import type { Etiket } from './galaksi/Etiketler'
-import type { MaskeAdi } from './galaksi/maske'
+import type { Maske, MaskeAdi } from './galaksi/maske'
 import { arzGrafik, fiyatGrafik, hitYilGrafik, ilkAyGrafik, yapayZekaGrafik } from './grafikler'
 import type { Colors } from './site/charts'
 import { ekDe, ekI } from './lib/ek'
@@ -28,6 +29,7 @@ export interface Bolum {
   yontem: string
   hipotez?: string
   maske: MaskeAdi | null
+  maskeOzel?: Maske
   yilAnim?: boolean
   cizgiler?: boolean
   uzaklik: number
@@ -37,10 +39,10 @@ export interface Bolum {
 
 const kat = (v: number) => sayi(v, 1)
 
-export function bolumler(oz: Ozet, g: Galaksi): Bolum[] {
+export function bolumler(oz: Ozet, g: Galaksi, bitler: Uint8Array[]): Bolum[] {
   const b = temel(oz)
   const sira = (id: string) => b.find((x) => x.id === id)!
-  return [sira('gorunmez'), gizliBolum(oz), sira('arz'), sira('fiyat'), sira('tanidik'), klonBolum(oz, g), firsatBolum(oz), sira('birlikte'), sira('ea'),
+  return [sira('gorunmez'), gizliBolum(oz), sira('arz'), sira('fiyat'), sira('tanidik'), klonBolum(oz, g), firsatBolum(oz), turlerBolum(oz, g, bitler), hibritBolum(oz, g, bitler), sira('birlikte'), sira('ea'),
     sira('cince'), sira('ilkay'), esikBolum(oz), metinBolum(oz), sira('ikinci'), sira('yz')]  // fmt: skip
 }
 

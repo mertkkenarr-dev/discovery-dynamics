@@ -88,6 +88,7 @@ def main() -> None:
     oz["k6"]["etiketler"] = [{"ad": b["ad"], "merkez": np.median(emb[(g.appid.map(bolge) == b["bolge"]).values], axis=0).round(4).tolist()}
                              for b in k6["bolgeler"] if b["firsat"]]  # fmt: skip
     oz["k5"]["dalgalar"] = dalgalar(idx)
+    oz["k10"]["merkez"] = turler_yaz(idx, emb, [r["tur"] for r in oz["k10"]["karne"]])
     (WEB / "ozet.json").write_text(json.dumps(nan_temizle(oz), ensure_ascii=False, indent=1, allow_nan=False), encoding="utf-8")
     print(f"[ok] galaksi {len(g):,} yıldız · ikinci oyun çifti {len(cift):,} → {WEB.relative_to(KOK)}")
 
@@ -115,10 +116,27 @@ def dalgalar(idx: dict[int, int], n: int = 3) -> list[dict]:
     return sat
 
 
+def turler_yaz(idx: dict[int, int], emb: np.ndarray, turler: list[str]) -> list[list[float]]:
+    """turler.bin: uint16 tür sayısı | uint32 yıldız sayısı | her tür için yıldız sayısı bitlik üyelik (galaksi sırası, LSB önce).
+    Üyelik K10 ile aynı: tür etiketi oyunun ilk 10 etiketinde. Dönen: her türün haritadaki ortanca konumu (kamera için)."""
+    u = pd.read_parquet(INTERIM / "k10_uyelik.parquet")
+    n = len(idx)
+    merkez = []
+    with open(WEB / "turler.bin", "wb") as f:
+        f.write(struct.pack("<HI", len(turler), n))
+        for tur in turler:
+            b = np.zeros(n, dtype=bool)
+            i = [idx[a] for a in u.appid[u.ad == tur] if a in idx]
+            b[i] = True
+            f.write(np.packbits(b, bitorder="little").tobytes())
+            merkez.append(np.median(emb[b], axis=0).round(4).tolist())
+    return merkez
+
+
 def ozet(n_yildiz: int) -> dict:
     """Sayfa metnindeki her rakam buradan gelir (analiz sonuç dosyaları); metinde elle rakam yazılmaz."""
     S = KOK / "analysis" / "sonuclar"
-    j = {m: json.loads((S / f"{m}_ozet.json").read_text(encoding="utf-8")) for m in ("M1", "M1b", "M2", "M2b", "M3", "M4", "M6", "K1", "K2", "K3", "K4", "K5", "K6", "K7", "K8", "K9")}
+    j = {m: json.loads((S / f"{m}_ozet.json").read_text(encoding="utf-8")) for m in ("M1", "M1b", "M2", "M2b", "M3", "M4", "M6", "K1", "K2", "K3", "K4", "K5", "K6", "K7", "K8", "K9", "K10")}
     arz = pd.read_csv(KOK / "analysis" / "sekiller" / "M1_2_arz_ve_hit.csv", index_col=0)
     kum = {v["ad"]: v for v in j["M4"]["yorunge"]["kumeler"].values()}
     k30 = j["K3"]["ilk30"]
@@ -170,6 +188,16 @@ def ozet(n_yildiz: int) -> dict:
                                                           "Çıkıştan önce demo", "Kendi yayını")}},
         "hipotez": json.loads((S / "hipotez_ozeti.json").read_text(encoding="utf-8")),
         "k9": {k: j["K9"][k] for k in ("modeller", "uslup_or", "n_test")},
+        "k10": {
+            "karne": [{k: r[k] for k in ("tur", "n", "hit", "hit_alt", "hit_ust", "gorunmez", "ob", "ob_alt", "ob_ust", "arz_22_25", "goreli_buyume",
+                                         "tatli_fiyat", "tatli_fiyat_hit", "hit_erken", "hit_gec", "egilim", "egilim_alt", "egilim_ust", "ortanca_fiyat")}
+                      for r in j["K10"]["karne"]],
+            "ort_hit": j["K10"]["orneklem_hit"], "ort_gorunmez": j["K10"]["orneklem_gorunmez"], "n_cift": j["K10"]["n_cift"], "n_anlamli": j["K10"]["n_anlamli"],
+            "n_p05": sum(1 for h in j["K10"]["hibrit"] if h["p"] < 0.05),
+            "hibrit_uc": [{k: h[k] for k in ("cift", "a", "b", "n", "hit", "ob", "alt", "ust", "q")} for h in j["K10"]["hibrit"][:8] + j["K10"]["hibrit"][-5:]],
+            "hibrit_en_kalabalik": max(j["K10"]["hibrit"], key=lambda h: h["n"]),
+        },
+        "duyarlilik": {"K6": json.loads((S / "duyarlilik_2021.json").read_text(encoding="utf-8"))["K6"]["2021+"]},
         "k8": {"tahmin": j["K8"]["tahmin"], "secilim": j["K8"]["secilim"], "gozlem": j["K8"]["gozlem"], "oyun": j["K8"]["oyun"]},
     }  # fmt: skip
 
