@@ -9,7 +9,7 @@ import { sayi, yuzde, type Galaksi, type Ozet } from './veri'
 
 const liste = (a: string[]) => (a.length <= 1 ? a.join('') : `${a.slice(0, -1).join(', ')} ve ${a[a.length - 1]}`)
 
-function korelasyon(x: number[], y: number[]): number {
+export function korelasyon(x: number[], y: number[]): number {
   const mx = x.reduce((s, v) => s + v, 0) / x.length
   const my = y.reduce((s, v) => s + v, 0) / y.length
   const sxy = x.reduce((s, v, i) => s + (v - mx) * (y[i]! - my), 0)

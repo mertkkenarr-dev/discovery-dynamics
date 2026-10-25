@@ -234,7 +234,22 @@
   @keyframes halka { from { transform: scale(2.4); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
   .ust-baglanti { display: flex; gap: 1.5rem; }
-  @media (max-width: 40rem) { .ust-baglanti a:not(:last-child) { display: none; } }
+  @media (max-width: 40rem) { .ust-baglanti a:not(:last-of-type) { display: none; } }
+  .ust-baglanti { align-items: baseline; }
+  .dil-dugme {
+    pointer-events: auto;
+    min-height: 2rem;
+    padding: 0.25rem 0.5rem;
+    background: none;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: border-color 0.2s var(--ease), color 0.2s var(--ease);
+  }
+  .dil-dugme:hover { border-color: var(--accent); color: var(--accent); }
 
   .kunye-proje { display: grid; gap: 0.5rem; max-width: 44rem; font-family: var(--font-ui); font-size: 0.9375rem; }
   .kunye-proje > div { display: grid; grid-template-columns: 6.5rem 1fr; gap: 1rem; padding-top: 0.5rem; border-top: 1px solid var(--rule); }

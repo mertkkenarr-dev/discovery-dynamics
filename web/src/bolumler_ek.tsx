@@ -12,9 +12,9 @@ const konum = (g: Galaksi, i: number): [number, number, number] => [g.konum[i * 
 const yz = (v: number, d = 1) => yuzde(v, d)
 // K6 bölge adı analizde orta noktayla ayrılmış üç etiket olarak gelir; ekranda ilk ikisi virgülle gösterilir.
 const AYRAC = ' \u00b7 '
-const bolgeAdi = (ad: string, bag = ', ') => ad.split(AYRAC).slice(0, 2).join(bag)
+export const bolgeAdi = (ad: string, bag = ', ') => ad.split(AYRAC).slice(0, 2).join(bag)
 
-function oncuEtiketleri(oz: Ozet, g: Galaksi): Etiket[] {
+export function oncuEtiketleri(oz: Ozet, g: Galaksi): Etiket[] {
   // Öncüler çıkış sırasında; diger[k] adı oncu[k + 1]'e karşılık gelir (ikisi de aynı sıradan kesilir). Çok yakın düşen adlar atlanır.
   // Akım içinde daha çok inceleme alan (daha parlak) öncü önce yerleşir: üst üste binenlerden tanınanı kalsın.
   const aday = oz.k5.dalgalar.slice(0, 2).flatMap((d) =>

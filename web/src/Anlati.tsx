@@ -5,6 +5,8 @@
 import { useEffect, type ReactNode } from 'react'
 import type { Bolum } from './bolumler'
 import { PlotFrame } from './site/charts'
+import { arayuz, hipotezMetni } from './arayuz'
+import { useDil, type Dil } from './dil'
 import type { Ozet } from './veri'
 
 export function useEtkinBolum(onDegis: (id: string) => void, hazir: boolean) {
@@ -22,24 +24,28 @@ export function useEtkinBolum(onDegis: (id: string) => void, hazir: boolean) {
 }
 
 /** Bölüm künyesi: ön kayıtlı hipotez mi (sonucuyla), keşifsel analiz mi. Okur bulgunun kanıt düzeyini başlıktan önce görür. */
-function kunye(b: Bolum, h: Ozet['hipotez']): string {
-  if (!b.hipotez) return 'Keşifsel analiz'
-  return `Ön kayıtlı hipotez ${b.hipotez}: ${h[b.hipotez]?.sonuc ?? 'bilinmiyor'}`
+function kunye(b: Bolum, h: Ozet['hipotez'], dil: Dil): string {
+  const m = arayuz(dil)
+  if (!b.hipotez) return m.kesifsel
+  const v = h[b.hipotez]
+  return m.onKayitli(b.hipotez, v ? hipotezMetni(dil, b.hipotez, v.konu, v.sonuc).sonuc : '?')
 }
 
 export function Anlati({ liste, etkin, hipotezler }: { liste: Bolum[]; etkin: string; hipotezler: Ozet['hipotez'] }) {
+  const dil = useDil()
+  const m = arayuz(dil)
   return (
-    <section className="anlati" aria-label="Bulgular">
+    <section className="anlati" aria-label={m.bulgular}>
       {liste.map((b) => (
         <article key={b.id} id={b.id} className="adim" data-bolum={b.id} data-etkin={etkin === b.id}>
           <div className="metin">
             <p className="katalog" data-hipotez={b.hipotez ? (hipotezler[b.hipotez]?.sonuc.startsWith('desteklendi') ? 'evet' : 'hayir') : undefined}>
-              {kunye(b, hipotezler)}
+              {kunye(b, hipotezler, dil)}
             </p>
             <h2>{b.baslik}</h2>
             <div className="govde">{b.govde}</div>
             <p className="harita-notu">
-              <span>Haritada:</span> {b.harita}
+              <span>{m.haritada}</span> {b.harita}
             </p>
             {b.grafikler?.map((gr) => (
               <figure key={gr.etiket} className="grafik">
@@ -48,7 +54,7 @@ export function Anlati({ liste, etkin, hipotezler }: { liste: Bolum[]; etkin: st
               </figure>
             ))}
             <p className="yontem">
-              <span>Yöntem:</span> {b.yontem}
+              <span>{m.yontemEtiket}</span> {b.yontem}
             </p>
           </div>
         </article>
@@ -58,8 +64,9 @@ export function Anlati({ liste, etkin, hipotezler }: { liste: Bolum[]; etkin: st
 }
 
 export function Dizin({ liste, etkin }: { liste: { id: string; kisa: string }[]; etkin: string }) {
+  const m = arayuz(useDil())
   return (
-    <nav className="dizin" aria-label="Bölümler">
+    <nav className="dizin" aria-label={m.bolumler}>
       <ol>
         {liste.map((b) => (
           <li key={b.id}>
@@ -74,25 +81,19 @@ export function Dizin({ liste, etkin }: { liste: { id: string; kisa: string }[];
 }
 
 export function Anahtar(): ReactNode {
-  const kademeler = [
-    ['t0', '10’dan az'],
-    ['t1', '10–99'],
-    ['t2', '100–499'],
-    ['t3', '500–4.999'],
-    ['t4', '5.000+'],
-  ] as const
+  const m = arayuz(useDil())
   return (
     <figure className="anahtar">
-      <figcaption>İlk yıldaki Steam incelemesi</figcaption>
+      <figcaption>{m.anahtarBaslik}</figcaption>
       <ul>
-        {kademeler.map(([k, ad]) => (
-          <li key={k}>
-            <span className={`nokta ${k}`} aria-hidden="true" />
+        {m.anahtar.map((ad, k) => (
+          <li key={ad}>
+            <span className={`nokta t${k}`} aria-hidden="true" />
             {ad}
           </li>
         ))}
       </ul>
-      <p>Hit: ilk yılda 500 ve üstü inceleme. Büyük ve parlak yıldız, daha çok inceleme demek.</p>
+      <p>{m.anahtarNot}</p>
     </figure>
   )
 }

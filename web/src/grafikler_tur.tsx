@@ -2,14 +2,16 @@
  * K10 grafikleri: alt türlerin risk-ödül haritası ve hibrit tür çiftleri. Sayılar ozet.json → k10 (2021–2025 çıkışlı oyunlar).
  */
 import { baseOptions, halo, Plot, type Colors } from './site/charts'
-import { sayi, type Ozet, type TurKarne } from './veri'
+import { bicim, t, type Dil } from './dil'
+import type { Ozet, TurKarne } from './veri'
 
 type Kur = (o: { width: number; colors: Colors }) => SVGSVGElement | HTMLElement
 
 /** Sol üst çeyrek: görünmez oranı ortalamanın altında, hit oranı üstünde. */
 export const azRiskliOdullu = (oz: Ozet) => (k: TurKarne) => k.hit > oz.k10.ort_hit && k.gorunmez < oz.k10.ort_gorunmez
 
-export const karneGrafik = (oz: Ozet): Kur => ({ width, colors: c }) => {
+export const karneGrafik = (oz: Ozet, dil: Dil = 'tr'): Kur => ({ width, colors: c }) => {
+  const b = bicim(dil)
   const d = oz.k10.karne
   const iyi = azRiskliOdullu(oz)
   const sirali = [...d].sort((a, z) => z.hit - a.hit)
@@ -18,28 +20,29 @@ export const karneGrafik = (oz: Ozet): Kur => ({ width, colors: c }) => {
     ...baseOptions(width, c, 300),
     marginLeft: 40,
     marginRight: 70,
-    x: { label: 'Görünmez kalan oyun payı (risk)', tickFormat: (v: number) => `%${v}`, labelArrow: 'none', labelAnchor: 'center', labelOffset: 36 },
-    y: { label: null, tickFormat: (v: number) => `%${v}`, grid: true },
+    x: { label: t(dil, 'Görünmez kalan oyun payı (risk)', 'Share of games that stay invisible (risk)'), tickFormat: (v: number) => b.yuzde(v), labelArrow: 'none', labelAnchor: 'center', labelOffset: 36 },
+    y: { label: null, tickFormat: (v: number) => b.yuzde(v), grid: true },
     r: { range: [2, 9] },
     marks: [
       Plot.ruleY([oz.k10.ort_hit], { stroke: c.muted, strokeDasharray: '3,3' }),
       Plot.ruleX([oz.k10.ort_gorunmez], { stroke: c.muted, strokeDasharray: '3,3' }),
       Plot.dot(d, { x: 'gorunmez', y: 'hit', r: 'n', fill: (k: TurKarne) => (iyi(k) ? c.accent : c.s2), fillOpacity: 0.85, stroke: c.ground, strokeWidth: 1,
-        title: (k: TurKarne) => `${k.tur}: hit %${sayi(k.hit, 1)}, görünmez %${sayi(k.gorunmez, 0)}, ${sayi(k.n)} oyun` }),  // fmt: skip
+        title: (k: TurKarne) => `${k.tur}: hit ${b.yuzde(k.hit, 1)}, ${t(dil, 'görünmez', 'invisible')} ${b.yuzde(k.gorunmez, 0)}, ${b.sayi(k.n)} ${t(dil, 'oyun', 'games')}` }),  // fmt: skip
       Plot.text(d.filter((k) => etiketli.has(k.tur)), { x: 'gorunmez', y: 'hit', text: 'tur', dx: 8, textAnchor: 'start', fill: c.ink, fontSize: 11, ...halo(c) }),
-      Plot.text([{ x: oz.k10.ort_gorunmez, y: oz.k10.ort_hit }], { x: 'x', y: 'y', text: () => 'ortalama', dx: 4, dy: -8, textAnchor: 'start', fill: c.muted, fontSize: 10 }),
+      Plot.text([{ x: oz.k10.ort_gorunmez, y: oz.k10.ort_hit }], { x: 'x', y: 'y', text: () => t(dil, 'ortalama', 'average'), dx: 4, dy: -8, textAnchor: 'start', fill: c.muted, fontSize: 10 }),
     ],
   })
 }
 
-export const hibritGrafik = (oz: Ozet): Kur => ({ width, colors: c }) => {
+export const hibritGrafik = (oz: Ozet, dil: Dil = 'tr'): Kur => ({ width, colors: c }) => {
+  const b = bicim(dil)
   const d = [...oz.k10.hibrit_uc].sort((a, z) => z.ob - a.ob)
   return Plot.plot({
     ...baseOptions(width, c, 40 + d.length * 24),
     marginLeft: Math.min(270, width * 0.55),
     marginRight: 40,
     marginBottom: 32,
-    x: { label: null, type: 'log', domain: [0.1, 12], ticks: [0.25, 0.5, 1, 2, 4, 8], tickFormat: (v: number) => `×${sayi(v, v < 1 ? 2 : 0)}`, grid: true },
+    x: { label: null, type: 'log', domain: [0.1, 12], ticks: [0.25, 0.5, 1, 2, 4, 8], tickFormat: (v: number) => `×${b.sayi(v, v < 1 ? 2 : 0)}`, grid: true },
     y: { label: null, domain: d.map((v) => v.cift), tickSize: 0 },
     marks: [
       Plot.ruleX([1], { stroke: c.ink }),
