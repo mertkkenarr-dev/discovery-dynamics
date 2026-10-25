@@ -79,3 +79,8 @@ kosinüsü (ilk 10 içerik etiketi, sıra × 2018 öncesi IDF). Oranlar Wilson %
   yapılmış bir değişikliktir; ilk çalıştırmanın sayıları da kayda geçti: dalga oranı öncü 1,06 (0,96–1,16), plasebo 0,89; takipçi hit
   oranı (0,70) %15,4, plasebo benzerleri %7,7. "En büyük dalgalar" listesi artık her öncünün kendi dalgasını sayıyor (en benzer öncüye
   atama yalnız başarı karşılaştırmasında kullanılıyor; listede atama dalgaları bölüyordu).
+- 2026-10-25 (K6, ilk çalıştırmadan sonra): Tanımlayıcı etiketleri Sexual Content / Nudity / Hentai olan bölgeler "fırsat" sayılmıyor
+  (grafikte gri kalıyor, tabloda duruyor). Gerekçe: ilk çalıştırmada en yüksek O/B bu bölgelerdeydi (×5,2 ve ×2,0). Projenin yetişkin
+  tanımı (T06) Steam içerik uyarısına (3, 4) dayanıyor; analiz örnekleminde 2.324 oyun (%3,5) uyarısız ama bu etiketleri taşıyor.
+  Etiket temiz bir yetişkin göstergesi değil (Train Sim World 2 gibi oyunlarda da var), bu yüzden örneklem değiştirilmedi; yalnız
+  geliştiriciye "fırsat" diye sunulacak listeden çıkarıldı. Değer yargısıdır, sonuç görülerek yapıldı.
