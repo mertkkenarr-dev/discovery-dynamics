@@ -109,3 +109,7 @@ kosinüsü (ilk 10 içerik etiketi, sıra × 2018 öncesi IDF). Oranlar Wilson %
 - 2026-10-25 (K8, ilk çalıştırmadan sonra): 10 eşiğinde −%6,6 düşüş çıktı; plandaki "Dikkat" notunda öngörülen seçilim (seri yalnız
   ömür boyu ≥ 10 oyunlarda) bunu üretebilir. Ek duyarlılık eklendi: yalnız ömür boyu ≥ F (15, 30, 100, 300) incelemeli oyunlar; F büyüdükçe
   iki yanın koşulu eşitlenir. Sonuç: F = 30'da −%4,8, F = 100'de +%0,5 (geniş GA). 10'daki düşüş yorumlanmaz; ana sonuç 50 eşiği.
+- 2026-10-25 (K9, ilk çalıştırmadan sonra): TF-IDF belirteç deseni düzeltildi; varsayılan desen "co-op"u "co" + "op" diye bölüyordu (en güçlü
+  terim "op" çıktı). Tireli kelimeler artık bütün. İlk çalıştırma: K4 0,268 → K4 + metin 0,314 (fark +0,046; GA +0,028…+0,064). Ayrıca
+  kelime grafiğinde çıkıştan sonra eklenmesi olası ifadeler (new, edition, discord, community, free…) gri ve yıldızlı gösteriliyor;
+  modelden çıkarılmadılar (plan dışı müdahale olurdu), artış zaten üst sınır olarak raporlanıyor.

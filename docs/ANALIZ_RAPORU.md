@@ -464,3 +464,22 @@ En doğru özet: "Tanıdık bir kalıbın içinde fark yaratmak", "alışılmad�
 
 - **Anlamı:** Steam'in görünürlüğü belirli bir inceleme sayısında "açılan" bir kapı gibi davranmıyor; ilgi sürekli ve pürüzsüz büyüyor. "50'ye ulaşmak için ne gerekiyorsa yap" tavsiyesinin veride karşılığı yok.
 - **Dikkat:** Aylık dilimler kaba; ay içinde gerçekleşen kısa bir sıçrama kısmen gizlenebilir (haftalık dilimli oyunlar da dahil). Etki varsa da küçük.
+
+### K9: Mağaza açıklaması başarıyı ele veriyor mu?
+
+*Betikler: `analysis/k9_metin_hazirla.py`, `analysis/k9_metin_model.py` · tanımlar `docs/KESIFSEL_K5_K8.md` §K9*
+
+![Metin modelleri](../analysis/sekiller/K9_1_metin_modelleri.png)
+
+- 65.555 bağımsız oyunun mağaza metni (kısa açıklama + uzun açıklamanın ilk 1.500 karakteri) üç yolla modellendi: TF-IDF + lojistik regresyon, cümle gömmesi (all-MiniLM-L6-v2) + lojistik regresyon, ve K4'ün çıkış öncesi nitelikleri + metin skoru (LightGBM, sızıntısız yığınlama). Zamansal bölme K4 ile aynı: eğitim ≤ 2023, test 2024–2025.
+- **Metin bilgi katıyor:** Aynı 22.996 test oyununda K4 nitelikleri PR-AUC 0,27; metin eklenince **0,31** (fark +0,045; %95 GA +0,028 … +0,063). ROC-AUC 0,81 → 0,85. Metin tek başına da 0,19 alıyor (rastgele 0,05).
+- **Sızıntı koruması gerekliydi:** Ödül, satış, puan ve basın alıntısı içeren cümleler metinden atıldı; bu cümleler hit'lerin %14,2'sinde, diğerlerinin %7,8'inde vardı. Metin bugünkü hâli olduğundan artış bir **üst sınır**.
+
+![Kelimeler](../analysis/sekiller/K9_2_metin_kelimeler.png)
+
+- **Hit'le birlikte görülen ifadeler:** co-op, wishlist (çıkış öncesi pazarlama izi), "from the creators of" (stüdyo geçmişi), idle, roguelite, ranked, Touhou (hazır hayran kitlesi). **Ters yönde:** VR, arcade, levels, obstacles, difficult. Kelimeler çoğu zaman türü ve kapsamı taşıyor; "new", "edition", "discord" gibi çıkış sonrası eklenmiş olabilecek ifadeler grafikte ayrıca işaretli.
+
+![Üslup](../analysis/sekiller/K9_3_metin_uslup.png)
+
+- **Üslup:** En güçlü işaret uzunluk (1 standart sapma daha uzun metin: hit olasılığı ×1,31; tür, fiyat, yıl sabit). Somut içerik sayıları ("50 levels") hafif olumlu (×1,04). "Unique, epic, revolutionary" gibi abartı sıfatlarının ilişkisi yok (×1,02, anlamsız).
+- **Anlamı:** Mağaza sayfasına emek vermek (uzun, somut, topluluğa çağıran metin) başarıyla birlikte görülüyor; büyük kelimeler değil. Bu, bütçe ve ekip büyüklüğünün de işareti olabilir.
