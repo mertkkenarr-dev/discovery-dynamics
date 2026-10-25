@@ -70,6 +70,28 @@ kosinüsü (ilk 10 içerik etiketi, sıra × 2018 öncesi IDF). Oranlar Wilson %
   oyunlardan oluşur, bu da eşik altını şişirip sıçramayı küçültür (temkinli yönde yanlılık). 50 eşiğinde bu sorun yok. Aylık dilimlerde
   eşik ay içinde geçilir; etki kısmen aynı dilime düşer (yine temkinli yön).
 
+## K9: Mağaza açıklaması ne söylüyor? (eklendi 2026-10-25, sonuçlara bakılmadan)
+
+**Soru:** Oyunun mağaza metni (ne vaat ettiği, nasıl anlattığı) başarıyla birlikte görülüyor mu, ve K4'ün çıkış öncesi modeline bilgi katıyor mu?
+
+- **Metin:** FronkonGames anlık görüntüsündeki (Şubat 2026) kısa açıklama + uzun açıklamanın HTML'siz ilk 1.500 karakteri. Yalnız
+  analiz örneklemi; harflerinin ≥ %80'i Latin olan (İngilizce ağırlıklı) metinler.
+- **Sızıntı koruması (en önemli kısım):** Metin bugünkü hâli; başarılı oyunlar sayfalarına ödül, satış, puan ve basın alıntısı ekliyor.
+  Şu kalıpları içeren **cümleler metinden atılır**: award / winner / nominee / nominated, sold / copies / million / players worldwide,
+  best seller / bestselling, overwhelmingly / very positive / review(s), rating / score / metacritic, tırnak içi alıntı + basın adı
+  (IGN, PC Gamer, Rock Paper Shotgun, Polygon, Kotaku, GameSpot, Eurogamer, Destructoid), "out now" / "now available" / "update" /
+  "DLC" / "1.0" / "full release". Tanı: kalıp oranı hit'lerde ve diğerlerinde ayrı raporlanır.
+- **Ön tanımlı üslup ölçüleri:** uzunluk (log karakter), ünlem sayısı (1.000 karakterde), BÜYÜK HARF kelime payı, "you/your" payı,
+  somut içerik sayısı ("50 levels", "100+ weapons" gibi sayı + isim kalıbı), abartı sıfatları (unique, innovative, revolutionary,
+  epic, amazing, ultimate, best, incredible, stunning, masterpiece, first ever, never before) 1.000 karakterde.
+- **Modeller (zamansal bölme K4 ile aynı: eğitim ≤ 2023, test 2024–2025, ölçü PR-AUC + ROC-AUC, %95 GA paired bootstrap):**
+  (a) TF-IDF (1–2 kelime, min_df 20) + lojistik regresyon; C, 2023'ü doğrulama yılı alarak seçilir.
+  (b) Cümle gömmesi (yerel `sentence-transformers/all-MiniLM-L6-v2`, 384 boyut) + lojistik regresyon.
+  (c) K4 ana model nitelikleri + metin skoru (eğitimde 5 katlı katlar-dışı tahmin, sızıntısız yığınlama) LightGBM; K4 ana modeliyle
+  aynı test kümesinde karşılaştırılır. Fark GA'sı 0'ı içeriyorsa "metin ek bilgi katmıyor".
+- **Yorum:** TF-IDF modelinin en güçlü olumlu/olumsuz kelimeleri ve üslup ölçülerinin hit oranıyla ilişkisi (kontrollü lojistik).
+- **Dikkat:** Sızıntı filtresi kusursuz değil; metin sonradan baştan yazılmış da olabilir. Bu yüzden (c)'deki artış üst sınır sayılır.
+
 ## Değişiklik günlüğü
 
 - 2026-10-25: İlk sürüm.
