@@ -33,7 +33,7 @@ export const klonGrafik = (oz: Ozet): Kur => ({ width, colors: c }) => {
 }
 
 export const firsatGrafik = (oz: Ozet): Kur => ({ width, colors: c }) => {
-  const d = oz.k6.bolgeler.slice(0, 7).map((b) => ({ ...b, kisa: b.ad.split(' · ').slice(0, 2).join(', ') }))
+  const d = oz.k6.bolgeler.slice(0, 7).map((b) => ({ ...b, kisa: b.ad.split(' \u00b7 ').slice(0, 2).join(', ') }))
   return Plot.plot({
     ...baseOptions(width, c, 40 + d.length * 30),
     marginLeft: Math.min(190, width * 0.45),

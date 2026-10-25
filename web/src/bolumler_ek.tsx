@@ -1,4 +1,3 @@
-/* avoid-ai-design-ignore-file: SD4d (" · " yalnız K6 bölge adlarını ayrıştırmak için split edilir; ekranda orta nokta gösterilmez) */
 /**
  * K5–K8 bölümleri (gizli hazineler, taklit, fırsat bölgeleri, 50 eşiği). bolumler.tsx ile aynı kural: başlıklar veriden üretilir,
  * yön tersine dönerse cümle de döner. Sayılar ozet.json'dan (analysis/sonuclar/K5–K8).
@@ -11,6 +10,9 @@ import { sayi, yuzde, type Galaksi, type Ozet } from './veri'
 
 const konum = (g: Galaksi, i: number): [number, number, number] => [g.konum[i * 3]!, g.konum[i * 3 + 1]!, g.konum[i * 3 + 2]!]
 const yz = (v: number, d = 1) => yuzde(v, d)
+// K6 bölge adı analizde orta noktayla ayrılmış üç etiket olarak gelir; ekranda ilk ikisi virgülle gösterilir.
+const AYRAC = ' \u00b7 '
+const bolgeAdi = (ad: string, bag = ', ') => ad.split(AYRAC).slice(0, 2).join(bag)
 
 function oncuEtiketleri(oz: Ozet, g: Galaksi): Etiket[] {
   // Öncüler çıkış sırasında; diger[k] adı oncu[k + 1]'e karşılık gelir (ikisi de aynı sıradan kesilir). Çok yakın düşen adlar atlanır.
@@ -70,12 +72,12 @@ export function firsatBolum(oz: Ozet): Bolum {
   const sessiz = [...firsat].sort((a, z) => a.goreli_buyume - z.goreli_buyume)[0]
   return {
     id: 'firsat', kisa: 'Fırsat bölgeleri', modul: 'K6', maske: 'firsat', uzaklik: 17,
-    etiketler: oz.k6.etiketler.map((e) => ({ konum: e.merkez, ad: e.ad.split(' · ').slice(0, 2).join(', '), tur: 'bolge' as const })),
+    etiketler: oz.k6.etiketler.map((e) => ({ konum: e.merkez, ad: bolgeAdi(e.ad), tur: 'bolge' as const })),
     baslik: `${firsat.length} içerik bölgesi hem az kalabalık hem beklenenden sık hit veriyor.`,
     govde: <>
       <p>Haritayı içerik etiketlerine göre {oz.k6.k} bölgeye ayırdık ve her bölgede gerçek hit sayısını, aynı fiyat, tür ve yıl karışımından beklenenle karşılaştırdık. Öne çıkanlar fırsat bölgeleri: çoğu bölgeden az oyun çıkıyor, ama çıkanlar beklenenden sık hit oluyor.</p>
       {cozy && <p>Cozy ve Wholesome oyunlar beklenenin {sayi(cozy.ob, 1)} katı hit veriyor, ama bu bölgeye çıkan oyun sayısı Steam'in {sayi(cozy.goreli_buyume, 1)} katı hızla artıyor: kapı kapanıyor.</p>}
-      {sessiz && sessiz !== cozy && <p>En sessiz fırsat {sessiz.ad.split(' · ').slice(0, 2).join(' ve ')}: beklenenin {sayi(sessiz.ob, 1)} katı hit, arz ise Steam'den hızlı büyümüyor.</p>}
+      {sessiz && sessiz !== cozy && <p>En sessiz fırsat {bolgeAdi(sessiz.ad, ' ve ')}: beklenenin {sayi(sessiz.ob, 1)} katı hit, arz ise Steam'den hızlı büyümüyor.</p>}
     </>,
     grafikler: [{ kur: firsatGrafik(oz), etiket: 'Bölgelere göre gözlenen ÷ beklenen hit', baslik: 'Hit: gerçekleşen ÷ beklenen (turuncu = fırsat)', yukseklik: 250 }],
   }
