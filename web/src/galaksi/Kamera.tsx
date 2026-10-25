@@ -52,7 +52,7 @@ export function Kamera({ merkez, uzaklik, kesif, ucus, hareketAzalt }: Props) {
       // Geniş ekranda metin solda: görüntü penceresini kaydırıp galaksiyi sağ yarıya al (perspektif bozulmaz).
       // Dar ekranda metin altta: galaksiyi üst yarıya al.
       const genis = size.width > size.height * 1.15
-      const kay = genis ? -size.width * 0.24 : 0
+      const kay = genis ? -size.width * (size.width > size.height * 1.6 ? 0.29 : 0.24) : 0 // çok geniş ekranda başlık galaksiye binmesin
       const dikey = genis ? 0 : size.height * 0.28
       kayma.current += (kay - kayma.current) * k
       kaymaY.current += (dikey - kaymaY.current) * k

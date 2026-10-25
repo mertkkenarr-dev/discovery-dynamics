@@ -87,7 +87,7 @@ export function Son({ oz }: { oz: Ozet }) {
         </ul>
       </div>
       <footer className="alt">
-        <p>Discovery Dynamics, Mert Safa Kenar'ın veri analizi projesi. Ekim 2026.</p>
+        <p>Discovery Dynamics, Mert Safa Kenar'ın veri analizi projesi.</p>
         <nav className="alt-baglanti" aria-label="Yazar">
           <a href="https://github.com/mertkkenarr-dev" target="_blank" rel="noreferrer">GitHub</a>
           <a href="https://www.linkedin.com/in/mert-kenar-02b40529b" target="_blank" rel="noreferrer">LinkedIn</a>

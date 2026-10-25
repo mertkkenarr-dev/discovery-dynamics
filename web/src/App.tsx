@@ -48,7 +48,7 @@ export function App() {
       maske: sec ?? turMaske ?? b?.maskeOzel ?? (b?.maske ? maske(b.maske) : null),
       yilAnim: b?.yilAnim ?? false,
       cizgiler: b?.cizgiler ?? false,
-      uzaklik: b?.uzaklik ?? (etkin === 'son' ? 30 : etkin === 'turpanel' ? 19 : 26),
+      uzaklik: b?.uzaklik ?? (etkin === 'son' ? 30 : etkin === 'turpanel' ? 19 : etkin === 'giris' ? 30 : 26),
       kesif: kesifte,
       ucus: sec?.merkez ?? null,
       etiketler: sec ? [{ konum: sec.merkez, ad: secAd ?? '', tur: 'secim' }] : kesifte ? [] : (b?.etiketler ?? []),

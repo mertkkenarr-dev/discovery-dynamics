@@ -102,6 +102,7 @@
   .giris h1 { display: grid; gap: 0.25rem; max-width: 19ch; font-size: clamp(2.75rem, 5.4vw, 5.25rem); line-height: 1.04; letter-spacing: -0.005em; }
   .giris h1 .ince { font-weight: 300; }
   .giris h1 .kalin { font-weight: 750; letter-spacing: 0; }
+  .giris h1 { text-shadow: 0 0 2rem var(--ground-deep), 0 0 0.75rem var(--ground-deep); } /* yıldızların üstüne taşarsa okunur kalsın */
   .giris h1 span, .giris-metin, .anahtar, .asagi { animation: belir 1.4s var(--ease) both; }
   .giris h1 .ince { animation-delay: 1.5s; }
   .giris h1 .kalin { animation-delay: 2.3s; }
@@ -271,5 +272,9 @@
 
   .son .alt { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
   .alt-baglanti { display: flex; gap: 1.5rem; }
-  .alt-baglanti a { color: var(--ink); }
+  .alt-baglanti a { color: var(--ink); display: inline-block; padding-block: 0.625rem; }
+
+  /* Kısa ekranlarda (dizüstü 720–800 px) bölüm dizini başlıkla çakışmasın: sıkıştır, çok kısa ekranda gizle. */
+  @media (max-height: 820px) { .dizin a { padding: 0.0625rem 0; font-size: 0.75rem; } .dizin ol { gap: 0.125rem; } }
+  @media (max-height: 620px) { .dizin { display: none; } }
 }
