@@ -40,6 +40,13 @@
 9. **Lansman ayı yılı belirliyor:** İlk 30 gün ile ilk yıl arasındaki sıra korelasyonu 0,93; tipik oyun yılı ilk ayının ~2,2 katıyla kapatıyor (K3).
 10. **Yapay zekâ beyan eden oyunların %65'i görünmez kalıyor, beyan etmeyenlerde %39** (kontrollü odds oranı ×3,0; 2024–2025; ilişki, neden-sonuç değil) (K2).
 
+### Ek keşifsel bulgular (K5–K8, 2026-10-25)
+
+11. **Hit'i taklit etmek ek avantaj sağlamıyor:** Takipçilerin %15,5'i hit, ama hit'ten *önce* aynı bölgeye çıkanların da %16,7'si. Avantaj bölgeden; 12–24 ay geç kalan takipçiler %13,7'ye düşüyor. "Klon seli" de yok (K5).
+12. **Üç fırsat bölgesi:** Cozy/Wholesome (beklenenin 2,3 katı hit, ama arzı Steam'in 6,9 katı hızla büyüyor), Dating Sim/Visual Novel (×2,0) ve en sessizi Dedektif/Gizem (×1,5, arz büyümüyor) (K6).
+13. **Çok beğenilen oyunların %44'ü gizli kalıyor:** Görünür hazineleri ayıranlar Simulation türü, daha yüksek fiyat, Early Access, Playtest ve deneyim; demo ayırmıyor (K7).
+14. **"50 incelemeyi geç, algoritma seni görsün" veride yok:** Eşikte sıçrama −%1,0 (GA −%2,4 … +%0,4); ilgi pürüzsüz büyüyor (K8).
+
 ### Bu analizlerde bulunup düzeltilen önemli hatalar
 
 Steam'in yeniden yayınlarda sıfırladığı çıkış tarihleri; eşleştirme dengesizliği; dondurulmuş açık veri setinin "bağımsız" sanılması; log eksende sessizce kaybolan veri noktası; Early Access'in kendisiyle tahmin edilmeye çalışılması; sonradan eklenen dil bilgisinin tahmin modeline sızması; ölçüm artefaktının "ikinci oyun daha kötü" gibi görünmesi. Her biri ilgili bölümde ve commit geçmişinde.
@@ -384,3 +391,76 @@ En doğru özet: "Tanıdık bir kalıbın içinde fark yaratmak", "alışılmad�
 - **Tahmine en çok katkı yapan bilgiler:** fiyat (açık ara), yayıncının deneyimi, stüdyo yaşı, macOS desteği, Simulation/RPG türü, aynı hafta çıkan oyun sayısı. "Kendi yayını" ve "geliştiricinin önceki oyunları" düşük olasılık yönünde; M1 ve M6 bulgularıyla tutarlı.
 
 **Anlamı:** Çıkış öncesi bilgilerle oyunların "umut verici" ve "riskli" olanlarını kabaca ayırmak mümkün; en riskli %50'de hit oranı %2'nin altında. Ama tahmin gücü sınırlı: en umut verici dilimdeki oyunların bile %78'i hit olmuyor. Lansman sonrası (K3: ilk ay) ve içerik (M2) çok daha belirleyici. Bu model Indie Opportunity Explorer'ın motoru olacak; çıktısı bir "kesin tahmin" değil, "benzer oyunların geçmişte ne yaptığı" olarak sunulmalı.
+
+---
+
+## Keşifsel analizler (K5–K8): akımlar, boş bölgeler, gizli hazineler, algoritma eşiği
+
+*Tanımlar sonuçlar görülmeden `docs/KESIFSEL_K5_K8.md`'de sabitlendi; sonradan yapılan her değişiklik (ve nedeni) oradaki günlükte. Hepsi keşifsel.*
+
+### K5: Klon dalgaları: bir hit'in arkasından gitmek işe yarıyor mu?
+
+*Betik: `analysis/k5_klon.py`*
+
+![Klon dalgası](../analysis/sekiller/K5_1_klon_dalgasi.png)
+
+- **Öncü:** 2018 – Mart 2024 arasında ilk yılında 5.000+ inceleme alan 682 oyun. **Takipçi:** öncüden sonraki 24 ayda çıkan ve içerik etiketleri ona çok benzeyen (kosinüs ≥ 0,70) oyun.
+- **"Klon seli" yok.** Bir hit'ten sonraki yıl ona çok benzeyen oyunların payı yerinde sayıyor (×1,05; GA 0,97–1,14). Sıradan bir oyunun çevresi aynı dönemde küçülüyor (×0,83). Yani hit'in bölgesi Steam'le aynı hızda büyümeyi sürdürüyor, ama patlama yok.
+
+![Takipçi başarısı](../analysis/sekiller/K5_2_takipci_basari.png)
+
+- Takipçilerin %15,5'i hit oluyor (örneklem ortalaması %4,8), sıradan bir oyunun benzerlerinin %7,8'i.
+- **Ama avantaj takipten değil bölgeden.** Hit'ten *önce* aynı bölgeye çıkan oyunların da %16,7'si hit olmuş. Hit, verimli bir bölgenin göstergesi; onu taklit etmek ek bir şey katmıyor.
+- **Geç kalan kaybediyor:** ilk 6 ayda gelen takipçilerin %18'i, 12–24 ay sonra gelenlerin %13,7'si hit oluyor; ikincisi bölgenin olağan oranının (%16,7) altında.
+- **En büyük akımlar:** Vampire Survivors (2021) ve onu izleyen 20 Minutes Till Dawn, Brotato, Soulstone Survivors grubunun ardından 407 oyun geldi; bağımsızlarda hit oranı yalnız %7,8 (322'de 25). Ardından Wildfrost/Balatro deste kurma dalgası (181 oyun), hayatta kalma-zanaat (SCUM, Subnautica: Below Zero, Forager) ve korku (Poppy Playtime, FNAF: Security Breach).
+- **Dikkat:** Etiketler çıkıştan sonra oylanıyor (R4): "Survivors-like" gibi etiketler öncüden sonra doğabilir. Takipçi = "benzer etiketli sonraki oyun", ilham aldığı kanıtlanmış oyun değil. İlk çalıştırmada en büyük "dalgalar" yetişkin içerik ve seri üretim kümeleri çıktığı için bayraklı oyunlar öncü/takipçi evreninden çıkarıldı (günlükte).
+
+### K6: Boş yıldız bölgeleri: az rakip, çok başarı
+
+*Betik: `analysis/k6_bos_bolge.py`*
+
+![Boş bölgeler](../analysis/sekiller/K6_1_bos_bolgeler.png)
+
+- Oyunlar içerik etiketlerine göre 60 bölgeye ayrıldı (59'unda ≥ 200 bağımsız oyun). Her bölgede **gözlenen hit ÷ beklenen hit** hesaplandı; beklenen, aynı yıl, tür, fiyat, EA ve dil karışımındaki oyunların hit olasılığı. Yani "bölge iyi çünkü pahalı oyunlar var" etkisi ayrıldı.
+- **Fırsat bölgesi** (2022–25 arzı ortancanın altında ve O/B'nin GA alt sınırı > 1): üç bölge.
+
+![Fırsat listesi](../analysis/sekiller/K6_2_firsat_listesi.png)
+
+| Bölge | Hit (gözlenen ÷ beklenen) | Hit oranı | 2022–25 arz | Arz büyümesi (Steam = 1) |
+|---|---|---|---|---|
+| Cozy · Wholesome · Cats | ×2,3 (1,8–2,8) | %17,2 | 646 | **×6,9** |
+| Dating Sim · Visual Novel · Romance | ×2,0 (1,6–2,5) | %10,8 | 915 | ×1,2 |
+| Detective · Mystery · Investigation | ×1,5 (1,05–2,0) | %8,6 | 439 | ×0,9 |
+
+- **Cozy fırsatı kapanıyor:** bölgeye çıkan oyun Steam'in 6,9 katı hızla artıyor. Dedektif/gizem bölgesi ise hem başarılı hem büyümeyen tek bölge: en "sessiz" fırsat.
+- **Kalabalık ama yine de iyi:** psikolojik korku (×2,0), idle/incremental (×1,85), yerel/PvP çok oyunculu (×1,8). Bunlar M2'deki "kalabalık dezavantaj değil, talep işareti" bulgusuyla tutarlı.
+- **En zayıf bölgeler:** genel aksiyon-macera, 2D platform, arcade (×0,3–0,5).
+- **Dikkat:** Yüksek O/B, bölgedeki oyunların ölçülmeyen kalitesini de yansıtabilir; fırsat ≠ garanti. Cinsel içerik etiketleriyle tanımlı iki bölge (×5,2 ve ×2,0) fırsat sayılmadı: Steam içerik uyarısı olmadığı için yetişkin bayrağına (T06) takılmıyorlar; örneklemde bu etiketleri taşıyan 2.324 oyun (%3,5) var.
+
+### K7: Gizli hazineler: çok beğenilip görülmeyenler
+
+*Betik: `analysis/k7_gizli_hazine.py`*
+
+![Gizli hazineler](../analysis/sekiller/K7_1_gizli_hazine_farklar.png)
+
+- **Gizli hazine:** ilk yılında 10–99 inceleme alan, beğeni alt sınırı ≥ %80 olan oyun. **Görünür hazine:** aynı beğeni, 500+ inceleme.
+- **Çok beğenilen oyunların %44'ü gizli kalıyor** (9.112 çok beğenilen oyundan 3.991'i); her görünür hazineye karşılık ~1,8 gizli hazine var.
+- Çıkış öncesi nitelikler içinde görünür hazineyi ayıranlar: **Simulation türü** (%15 → %33), **fiyat** (geometrik ortalama ~3,6 → 6,0 USD), **Early Access** (%13 → %23; kontrollü OR 1,28), **Playtest** (%5 → %10; OR 1,93), **stüdyonun önceki oyunu** (%41 → %50; OR 1,53). Gizlilerde daha yaygın: **kendi yayını** (%84 → %78; OR 0,71) ve Casual tür.
+- **Demo ayırmıyor:** iki grupta da çıkış öncesi demo oranı ~%15 (kaldırılmış demolar R13 yüzünden kesin değil).
+- **Dil ve Çince en büyük farklar** (%31 → %66 Çince), ama bunlar mağazanın bugünkü değeri; başarılı oyunlar dili sonradan ekliyor (M2b). Bu farkın büyük bölümü sonucun kendisi olabilir, bu yüzden ayrı işaretlendi.
+- **Dikkat:** Az incelemeli oyunda olumlu oran arkadaş/aile incelemeleriyle şişebilir; liste (K7_ozet.json) kalite garantisi değil.
+
+### K8: "50 incelemeyi geç, algoritma seni görsün" doğru mu?
+
+*Betik: `analysis/k8_esik.py`*
+
+![Eşik sıçramaları](../analysis/sekiller/K8_1_esik_sicramalari.png)
+
+- 36.148 oyunun 1 milyon aylık/haftalık inceleme diliminde, toplam inceleme bir eşiği geçince inceleme hızının sıçrayıp sıçramadığı test edildi (süreksizlik regresyonu; plasebo eşiklerle karşılaştırma).
+- **50 eşiğinde sıçrama yok:** −%1,0 (GA −%2,4 … +%0,4). Test hassas: +%0,4'ten büyük bir sıçrama veriyle dışlanıyor. Plasebo eşiklerin (20–80) hepsi de ~0.
+- **10 eşiği** (Steam puanı görünür olur): ham tahmin −%6,6, ama bu büyük ölçüde seçilim: seri yalnız eninde sonunda 10'u geçen oyunlar için var, bu da eşik altını şişiriyor. Oyunları ömür boyu ≥ 30 incelemeyle sınırlayınca −%4,8, ≥ 100 ile +%0,5 (geniş GA). 10 eşiği için kesin bir şey söylenemez.
+
+![Eşik kovaları](../analysis/sekiller/K8_2_esik_kovalari.png)
+
+- **Anlamı:** Steam'in görünürlüğü belirli bir inceleme sayısında "açılan" bir kapı gibi davranmıyor; ilgi sürekli ve pürüzsüz büyüyor. "50'ye ulaşmak için ne gerekiyorsa yap" tavsiyesinin veride karşılığı yok.
+- **Dikkat:** Aylık dilimler kaba; ay içinde gerçekleşen kısa bir sıçrama kısmen gizlenebilir (haftalık dilimli oyunlar da dahil). Etki varsa da küçük.
