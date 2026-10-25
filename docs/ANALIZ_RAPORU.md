@@ -43,9 +43,11 @@
 ### Ek keşifsel bulgular (K5–K8, 2026-10-25)
 
 11. **Hit'i taklit etmek ek avantaj sağlamıyor:** Takipçilerin %15,5'i hit, ama hit'ten *önce* aynı bölgeye çıkanların da %16,7'si. Avantaj bölgeden; 12–24 ay geç kalan takipçiler %13,7'ye düşüyor. "Klon seli" de yok (K5).
-12. **Üç fırsat bölgesi:** Cozy/Wholesome (beklenenin 2,3 katı hit, ama arzı Steam'in 6,9 katı hızla büyüyor), Dating Sim/Visual Novel (×2,0) ve en sessizi Dedektif/Gizem (×1,5, arz büyümüyor) (K6).
+12. **İki sağlam fırsat bölgesi:** Cozy/Wholesome (beklenenin 2,3 katı hit, ama arzı Steam'in 6,9 katı hızla büyüyor) ve Dating Sim/Visual Novel (×2,0). Üçüncü aday Dedektif/Gizem (×1,5) yalnız 2021+ oyunlarla bakınca anlamlılığını yitiriyor (K6, duyarlılık).
 13. **Çok beğenilen oyunların %44'ü gizli kalıyor:** Görünür hazineleri ayıranlar Simulation türü, daha yüksek fiyat, Early Access, Playtest ve deneyim; demo ayırmıyor (K7).
 14. **"50 incelemeyi geç, algoritma seni görsün" veride yok:** Eşikte sıçrama −%1,0 (GA −%2,4 … +%0,4); ilgi pürüzsüz büyüyor (K8).
+15. **Türlerin risk-ödül karnesi:** Management, Dating Sim, City Builder ve Sandbox hem az riskli hem ödüllü (hit %10–12); Runner, Precision Platformer ve Logic en zor (hit < %2). Tür karışımları ise parçalarının toplamı kadar: 176 çiftin hiçbiri beklenenden farklı değil. Anlamlı eğilimlerin hepsi düşüş: Auto Battler, Idler, Roguelike (K10).
+16. **Veri kalitesi:** Oyuncu etiketleri 2021 öncesi seçilimli (eski yıllarda başarılı oyunlar daha çok etiket taşıyor). Etiket tabanlı bulgular 2021+ ile yeniden hesaplandı; Dedektif/Gizem fırsatı dışında hepsi geçerli (duyarlılık bölümü).
 
 ### Bu analizlerde bulunup düzeltilen önemli hatalar
 
@@ -432,7 +434,7 @@ En doğru özet: "Tanıdık bir kalıbın içinde fark yaratmak", "alışılmad�
 | Dating Sim · Visual Novel · Romance | ×2,0 (1,6–2,5) | %10,8 | 915 | ×1,2 |
 | Detective · Mystery · Investigation | ×1,5 (1,05–2,0) | %8,6 | 439 | ×0,9 |
 
-- **Cozy fırsatı kapanıyor:** bölgeye çıkan oyun Steam'in 6,9 katı hızla artıyor. Dedektif/gizem bölgesi ise hem başarılı hem büyümeyen tek bölge: en "sessiz" fırsat.
+- **Cozy fırsatı kapanıyor:** bölgeye çıkan oyun Steam'in 6,9 katı hızla artıyor. Dedektif/gizem bölgesi hem başarılı hem büyümüyor, ama bu sonuç sağlam değil: yalnız 2021+ çıkışlı oyunlarla O/B ×1,29 (GA 0,83–1,93).
 - **Kalabalık ama yine de iyi:** psikolojik korku (×2,0), idle/incremental (×1,85), yerel/PvP çok oyunculu (×1,8). Bunlar M2'deki "kalabalık dezavantaj değil, talep işareti" bulgusuyla tutarlı.
 - **En zayıf bölgeler:** genel aksiyon-macera, 2D platform, arcade (×0,3–0,5).
 - **Dikkat:** Yüksek O/B, bölgedeki oyunların ölçülmeyen kalitesini de yansıtabilir; fırsat ≠ garanti. Cinsel içerik etiketleriyle tanımlı iki bölge (×5,2 ve ×2,0) fırsat sayılmadı: Steam içerik uyarısı olmadığı için yetişkin bayrağına (T06) takılmıyorlar; örneklemde bu etiketleri taşıyan 2.324 oyun (%3,5) var.
@@ -483,3 +485,40 @@ En doğru özet: "Tanıdık bir kalıbın içinde fark yaratmak", "alışılmad�
 
 - **Üslup:** En güçlü işaret uzunluk (1 standart sapma daha uzun metin: hit olasılığı ×1,31; tür, fiyat, yıl sabit). Somut içerik sayıları ("50 levels") hafif olumlu (×1,04). "Unique, epic, revolutionary" gibi abartı sıfatlarının ilişkisi yok (×1,02, anlamsız).
 - **Anlamı:** Mağaza sayfasına emek vermek (uzun, somut, topluluğa çağıran metin) başarıyla birlikte görülüyor; büyük kelimeler değil. Bu, bütçe ve ekip büyüklüğünün de işareti olabilir.
+
+### K10: Türler: risk-ödül karnesi, hibrit türler, eğilimler
+
+*Betikler: `analysis/k10_tur.py`, `analysis/k10_grafik.py` · tanımlar `docs/KESIFSEL_K5_K8.md` §K10*
+
+- **Alt tür:** oyunun ilk 10 etiketindeki tür etiketi (Roguelike, Metroidvania, Visual Novel…). Örneklemde ≥ 500 oyunu olan 67 alt tür. **Yalnız 2021–2025 çıkışlı oyunlar** (aşağıdaki veri kalitesi notu).
+
+![Tür karnesi](../analysis/sekiller/K10_1_tur_karnesi.png)
+
+- **Az riskli ve ödüllü:** Management (hit %11,8, görünmez %37), Dating Sim (%11,2 / %33), City Builder, Sandbox, Life Sim. **En zor:** Runner (%1,2 / %70), Precision Platformer, Logic, 2D Platformer, Education.
+- **Fiyat ve tür karışımı ayrılınca (O/B):** beklenenin en üstünde Dating Sim (×2,0), Word Game, Idler, Visual Novel ve Survival Horror; en altında Education (×0,37), Runner, Logic, Puzzle Platformer. Yani Management'ın yüksek oranının bir kısmı fiyat ve kapsamdan geliyor (O/B ×1,17).
+
+![Hibrit türler](../analysis/sekiller/K10_2_hibrit_turler.png)
+
+- **Hibrit türler parçalarının toplamı kadar.** 176 tür çiftinin hiçbiri, türlerin ayrı ayrı öngördüğünden çoklu test sonrası farklı değil (yalnız 8'i p < 0,05; şans beklentisi ~9). "Doğru türleri birleştir, sinerji yakala" fikrinin veride karşılığı yok: karışımın başarısını bileşen türler belirliyor.
+
+![Eğilimler](../analysis/sekiller/K10_3_tur_egilimleri.png)
+
+- **Anlamlı eğilimlerin hepsi düşüş:** Auto Battler (%13,4 → %5,1), Idler (%10,3 → %6,4), Roguelike (%8,1 → %5,1); 2021–22'den 2023–24'e. Üçü de son yılların patlayan türleri; K5'teki "geç kalan kaybediyor" bulgusuyla tutarlı.
+
+### Veri kalitesi: etiket kapsamı ve 2021+ duyarlılığı
+
+*Betik: `analysis/duyarlilik_2021.py` · sonuçlar `analysis/sonuclar/duyarlilik_2021.json`*
+
+- **Bulgu:** Oyuncu etiketleri 2021 öncesi seçilimli. Analiz örnekleminde alt tür etiketi olan oyun payı 2018'de %52, 2019'da %55, 2021'den itibaren %91–93. 2018–19'da hit'ler ortalama iki kat fazla tür etiketi taşıyor; 2021'den itibaren fark yok. Yani eski yıllarda "etiketli olmak" başarıyla ilişkili ve etiket tabanlı ölçüler o yıllarda başarılı oyunlara kayıyor.
+- **Etkisi:** K10'un ilk çalıştırmasında her alt tür "düşüşte" göründü (yapay). K10 2021+ ile yapıldı; etiket tabanlı önceki bulgular 2021+ ile yeniden hesaplandı:
+
+| Bulgu | Tam örneklem | Yalnız 2021–2025 | Sonuç |
+|---|---|---|---|
+| H1 yenilik (ters U) | desteklenmedi; eğim iki uçta negatif | desteklenmedi; düşüş yüksek yenilikte yavaşlıyor | geçerli |
+| H7 doygunluk | OR 1,06 (1,03–1,09) | OR 1,07 (1,03–1,10) | geçerli |
+| Multiplayer / Online Co-op / Co-op | ×3,6 / ×3,2 / ×2,7 | ×3,1 / ×2,8 / ×2,6 | geçerli (biraz zayıf) |
+| K5 takipçi / öncül / plasebo hit | %15,5 / %16,7 / %7,8 | %14,2 / %14,5 / %7,6 | geçerli |
+| K6 Cozy / Dating Sim O/B | ×2,25 / ×1,98 | ×2,26 / ×1,93 | geçerli |
+| K6 Detective / Mystery O/B | ×1,48 (1,05–2,02) | ×1,29 (0,83–1,93) | **sağlam değil** |
+
+- Ön kayıtlı hipotez kararları tam örneklemle verildi ve değişmiyor; tablo bir sağlamlık kontrolü.

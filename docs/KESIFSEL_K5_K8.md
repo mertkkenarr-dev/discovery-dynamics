@@ -130,3 +130,10 @@ kosinüsü (ilk 10 içerik etiketi, sıra × 2018 öncesi IDF). Oranlar Wilson %
   terim "op" çıktı). Tireli kelimeler artık bütün. İlk çalıştırma: K4 0,268 → K4 + metin 0,314 (fark +0,046; GA +0,028…+0,064). Ayrıca
   kelime grafiğinde çıkıştan sonra eklenmesi olası ifadeler (new, edition, discord, community, free…) gri ve yıldızlı gösteriliyor;
   modelden çıkarılmadılar (plan dışı müdahale olurdu), artış zaten üst sınır olarak raporlanıyor.
+- 2026-10-25 (K10, ilk çalıştırmadan sonra, **önemli veri kalitesi bulgusu**): Alt tür etiketi kapsamı yıllara göre değişiyor ve 2021
+  öncesi seçilimli. Analiz örnekleminde alt tür etiketi olan oyun payı: 2018 %52, 2019 %55, 2020 %81, 2021–2025 %91–93. Ortalama alt tür
+  etiketi sayısı hit / hit olmayan: 2018 1,90 / 0,94, 2019 1,84 / 1,05; 2021'den itibaren eşit (ör. 2023 2,54 / 2,55). Yani eski yıllarda
+  bir oyunun etiket taşıması başarısıyla ilişkili; tür içi hit oranları eski yıllarda şişiyor ve ilk çalıştırmada neredeyse her alt tür
+  "düşüşte" göründü (yapay). Düzeltme: K10'un karne ve hibrit analizleri 2021–2025 çıkışlı oyunlarla; eğilim 2021–22 → 2023–24; arz büyümesi
+  2022–23 → 2024–25. Hibrit grafiği anlamlı çift çıkmayınca en uç çiftleri GA'larıyla gösterecek şekilde genelleştirildi. Aynı seçilim etiket
+  tabanlı önceki analizleri (M2 etiketler, M3/H1, K5, K6, K7) de etkileyebilir: 2021+ duyarlılık analizi ayrıca yapılıyor.
