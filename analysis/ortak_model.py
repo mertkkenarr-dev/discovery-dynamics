@@ -55,3 +55,19 @@ def holm(p: dict[str, float]) -> dict[str, float]:
         onceki = max(onceki, min(1.0, (m - i) * v))
         out[k] = onceki
     return out
+
+
+def beklenen_hit(d: pd.DataFrame) -> pd.Series:
+    """Standart kontrollerle (KONTROL) hit olasılığı. K5/K6'da "gözlenen ÷ beklenen" için: bir grubun hit oranı yalnız
+    fiyat, tür, yıl, EA ve dil karışımından beklenenden yüksek mi? d = hazirla() çıktısı (F2P dahil, fiyat kategorisi)."""
+    m = logit(f"y_hit ~ {KONTROL}", d)
+    return pd.Series(m.predict(d), index=d.index)
+
+
+def gozlenen_beklenen(gozlenen: int, beklenen: float) -> dict:
+    """O/B oranı ve %95 GA (gözlenen sayı Poisson; beklenen sabit kabul edilir, büyük örneklem modelinden geldiği için)."""
+    from scipy import stats
+
+    alt = stats.chi2.ppf(0.025, 2 * gozlenen) / 2 if gozlenen > 0 else 0.0
+    ust = stats.chi2.ppf(0.975, 2 * (gozlenen + 1)) / 2
+    return {"gozlenen": int(gozlenen), "beklenen": float(beklenen), "ob": gozlenen / beklenen, "alt": alt / beklenen, "ust": ust / beklenen}

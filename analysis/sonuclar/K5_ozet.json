@@ -1,0 +1,455 @@
+{
+ "oncu_n": 682,
+ "plasebo_n": 674,
+ "dalga": {
+  "oncu": {
+   "oran": 1.044718722512947,
+   "alt": 0.9648298790477721,
+   "ust": 1.1367017858053106,
+   "n_merkez": 682
+  },
+  "plasebo": {
+   "oran": 0.8300302586998509,
+   "alt": 0.7313227362370079,
+   "ust": 0.9310461839733364,
+   "n_merkez": 618
+  }
+ },
+ "esik": {
+  "0.6": {
+   "oncu": {
+    "dilim": {
+     "0–6 ay": {
+      "n": 2107,
+      "hit": 251,
+      "beklenen": 133.1087,
+      "oran": 11.9127,
+      "alt": 10.5983,
+      "ust": 13.3657
+     },
+     "6–12 ay": {
+      "n": 2378,
+      "hit": 255,
+      "beklenen": 156.3588,
+      "oran": 10.7233,
+      "alt": 9.5424,
+      "ust": 12.0309
+     },
+     "12–24 ay": {
+      "n": 4926,
+      "hit": 483,
+      "beklenen": 317.4722,
+      "oran": 9.8051,
+      "alt": 9.0057,
+      "ust": 10.6672
+     }
+    },
+    "tum": {
+     "gozlenen": 989,
+     "beklenen": 606.9397104576608,
+     "ob": 1.6294863937214588,
+     "alt": 1.5295009729853297,
+     "ust": 1.734291608974012,
+     "n": 9411,
+     "hit_oran": 10.50897885453193,
+     "wilson": [
+      9.905414129159796,
+      11.144771144270612
+     ]
+    }
+   },
+   "plasebo": {
+    "dilim": {
+     "0–6 ay": {
+      "n": 3194,
+      "hit": 183,
+      "beklenen": 155.0272,
+      "oran": 5.7295,
+      "alt": 4.9754,
+      "ust": 6.5899
+     },
+     "6–12 ay": {
+      "n": 3176,
+      "hit": 204,
+      "beklenen": 160.3723,
+      "oran": 6.4232,
+      "alt": 5.6221,
+      "ust": 7.3296
+     },
+     "12–24 ay": {
+      "n": 6363,
+      "hit": 404,
+      "beklenen": 316.1314,
+      "oran": 6.3492,
+      "alt": 5.776,
+      "ust": 6.9751
+     }
+    },
+    "tum": {
+     "gozlenen": 791,
+     "beklenen": 631.5308772717866,
+     "ob": 1.2525119965901272,
+     "alt": 1.1667358848297757,
+     "ust": 1.3429259983280126,
+     "n": 12733,
+     "hit_oran": 6.212204507971413,
+     "wilson": [
+      5.806003532994489,
+      6.644819440261299
+     ]
+    }
+   }
+  },
+  "0.7": {
+   "oncu": {
+    "dilim": {
+     "0–6 ay": {
+      "n": 760,
+      "hit": 137,
+      "beklenen": 57.8992,
+      "oran": 18.0263,
+      "alt": 15.4563,
+      "ust": 20.918
+     },
+     "6–12 ay": {
+      "n": 821,
+      "hit": 140,
+      "beklenen": 65.3083,
+      "oran": 17.0524,
+      "alt": 14.6346,
+      "ust": 19.777
+     },
+     "12–24 ay": {
+      "n": 1800,
+      "hit": 247,
+      "beklenen": 135.9038,
+      "oran": 13.7222,
+      "alt": 12.2097,
+      "ust": 15.3892
+     }
+    },
+    "tum": {
+     "gozlenen": 524,
+     "beklenen": 259.11122958993684,
+     "ob": 2.0222975315630656,
+     "alt": 1.8528294071972953,
+     "ust": 2.2030999523606067,
+     "n": 3381,
+     "hit_oran": 15.498373262348416,
+     "wilson": [
+      14.31773694119301,
+      16.75732429653226
+     ]
+    }
+   },
+   "plasebo": {
+    "dilim": {
+     "0–6 ay": {
+      "n": 1181,
+      "hit": 85,
+      "beklenen": 58.139,
+      "oran": 7.1973,
+      "alt": 5.8579,
+      "ust": 8.8142
+     },
+     "6–12 ay": {
+      "n": 1142,
+      "hit": 92,
+      "beklenen": 62.9837,
+      "oran": 8.056,
+      "alt": 6.6145,
+      "ust": 9.7788
+     },
+     "12–24 ay": {
+      "n": 2234,
+      "hit": 178,
+      "beklenen": 118.8907,
+      "oran": 7.9678,
+      "alt": 6.9156,
+      "ust": 9.1642
+     }
+    },
+    "tum": {
+     "gozlenen": 355,
+     "beklenen": 240.01341843261235,
+     "ob": 1.4790839708808696,
+     "alt": 1.3292070651728025,
+     "ust": 1.6412348180451113,
+     "n": 4557,
+     "hit_oran": 7.7902128593372835,
+     "wilson": [
+      7.047102497365815,
+      8.604429886481938
+     ]
+    }
+   }
+  },
+  "0.8": {
+   "oncu": {
+    "dilim": {
+     "0–6 ay": {
+      "n": 257,
+      "hit": 69,
+      "beklenen": 22.8523,
+      "oran": 26.8482,
+      "alt": 21.8002,
+      "ust": 32.5782
+     },
+     "6–12 ay": {
+      "n": 226,
+      "hit": 56,
+      "beklenen": 23.0253,
+      "oran": 24.7788,
+      "alt": 19.6029,
+      "ust": 30.7977
+     },
+     "12–24 ay": {
+      "n": 519,
+      "hit": 95,
+      "beklenen": 44.5554,
+      "oran": 18.3044,
+      "alt": 15.2144,
+      "ust": 21.8602
+     }
+    },
+    "tum": {
+     "gozlenen": 220,
+     "beklenen": 90.43300969378774,
+     "ob": 2.4327399999727404,
+     "alt": 2.1218741116651847,
+     "ust": 2.7763340795775777,
+     "n": 1002,
+     "hit_oran": 21.956087824351297,
+     "wilson": [
+      19.50273218032588,
+      24.623659092415274
+     ]
+    }
+   },
+   "plasebo": {
+    "dilim": {
+     "0–6 ay": {
+      "n": 334,
+      "hit": 29,
+      "beklenen": 16.5634,
+      "oran": 8.6826,
+      "alt": 6.1133,
+      "ust": 12.1916
+     },
+     "6–12 ay": {
+      "n": 308,
+      "hit": 34,
+      "beklenen": 21.3687,
+      "oran": 11.039,
+      "alt": 8.0078,
+      "ust": 15.0301
+     },
+     "12–24 ay": {
+      "n": 515,
+      "hit": 52,
+      "beklenen": 33.9131,
+      "oran": 10.0971,
+      "alt": 7.7832,
+      "ust": 13.0018
+     }
+    },
+    "tum": {
+     "gozlenen": 115,
+     "beklenen": 71.84511018798383,
+     "ob": 1.600665650022677,
+     "alt": 1.3215136564287415,
+     "ust": 1.9213566971747496,
+     "n": 1157,
+     "hit_oran": 9.939498703543649,
+     "wilson": [
+      8.345822472551948,
+      11.798321224572621
+     ]
+    }
+   }
+  }
+ },
+ "oncul": {
+  "dilim": {
+   "0–6 ay": {
+    "n": 721,
+    "hit": 117,
+    "beklenen": 49.9925,
+    "oran": 16.2275,
+    "alt": 13.7163,
+    "ust": 19.0966
+   },
+   "6–12 ay": {
+    "n": 568,
+    "hit": 92,
+    "beklenen": 46.318,
+    "oran": 16.1972,
+    "alt": 13.396,
+    "ust": 19.4525
+   },
+   "12–24 ay": {
+    "n": 875,
+    "hit": 153,
+    "beklenen": 75.4912,
+    "oran": 17.4857,
+    "alt": 15.1125,
+    "ust": 20.1432
+   }
+  },
+  "tum": {
+   "gozlenen": 362,
+   "beklenen": 171.80178787084088,
+   "ob": 2.1070793528187757,
+   "alt": 1.8955864414532644,
+   "ust": 2.33571651773609,
+   "n": 2164,
+   "hit_oran": 16.728280961182996,
+   "wilson": [
+    15.214988732599585,
+    18.359493831071124
+   ]
+  }
+ },
+ "en_buyuk_dalgalar": [
+  {
+   "ilk_oncu": "Vampire Survivors",
+   "ilk_oncu_appid": 1794680,
+   "yil": 2021,
+   "oncu_sayisi": 11,
+   "diger_oncular": [
+    "20 Minutes Till Dawn",
+    "Brotato",
+    "Soulstone Survivors",
+    "Crab Champions",
+    "Halls of Torment"
+   ],
+   "takipci": 407,
+   "orneklem": 322,
+   "hit": 25
+  },
+  {
+   "ilk_oncu": "Wildfrost",
+   "ilk_oncu_appid": 1811990,
+   "yil": 2023,
+   "oncu_sayisi": 2,
+   "diger_oncular": [
+    "Balatro"
+   ],
+   "takipci": 181,
+   "orneklem": 114,
+   "hit": 8
+  },
+  {
+   "ilk_oncu": "嗜血印 Bloody Spell",
+   "ilk_oncu_appid": 992300,
+   "yil": 2019,
+   "oncu_sayisi": 6,
+   "diger_oncular": [
+    "Lost",
+    "Paunch",
+    "Action Taimanin",
+    "NEKOPARA Vol. 4",
+    "Soul Dossier"
+   ],
+   "takipci": 135,
+   "orneklem": 99,
+   "hit": 39
+  },
+  {
+   "ilk_oncu": "SCUM",
+   "ilk_oncu_appid": 513710,
+   "yil": 2018,
+   "oncu_sayisi": 22,
+   "diger_oncular": [
+    "Subnautica: Below Zero",
+    "Forager",
+    "Deadside",
+    "Grounded",
+    "Valheim"
+   ],
+   "takipci": 119,
+   "orneklem": 96,
+   "hit": 18
+  },
+  {
+   "ilk_oncu": "Resident Evil Village",
+   "ilk_oncu_appid": 1196590,
+   "yil": 2021,
+   "oncu_sayisi": 7,
+   "diger_oncular": [
+    "Poppy Playtime",
+    "Five Nights at Freddy's: Security Breach",
+    "Bendy and the Dark Revival",
+    "Choo-Choo Charles",
+    "Garten of Banban"
+   ],
+   "takipci": 126,
+   "orneklem": 119,
+   "hit": 10
+  },
+  {
+   "ilk_oncu": "Sheepy: A Short Adventure",
+   "ilk_oncu_appid": 1568400,
+   "yil": 2024,
+   "oncu_sayisi": 1,
+   "diger_oncular": [],
+   "takipci": 119,
+   "orneklem": 90,
+   "hit": 0
+  },
+  {
+   "ilk_oncu": "Secret Neighbor: Hello Neighbor Multiplayer",
+   "ilk_oncu_appid": 859570,
+   "yil": 2019,
+   "oncu_sayisi": 11,
+   "diger_oncular": [
+    "GTFO",
+    "Last Year",
+    "Phasmophobia",
+    "In Silence",
+    "DEVOUR"
+   ],
+   "takipci": 104,
+   "orneklem": 101,
+   "hit": 23
+  },
+  {
+   "ilk_oncu": "Travellin Cats in Paris",
+   "ilk_oncu_appid": 2313250,
+   "yil": 2023,
+   "oncu_sayisi": 3,
+   "diger_oncular": [
+    "An Arcade Full of Cats",
+    "Travellin Cats in Jingle Jam"
+   ],
+   "takipci": 107,
+   "orneklem": 95,
+   "hit": 20
+  },
+  {
+   "ilk_oncu": "PROJECT: PLAYTIME",
+   "ilk_oncu_appid": 1961460,
+   "yil": 2022,
+   "oncu_sayisi": 5,
+   "diger_oncular": [
+    "Demonologist",
+    "The Outlast Trials",
+    "The Texas Chain Saw Massacre",
+    "Lethal Company"
+   ],
+   "takipci": 95,
+   "orneklem": 84,
+   "hit": 14
+  },
+  {
+   "ilk_oncu": "(the) Gnorp Apologue",
+   "ilk_oncu_appid": 1473350,
+   "yil": 2023,
+   "oncu_sayisi": 1,
+   "diger_oncular": [],
+   "takipci": 87,
+   "orneklem": 61,
+   "hit": 10
+  }
+ ]
+}

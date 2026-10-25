@@ -73,3 +73,9 @@ kosinüsü (ilk 10 içerik etiketi, sıra × 2018 öncesi IDF). Oranlar Wilson %
 ## Değişiklik günlüğü
 
 - 2026-10-25: İlk sürüm.
+- 2026-10-25 (K5, ilk çalıştırmadan sonra): Öncü ve takipçi evreninden bayraklı oyunlar (yetişkin, seri üretici, yazılım şüphesi,
+  listelenmemiş) çıkarıldı. Gerekçe: analiz örneklemi bunları zaten dışlıyor; ilk çalıştırmada en kalabalık "dalgaların" yetişkin
+  içerik ve seri üretim (hidden object) kümeleri olduğu görüldü, bunlar klon dalgası değil üretim kalıbı. Bu, sonucun yönünü görerek
+  yapılmış bir değişikliktir; ilk çalıştırmanın sayıları da kayda geçti: dalga oranı öncü 1,06 (0,96–1,16), plasebo 0,89; takipçi hit
+  oranı (0,70) %15,4, plasebo benzerleri %7,7. "En büyük dalgalar" listesi artık her öncünün kendi dalgasını sayıyor (en benzer öncüye
+  atama yalnız başarı karşılaştırmasında kullanılıyor; listede atama dalgaları bölüyordu).
