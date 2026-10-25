@@ -19,8 +19,8 @@ export function Son({ oz }: { oz: Ozet }) {
       <div className="son-ic">
         <h2>Ön kayıtlı hipotezler</h2>
         <p>
-          Çalışmanın {h.length} hipotezi veriye bakılmadan önce yazılıp tarihlendi; sonuçlar çoklu test için Holm yöntemiyle düzeltildi. Şimdiye kadar
-          sınanan {sinanan.length} hipotezden {tutan.length} tanesi desteklendi. Ön kayıtta olmayan her analiz sitede "keşifsel" olarak işaretli.
+          Hipotezler veriye bakılmadan önce yazılıp tarihlendi; sonuçlar çoklu test için Holm yöntemiyle düzeltildi. {sinanan.length} hipotezden{' '}
+          {tutan.length} tanesi desteklendi. Ön kayıtta olmayan her analiz sitede "keşifsel" olarak işaretli.
         </p>
         <table className="hipotezler">
           <thead>
@@ -32,7 +32,7 @@ export function Son({ oz }: { oz: Ozet }) {
           </thead>
           <tbody>
             {h.map(([k, v]) => (
-              <tr key={k} data-sonuc={v.sonuc === 'desteklendi' ? 'evet' : v.sonuc.startsWith('destek') ? 'hayir' : 'bekliyor'}>
+              <tr key={k} data-sonuc={v.sonuc === 'desteklendi' ? 'evet' : 'hayir'}>
                 <th scope="row">{k}</th>
                 <td>{v.konu.replace(/\s*\(M\d\)$/, '')}</td>
                 <td>{v.sonuc}</td>

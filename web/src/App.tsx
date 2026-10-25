@@ -88,7 +88,7 @@ export function App() {
                 </div>
                 <div>
                   <dt>Yaklaşım</dt>
-                  <dd>{Object.keys(hazir.oz.hipotez).length} ön kayıtlı hipotez, nedensel çıkarım, makine öğrenmesi ve metin analizi</dd>
+                  <dd>{Object.keys(hazir.oz.hipotez).length} ön kayıtlı hipotez testi, nedensel çıkarım, makine öğrenmesi ve metin analizi</dd>
                 </div>
               </dl>
               <Anahtar />

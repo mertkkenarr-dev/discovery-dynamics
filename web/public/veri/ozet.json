@@ -1307,14 +1307,6 @@
    "sonuc": "desteklenmedi",
    "p_holm": 1.0
   },
-  "H2": {
-   "konu": "Demo etkisi (M5)",
-   "sonuc": "bekliyor"
-  },
-  "H3": {
-   "konu": "Next Fest etkisi (M5)",
-   "sonuc": "bekliyor"
-  },
   "H4": {
    "konu": "Early Access → uzun kuyruk (M4)",
    "sonuc": "desteklendi",
@@ -1334,10 +1326,6 @@
    "konu": "Doygunluk (M2)",
    "sonuc": "desteklenmedi",
    "p_holm": 1.0
-  },
-  "H8": {
-   "konu": "Mikro/makro içerik üreticisi (M8)",
-   "sonuc": "test edilemiyor"
   }
  },
  "k9": {

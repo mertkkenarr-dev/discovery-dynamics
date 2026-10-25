@@ -245,7 +245,6 @@
   .hipotezler thead th { color: var(--muted); font-weight: 400; font-size: 0.8125rem; }
   .hipotezler tbody th { font-family: var(--font-mono); font-weight: 400; }
   .hipotezler tr[data-sonuc='evet'] td:last-child { color: var(--accent); font-weight: 600; }
-  .hipotezler tr[data-sonuc='bekliyor'] td { color: var(--muted); }
   .araclar { display: grid; gap: 0.5rem; font-family: var(--font-ui); font-size: 0.9375rem; }
   .araclar > div { display: grid; grid-template-columns: 9rem 1fr; gap: 1rem; padding-top: 0.5rem; border-top: 1px solid var(--rule); }
   .araclar dt { color: var(--muted); }

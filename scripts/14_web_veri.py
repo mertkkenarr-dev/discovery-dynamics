@@ -186,7 +186,8 @@ def ozet(n_yildiz: int) -> dict:
         "k7": {"n_gizli": j["K7"]["n_gizli"], "n_gorunur": j["K7"]["n_gorunur"], "cok_begenilen": j["K7"]["cok_begenilen_toplam"],
                "farklar": {k: j["K7"]["smd"][k] for k in ("Tür: Simulation", "Early Access ile çıkış", "Playtest", "Stüdyonun önceki oyunu var",
                                                           "Çıkıştan önce demo", "Kendi yayını")}},
-        "hipotez": json.loads((S / "hipotez_ozeti.json").read_text(encoding="utf-8")),
+        # Sitede yalnız sınanmış hipotezler: bekleyen ya da veri erişimi kapanan (H2, H3, H8) hipotezler gösterilmez (kullanıcı kararı).
+        "hipotez": {k: v for k, v in json.loads((S / "hipotez_ozeti.json").read_text(encoding="utf-8")).items() if v["sonuc"].startswith("destek")},
         "k9": {k: j["K9"][k] for k in ("modeller", "uslup_or", "n_test")},
         "k10": {
             "karne": [{k: r[k] for k in ("tur", "n", "hit", "hit_alt", "hit_ust", "gorunmez", "ob", "ob_alt", "ob_ust", "arz_22_25", "goreli_buyume",
