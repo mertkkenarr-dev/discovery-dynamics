@@ -84,3 +84,6 @@ kosinüsü (ilk 10 içerik etiketi, sıra × 2018 öncesi IDF). Oranlar Wilson %
   tanımı (T06) Steam içerik uyarısına (3, 4) dayanıyor; analiz örnekleminde 2.324 oyun (%3,5) uyarısız ama bu etiketleri taşıyor.
   Etiket temiz bir yetişkin göstergesi değil (Train Sim World 2 gibi oyunlarda da var), bu yüzden örneklem değiştirilmedi; yalnız
   geliştiriciye "fırsat" diye sunulacak listeden çıkarıldı. Değer yargısıdır, sonuç görülerek yapıldı.
+- 2026-10-25 (K8, ilk çalıştırmadan sonra): 10 eşiğinde −%6,6 düşüş çıktı; plandaki "Dikkat" notunda öngörülen seçilim (seri yalnız
+  ömür boyu ≥ 10 oyunlarda) bunu üretebilir. Ek duyarlılık eklendi: yalnız ömür boyu ≥ F (15, 30, 100, 300) incelemeli oyunlar; F büyüdükçe
+  iki yanın koşulu eşitlenir. Sonuç: F = 30'da −%4,8, F = 100'de +%0,5 (geniş GA). 10'daki düşüş yorumlanmaz; ana sonuç 50 eşiği.
