@@ -53,6 +53,7 @@ Kohort 2018-01-01 – 2025-12-31 · hit ≥ 500 (duyarlılık 100 / 1.000) · or
 - ✅ Prepare + Process tamam (`bash scripts/hat.sh`, 47/47 kontrol). İkincil başarı ailesi `11d_basari.py`.
 - ✅ Analyze: M1, M1b, M2 (+M2b), M3, M4, M6 ve keşifsel K1–K4 tamam → `docs/ANALIZ_RAPORU.md` (başta kısa özet + hipotez tablosu, `analysis/hipotez_ozeti.py`).
   - Hipotezler: H4 ✅, H6 ✅ (ters nedensellik payıyla); H1, H5, H7 ❌; H2, H3 (M5) Steam API anahtarı bekliyor; H8 (M8) veri bekliyor.
+  - Keşifsel K5–K8 (2026-10-25): klon dalgaları, boş bölgeler, gizli hazineler, algoritma eşiği. Tanımlar ve sonradan değişiklik günlüğü `docs/KESIFSEL_K5_K8.md`; içerik uzayı `analysis/icerik_uzay.py` (11c ile aynı vektörler). Sıradaki: bu bulguları web'e bölüm olarak eklemek.
 - 🔄 Share: `web/` Steam Galaksisi taslağı (React + R3F, 92.492 oyunun 3B UMAP haritası, kaydırmalı anlatı + keşif). Veri: `scripts/14_web_veri.py` → `web/public/veri/` (UMAP önbelleği `data/interim/umap3d.npz`). Önizleme: launch.json `galaksi-web` (port 5297). Metindeki her sayı `ozet.json`'dan, Türkçe ekler `web/src/lib/ek.ts` ile.
 - ⛔ M8: Steam `appreviews` kaldırıldı (302); yeni IUserReviewsService yalnız son ≤365 gün → H8 şu haliyle test edilemez. Seçenekler kullanıcıda (HIPOTEZLER). M7 metinleri için yeni API son 365 günü verir; LLM API anahtarı yok.
 - ⚠️ Kullanıcıdan beklenenler: STEAM_API_KEY (.env), motivasyon eşlemesinin ikinci kodlaması.
